@@ -1,0 +1,11 @@
+Microsoft.AspNetCore.StaticFiles
+Microsoft.AspNetCore.Routing
+Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer
+
+Microsoft.Extensions.FileProviders.Embedded
+
+Newtonsoft.Json
+Swashbuckle.AspNetCore
+
+SourceLink.Embed.AllSourceFiles
+SourceLink.Copy.PdbFiles

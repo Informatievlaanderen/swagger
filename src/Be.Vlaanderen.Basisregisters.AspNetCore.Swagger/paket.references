@@ -1,0 +1,7 @@
+Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer
+
+Swashbuckle.AspNetCore
+Swashbuckle.AspNetCore.Filters
+
+SourceLink.Embed.AllSourceFiles
+SourceLink.Copy.PdbFiles
