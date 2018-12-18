@@ -1,8 +1,7 @@
 RESTRICTION: || (== net472) (== netcoreapp2.2) (== netstandard2.0)
 NUGET
-  remote: https://informatievlaanderen.myget.org/F/basisregisters/api/v3/index.json
-    Be.Vlaanderen.Basisregisters.Build.Pipeline (1.0.0)
   remote: https://informatievlaanderen.myget.org/F/nuget-mirror/api/v3/index.json
+    Be.Vlaanderen.Basisregisters.Build.Pipeline (1.1.2)
     dotnet-sourcelink (2.8.3) - clitool: true
       Microsoft.Extensions.CommandLineUtils (>= 1.1.1) - restriction: || (&& (== net472) (>= netcoreapp1.0)) (== netcoreapp2.2) (&& (== netstandard2.0) (>= netcoreapp1.0))
       Microsoft.NETCore.App (>= 2.0) - restriction: || (&& (== net472) (>= netcoreapp2.0)) (== netcoreapp2.2) (&& (== netstandard2.0) (>= netcoreapp2.0))
@@ -81,8 +80,8 @@ NUGET
     Microsoft.AspNetCore.Mvc.Formatters.Json (2.2.0)
       Microsoft.AspNetCore.JsonPatch (>= 2.2)
       Microsoft.AspNetCore.Mvc.Core (>= 2.2)
-    Microsoft.AspNetCore.Mvc.Versioning (2.3.0)
-      Microsoft.AspNetCore.Mvc.Core (>= 2.0)
+    Microsoft.AspNetCore.Mvc.Versioning (3.0.0)
+      Microsoft.AspNetCore.Mvc.Core (>= 2.0 < 3.0)
     Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer (2.2.0)
       Microsoft.AspNetCore.Mvc.ApiExplorer (>= 2.0)
       Microsoft.AspNetCore.Mvc.Versioning (>= 2.1)

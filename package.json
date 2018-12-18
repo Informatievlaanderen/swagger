@@ -132,28 +132,15 @@
     "publish": [
       {
         "path": "@semantic-release/github",
-        "assets": [
-          {
-            "path": "dist/Be.Vlaanderen.Basisregisters.AspNetCore.Swagger/*.nupkg",
-            "label": "NuGet Package"
-          }
-        ]
+        "assets": [{ "path": "dist/**/*.nupkg" } ]
       },
       {
         "path": "@semantic-release/exec",
-        "cmd": "node packages/Be.Vlaanderen.Basisregisters.Build.Pipeline/Content/ci-myget.js dist/Be.Vlaanderen.Basisregisters.AspNetCore.Swagger/Be.Vlaanderen.Basisregisters.AspNetCore.Swagger.${nextRelease.version}.nupkg"
+        "cmd": "node packages/Be.Vlaanderen.Basisregisters.Build.Pipeline/Content/ci-nuget.js dist/Be.Vlaanderen.Basisregisters.AspNetCore.Swagger/Be.Vlaanderen.Basisregisters.AspNetCore.Swagger.${nextRelease.version}.nupkg"
       },
       {
         "path": "@semantic-release/exec",
-        "cmd": "node packages/Be.Vlaanderen.Basisregisters.Build.Pipeline/Content/ci-myget.js dist/Be.Vlaanderen.Basisregisters.AspNetCore.Swagger/Be.Vlaanderen.Basisregisters.AspNetCore.Swagger.ReDoc.${nextRelease.version}.nupkg"
-      },
-      {
-        "path": "@semantic-release/exec",
-        "cmd": "./packages/Be.Vlaanderen.Basisregisters.Build.Pipeline/Content/ci-bitbucket.sh dist/Be.Vlaanderen.Basisregisters.AspNetCore.Swagger/Be.Vlaanderen.Basisregisters.AspNetCore.Swagger.${nextRelease.version}.nupkg"
-      },
-      {
-        "path": "@semantic-release/exec",
-        "cmd": "./packages/Be.Vlaanderen.Basisregisters.Build.Pipeline/Content/ci-bitbucket.sh dist/Be.Vlaanderen.Basisregisters.AspNetCore.Swagger/Be.Vlaanderen.Basisregisters.AspNetCore.Swagger.ReDoc.${nextRelease.version}.nupkg"
+        "cmd": "node packages/Be.Vlaanderen.Basisregisters.Build.Pipeline/Content/ci-nuget.js dist/Be.Vlaanderen.Basisregisters.AspNetCore.Swagger/Be.Vlaanderen.Basisregisters.AspNetCore.Swagger.ReDoc.${nextRelease.version}.nupkg"
       },
       {
         "path": "@semantic-release/exec",
