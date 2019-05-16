@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/informatievlaanderen/swagger/compare/v1.0.5...v1.1.0) (2019-05-16)
+
+
+### Features
+
+* add localization support ([243a2d4](https://github.com/informatievlaanderen/swagger/commit/243a2d4))
+
 ## [1.0.5](https://github.com/informatievlaanderen/swagger/compare/v1.0.4...v1.0.5) (2019-04-26)
 
 ## [1.0.4](https://github.com/informatievlaanderen/swagger/compare/v1.0.3...v1.0.4) (2019-04-25)
