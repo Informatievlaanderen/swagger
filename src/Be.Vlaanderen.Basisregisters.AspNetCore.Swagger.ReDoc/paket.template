@@ -21,6 +21,8 @@ dependencies
     Microsoft.AspNetCore.StaticFiles >= LOCKEDVERSION
     Microsoft.AspNetCore.Routing >= LOCKEDVERSION
     Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer >= LOCKEDVERSION
+    Microsoft.AspNetCore.Localization >= LOCKEDVERSION
+    Microsoft.Extensions.Localization.Abstractions >= LOCKEDVERSION
     Microsoft.Extensions.FileProviders.Embedded >= LOCKEDVERSION
     Newtonsoft.Json >= LOCKEDVERSION
     Swashbuckle.AspNetCore >= LOCKEDVERSION

@@ -3,12 +3,13 @@ namespace Dummy.Api
     using System.IO;
     using System.Net;
     using Microsoft.AspNetCore.Hosting;
+    using Microsoft.Extensions.Logging;
 
     public class Program
     {
         public static void Main(string[] args) => CreateWebHostBuilder(args).Build().Run();
 
-        public static IWebHostBuilder CreateWebHostBuilder(string[] args)
+        public static IWebHostBuilder CreateWebHostBuilder(string[] _)
             => new WebHostBuilder()
                 .UseKestrel(x =>
                 {
@@ -20,6 +21,12 @@ namespace Dummy.Api
                 .CaptureStartupErrors(true)
                 .UseContentRoot(Directory.GetCurrentDirectory())
                 .UseWebRoot("wwwroot")
+                .ConfigureLogging(x =>
+                {
+                    //x.SetMinimumLevel(LogLevel.Debug);
+                    x.SetMinimumLevel(LogLevel.Information);
+                    x.AddConsole();
+                })
                 .UseStartup<Startup>();
     }
 }

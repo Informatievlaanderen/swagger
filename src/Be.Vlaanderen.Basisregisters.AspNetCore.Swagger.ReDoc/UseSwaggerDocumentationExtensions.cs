@@ -5,6 +5,8 @@ namespace Be.Vlaanderen.Basisregisters.AspNetCore.Swagger.ReDoc
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Http;
     using Microsoft.AspNetCore.Mvc.ApiExplorer;
+    using Microsoft.Extensions.DependencyInjection;
+    using Microsoft.Extensions.Localization;
 
     public class SwaggerDocumentationOptions
     {
@@ -46,11 +48,13 @@ namespace Be.Vlaanderen.Basisregisters.AspNetCore.Swagger.ReDoc
                     .OrderBy(x => x)
                     .ToList();
 
+                var stringLocalizer = app.ApplicationServices.GetRequiredService<IStringLocalizer<Localization>>();
+
                 foreach (var description in apiVersions)
                 {
                     apiDocs.UseReDoc(x =>
                     {
-                        x.DocumentTitle = options.DocumentTitleFunc(description);
+                        x.DocumentTitle = stringLocalizer[options.DocumentTitleFunc(description)];
                         x.SpecUrl = $"/docs/{description}/docs.json";
                         x.RoutePrefix = $"{description}";
                     });
@@ -59,7 +63,7 @@ namespace Be.Vlaanderen.Basisregisters.AspNetCore.Swagger.ReDoc
                 if (apiVersions.Count > 0)
                     apiDocs.UseReDoc(x =>
                     {
-                        x.DocumentTitle = options.DocumentTitleFunc(apiVersions[0]);
+                        x.DocumentTitle = stringLocalizer[options.DocumentTitleFunc(apiVersions[0])];
                         x.SpecUrl = $"/docs/{apiVersions[0]}/docs.json";
                         x.RoutePrefix = string.Empty;
                     });

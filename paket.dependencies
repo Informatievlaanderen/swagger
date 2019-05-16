@@ -22,8 +22,12 @@ nuget Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets 2.2.1
 nuget Microsoft.AspNetCore.StaticFiles 2.2.0
 nuget Microsoft.AspNetCore.Routing 2.2.2
 nuget Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer 3.2.0
+nuget Microsoft.AspNetCore.Localization 2.2.0
+nuget Microsoft.AspNetCore.Cors 2.2.0
 
+nuget Microsoft.Extensions.Logging.Console 2.2.0
 nuget Microsoft.Extensions.FileProviders.Embedded 2.2.0
+nuget Microsoft.Extensions.Localization.Abstractions 2.2.0
 
 nuget Newtonsoft.Json 12.0.2
 

@@ -5,6 +5,10 @@ Microsoft.AspNetCore.Hosting
 Microsoft.AspNetCore.Server.Kestrel
 Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets
 Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer
+Microsoft.AspNetCore.Localization
+Microsoft.AspNetCore.Cors
+
+Microsoft.Extensions.Logging.Console
 
 Be.Vlaanderen.Basisregisters.AspNetCore.Mvc.Formatters.Json
 

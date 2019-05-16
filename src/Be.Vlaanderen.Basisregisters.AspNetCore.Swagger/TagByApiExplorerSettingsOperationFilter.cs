@@ -8,6 +8,9 @@ namespace Be.Vlaanderen.Basisregisters.AspNetCore.Swagger
     using Swashbuckle.AspNetCore.Swagger;
     using Swashbuckle.AspNetCore.SwaggerGen;
 
+    /// <summary>
+    /// Apply [ApiExplorerSettings(GroupName=...)] property to tags.
+    /// </summary>
     public class TagByApiExplorerSettingsOperationFilter : IOperationFilter
     {
         public void Apply(Operation operation, OperationFilterContext context)

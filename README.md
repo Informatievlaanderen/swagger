@@ -17,7 +17,7 @@ Swagger and ReDoc helpers.
 
 ## Quick start
 
-* Download [Be.Vlaanderen.Basisregisters.AspNetCore.Swagger](), [Be.Vlaanderen.Basisregisters.AspNetCore.Swagger.ReDoc]() or both.
+* Reference [Be.Vlaanderen.Basisregisters.AspNetCore.Swagger](https://www.nuget.org/packages/Be.Vlaanderen.Basisregisters.AspNetCore.Swagger/), [Be.Vlaanderen.Basisregisters.AspNetCore.Swagger.ReDoc](https://www.nuget.org/packages/Be.Vlaanderen.Basisregisters.AspNetCore.Swagger.ReDoc/) or both.
 * Have a look at the example [Dummy.Api](https://github.com/Informatievlaanderen/swagger/tree/master/test/Dummy.Api) project.
 * Browse to the root of your API.
 
@@ -25,13 +25,14 @@ Swagger and ReDoc helpers.
 
 ### Features
 
-* Read Swagger Request & Response examples from assebly.
+* Read Swagger Request & Response examples from assembly.
 * Describe enums as strings.
 * Describe all enums and parameters in camel case.
 * Support XML comments as documentation.
 * Provide AutoRest support. ([`x-ms-enum`](https://github.com/Azure/autorest/blob/master/docs/extensions/readme.md#x-ms-enum))
 * Provide GroupName as tags.
 * Add 401 as possible response for endpoints which require authorization.
+* Add 403 as possible response for endpoints which require authorization.
 * Add `(Auth)` to endpoints which require authorization.
 
 ### Usage
@@ -53,6 +54,7 @@ public IServiceProvider ConfigureServices(IServiceCollection services)
     // - AddApiVersioning
 
     services
+      .AddLocalization()
       .AddSwagger<Startup>(new SwaggerOptions
       {
           ApiInfoFunc = (provider, description) => new Info

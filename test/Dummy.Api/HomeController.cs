@@ -2,6 +2,7 @@ namespace Dummy.Api
 {
     using System;
     using System.Runtime.Serialization;
+    using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Http;
     using Microsoft.AspNetCore.Mvc;
     using Newtonsoft.Json.Converters;
@@ -11,15 +12,24 @@ namespace Dummy.Api
     [AdvertiseApiVersions("1.0")]
     [Route("v{version:apiVersion}/")]
     [ApiExplorerSettings(GroupName = "Home")]
+    [Authorize]
     public class HomeController : ApiController
     {
         /// <summary>
         /// Initial entry point of the API.
         /// </summary>
         [HttpGet]
+        [AllowAnonymous]
         [ProducesResponseType(typeof(HomeResponse), StatusCodes.Status200OK)]
         [SwaggerResponseExample(StatusCodes.Status200OK, typeof(HomeResponseExamples), jsonConverter: typeof(StringEnumConverter))]
-        public IActionResult Get() => Ok(new HomeResponse());
+        public IActionResult GetHome() => Ok(new HomeResponse());
+
+        /// <summary>
+        /// Some protected action.
+        /// </summary>
+        [HttpPost]
+        //[Authorize]
+        public IActionResult RegisterUser() => Ok("Ok!");
     }
 
     [DataContract(Name = "Home", Namespace = "")]

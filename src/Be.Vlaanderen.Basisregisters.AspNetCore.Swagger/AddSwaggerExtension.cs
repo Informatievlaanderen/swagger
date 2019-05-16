@@ -85,42 +85,61 @@ namespace Be.Vlaanderen.Basisregisters.AspNetCore.Swagger
                     foreach (var xmlCommentPath in options.XmlCommentPaths)
                         AddXmlComments<T>(x, xmlCommentPath);
 
-                    var provider = services.BuildServiceProvider().GetRequiredService<IApiVersionDescriptionProvider>();
+                    var serviceProvider = services.BuildServiceProvider();
+                    var provider = serviceProvider.GetRequiredService<IApiVersionDescriptionProvider>();
                     foreach (var description in provider.ApiVersionDescriptions)
                         x.SwaggerDoc(description.GroupName, options.ApiInfoFunc(provider, description));
 
-                    x.ExampleFilters(); // [SwaggerRequestExample] & [SwaggerResponseExample]
+                    // Apply [SwaggerRequestExample] & [SwaggerResponseExample]
+                    x.ExampleFilters();
 
+                    // Add an AutoRest vendor extension (see https://github.com/Azure/autorest/blob/master/docs/extensions/readme.md#x-ms-enum) to inform the AutoRest tool how enums should be modelled when it generates the API client.
                     x.SchemaFilter<AutoRestSchemaFilter>();
 
+                    // Fix up some Swagger parameter values by discovering them from ModelMetadata and RouteInfo
                     x.OperationFilter<SwaggerDefaultValues>();
-                    x.OperationFilter<DescriptionOperationFilter>(); // [Description] on Response properties
-                    x.OperationFilter<AddFileParamTypesOperationFilter>(); // Adds an Upload button to endpoints which have [AddSwaggerFileUploadButton]
-                    x.OperationFilter<AddResponseHeadersFilter>(); // [SwaggerResponseHeader]
+
+                    // Apply [Description] on Response properties
+                    x.OperationFilter<DescriptionOperationFilter>();
+
+                    // Adds an Upload button to endpoints which have [AddSwaggerFileUploadButton]
+                    x.OperationFilter<AddFileParamTypesOperationFilter>();
+
+                    // Apply [SwaggerResponseHeader] to headers
+                    x.OperationFilter<AddResponseHeadersFilter>();
+
+                    // Apply [ApiExplorerSettings(GroupName=...)] property to tags.
                     x.OperationFilter<TagByApiExplorerSettingsOperationFilter>();
 
-                    x.AddSecurityDefinition("oauth2", new ApiKeyScheme
-                    {
-                        Description = "Standard Authorization header using the Bearer scheme. Example: \"bearer {token}\"",
-                        In = "header",
-                        Name = "Authorization",
-                        Type = "apiKey"
-                    });
+                    //x.AddSecurityDefinition("oauth2", new ApiKeyScheme
+                    //{
+                    //    Description = "Standard Authorization header using the Bearer scheme. Example: \"bearer {token}\"",
+                    //    In = "header",
+                    //    Name = "Authorization",
+                    //});
 
-                    // add Security information to each operation for OAuth2
-                    x.OperationFilter<SecurityRequirementsOperationFilter>();
+                    //x.AddSecurityDefinition("apiKey", new ApiKeyScheme
+                    //{
+                    //    Description = "Standard authorization using an API Key.",
+                    //    In = "query",
+                    //    Name = "apiKey",
+                    //});
 
-                    //x.OperationFilter<AuthorizationHeaderParameterOperationFilter>();
+                    //x.OperationFilter<SecurityRequirementsOperationFilter>(false, "oauth2");
+                    //x.OperationFilter<SecurityRequirementsOperationFilter>(false, "apiKey");
+
+                    // Adds a 401 Unauthorized and 403 Forbidden response to every action which requires authorization
                     x.OperationFilter<AuthorizationResponseOperationFilter>();
-                    x.OperationFilter<AppendAuthorizeToSummaryOperationFilter>(); // Adds "(Auth)" to the summary so that you can see which endpoints have Authorization
 
+                    // Adds "(Auth)" to the summary so that you can see which endpoints have Authorization
+                    x.OperationFilter<AppendAuthorizeToSummaryOperationFilter>();
+
+                    // Add additional global header parameters
                     foreach (var additionalHeader in options.AdditionalHeaderOperationFilters)
                         x.OperationFilter<AddHeaderOperationFilter>(
                             additionalHeader.ParameterName,
                             additionalHeader.Description,
                             additionalHeader.Required);
-
-                    //x.OperationFilter<AddHeaderOperationFilter>("apiKey", "Optionele API key voor het verzoek.");
 
                     options.MiddlewareHooks.AfterSwaggerGen?.Invoke(x);
                 });

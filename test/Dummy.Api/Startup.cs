@@ -1,11 +1,13 @@
 namespace Dummy.Api
 {
     using System.Collections.Generic;
+    using System.Globalization;
     using System.Reflection;
     using Be.Vlaanderen.Basisregisters.AspNetCore.Mvc.Formatters.Json;
     using Be.Vlaanderen.Basisregisters.AspNetCore.Swagger;
     using Be.Vlaanderen.Basisregisters.AspNetCore.Swagger.ReDoc;
     using Microsoft.AspNetCore.Builder;
+    using Microsoft.AspNetCore.Localization;
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.AspNetCore.Mvc.ApiExplorer;
     using Microsoft.AspNetCore.Mvc.ApplicationModels;
@@ -21,12 +23,22 @@ namespace Dummy.Api
             services.TryAddEnumerable(ServiceDescriptor.Transient<IApiControllerSpecification, ApiControllerSpec>());
 
             services
+                .AddLocalization()
+
+                .AddCors(options => options.AddDefaultPolicy(builder => builder
+                    .AllowAnyOrigin()
+                    .AllowAnyHeader()
+                    .AllowAnyMethod()
+                    .AllowCredentials()))
+
                 .AddMvcCore()
 
                 .SetCompatibilityVersion(CompatibilityVersion.Version_2_2)
 
                 .AddJsonFormatters()
                 .AddJsonOptions(cfg => cfg.SerializerSettings.ConfigureDefaultForApi())
+
+                .AddDataAnnotationsLocalization()
 
                 .AddApiExplorer()
 
@@ -61,10 +73,10 @@ namespace Dummy.Api
 
                     XmlCommentPaths = new [] { typeof(Startup).GetTypeInfo().Assembly.GetName().Name },
 
-                    AdditionalHeaderOperationFilters = new List<HeaderOperationFilter>
-                    {
-                        new HeaderOperationFilter("apiKey", "Optionele API key voor het verzoek.")
-                    }
+                    //AdditionalHeaderOperationFilters = new List<HeaderOperationFilter>
+                    //{
+                    //    new HeaderOperationFilter("apiKey", "Optionele API key voor het verzoek.")
+                    //}
                 });
         }
 
@@ -72,7 +84,22 @@ namespace Dummy.Api
             IApplicationBuilder app,
             IApiVersionDescriptionProvider apiVersionProvider)
         {
+            var supportedCultures = new[]
+            {
+                new CultureInfo("en"),
+                new CultureInfo("nl")
+            };
+
             app
+                .UseRequestLocalization(new RequestLocalizationOptions
+                {
+                    DefaultRequestCulture = new RequestCulture("en"),
+                    SupportedCultures = supportedCultures,
+                    SupportedUICultures = supportedCultures
+                })
+
+                .UseCors()
+
                 // These settings are required for ReDoc
                 .UseSwaggerDocumentation(new SwaggerDocumentationOptions
                 {
