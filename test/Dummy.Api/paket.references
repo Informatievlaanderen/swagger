@@ -1,0 +1,14 @@
+Microsoft.NETCore.App
+
+Microsoft.AspNetCore.Mvc.Core
+Microsoft.AspNetCore.Hosting
+Microsoft.AspNetCore.Server.Kestrel
+Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets
+Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer
+
+Be.Vlaanderen.Basisregisters.AspNetCore.Mvc.Formatters.Json
+
+Swashbuckle.AspNetCore.Filters
+
+SourceLink.Embed.AllSourceFiles
+SourceLink.Copy.PdbFiles

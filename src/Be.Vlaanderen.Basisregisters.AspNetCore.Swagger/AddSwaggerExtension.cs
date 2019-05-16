@@ -10,6 +10,55 @@ namespace Be.Vlaanderen.Basisregisters.AspNetCore.Swagger
     using Swashbuckle.AspNetCore.Swagger;
     using Swashbuckle.AspNetCore.SwaggerGen;
 
+    public class HeaderOperationFilter
+    {
+        public string ParameterName { get; }
+        public string Description { get; }
+        public bool Required { get; } = false;
+
+        public HeaderOperationFilter(
+            string parameterName,
+            string description,
+            bool required = false)
+        {
+            ParameterName = parameterName;
+            Description = description;
+            Required = required;
+        }
+    }
+
+    public class SwaggerOptions
+    {
+        /// <summary>
+        /// Function which returns global metadata to be included in the Swagger output.
+        /// </summary>
+        public Func<IApiVersionDescriptionProvider, ApiVersionDescription, Info> ApiInfoFunc { get; set; }
+            = null;
+
+        /// <summary>
+        /// Inject human-friendly descriptions for Operations, Parameters and Schemas based on XML Comment files.
+        /// A list of absolute paths to the files that contains XML Comments.
+        /// </summary>
+        public IEnumerable<string> XmlCommentPaths { get; set; }
+            = new string[0];
+
+        /// <summary>
+        /// Easily add additional header parameters to each request.
+        /// </summary>
+        public IEnumerable<HeaderOperationFilter> AdditionalHeaderOperationFilters { get; set; }
+            = new List<HeaderOperationFilter>();
+
+        /// <summary>
+        /// Hook in additional options at various stages.
+        /// </summary>
+        public MiddlewareHookOptions MiddlewareHooks { get; } = new MiddlewareHookOptions();
+
+        public class MiddlewareHookOptions
+        {
+            public Action<SwaggerGenOptions> AfterSwaggerGen { get; set; }
+        }
+    }
+
     /// <summary>
     /// Configure Swagger schema generation.
     /// </summary>
@@ -17,9 +66,14 @@ namespace Be.Vlaanderen.Basisregisters.AspNetCore.Swagger
     {
         public static IServiceCollection AddSwagger<T>(
             this IServiceCollection services,
-            Func<IApiVersionDescriptionProvider, ApiVersionDescription, Info> apiInfoFunc,
-            IEnumerable<string> xmlCommentPaths)
+            SwaggerOptions options)
         {
+            if (options.ApiInfoFunc == null)
+                throw new ArgumentNullException(nameof(options.ApiInfoFunc));
+
+            if (options.XmlCommentPaths == null)
+                options.XmlCommentPaths = new string[0];
+
             services
                 .AddSwaggerExamplesFromAssemblyOf<T>()
                 .AddSwaggerGen(x =>
@@ -28,12 +82,12 @@ namespace Be.Vlaanderen.Basisregisters.AspNetCore.Swagger
                     x.DescribeStringEnumsInCamelCase();
                     x.DescribeAllParametersInCamelCase();
 
-                    foreach (var xmlCommentPath in xmlCommentPaths)
+                    foreach (var xmlCommentPath in options.XmlCommentPaths)
                         AddXmlComments<T>(x, xmlCommentPath);
 
                     var provider = services.BuildServiceProvider().GetRequiredService<IApiVersionDescriptionProvider>();
                     foreach (var description in provider.ApiVersionDescriptions)
-                        x.SwaggerDoc(description.GroupName, apiInfoFunc(provider, description));
+                        x.SwaggerDoc(description.GroupName, options.ApiInfoFunc(provider, description));
 
                     x.ExampleFilters(); // [SwaggerRequestExample] & [SwaggerResponseExample]
 
@@ -45,10 +99,30 @@ namespace Be.Vlaanderen.Basisregisters.AspNetCore.Swagger
                     x.OperationFilter<AddResponseHeadersFilter>(); // [SwaggerResponseHeader]
                     x.OperationFilter<TagByApiExplorerSettingsOperationFilter>();
 
-                    x.OperationFilter<AuthorizationHeaderParameterOperationFilter>();
+                    x.AddSecurityDefinition("oauth2", new ApiKeyScheme
+                    {
+                        Description = "Standard Authorization header using the Bearer scheme. Example: \"bearer {token}\"",
+                        In = "header",
+                        Name = "Authorization",
+                        Type = "apiKey"
+                    });
+
+                    // add Security information to each operation for OAuth2
+                    x.OperationFilter<SecurityRequirementsOperationFilter>();
+
+                    //x.OperationFilter<AuthorizationHeaderParameterOperationFilter>();
                     x.OperationFilter<AuthorizationResponseOperationFilter>();
                     x.OperationFilter<AppendAuthorizeToSummaryOperationFilter>(); // Adds "(Auth)" to the summary so that you can see which endpoints have Authorization
-                    x.OperationFilter<AddHeaderOperationFilter>("apiKey", "Optionele API key voor het verzoek.");
+
+                    foreach (var additionalHeader in options.AdditionalHeaderOperationFilters)
+                        x.OperationFilter<AddHeaderOperationFilter>(
+                            additionalHeader.ParameterName,
+                            additionalHeader.Description,
+                            additionalHeader.Required);
+
+                    //x.OperationFilter<AddHeaderOperationFilter>("apiKey", "Optionele API key voor het verzoek.");
+
+                    options.MiddlewareHooks.AfterSwaggerGen?.Invoke(x);
                 });
 
             return services;
