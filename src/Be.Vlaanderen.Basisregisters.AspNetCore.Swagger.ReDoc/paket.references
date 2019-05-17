@@ -9,5 +9,11 @@ Microsoft.Extensions.FileProviders.Embedded
 Newtonsoft.Json
 Swashbuckle.AspNetCore
 
+NSwag.CodeGeneration.CSharp
+NJsonSchema.CodeGeneration.CSharp
+
+NSwag.CodeGeneration.TypeScript
+NJsonSchema.CodeGeneration.TypeScript
+
 SourceLink.Embed.AllSourceFiles
 SourceLink.Copy.PdbFiles

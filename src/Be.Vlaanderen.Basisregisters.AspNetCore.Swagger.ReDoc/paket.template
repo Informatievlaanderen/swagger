@@ -26,6 +26,8 @@ dependencies
     Microsoft.Extensions.FileProviders.Embedded >= LOCKEDVERSION
     Newtonsoft.Json >= LOCKEDVERSION
     Swashbuckle.AspNetCore >= LOCKEDVERSION
+    NSwag.CodeGeneration.CSharp >= LOCKEDVERSION
+    NSwag.CodeGeneration.TypeScript >= LOCKEDVERSION
 
 files
   bin\Release\netstandard2.0\Be.Vlaanderen.Basisregisters.AspNetCore.Swagger.ReDoc.dll => lib\netstandard2.0

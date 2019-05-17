@@ -104,7 +104,16 @@ namespace Dummy.Api
                 .UseSwaggerDocumentation(new SwaggerDocumentationOptions
                 {
                     ApiVersionDescriptionProvider = apiVersionProvider,
-                    DocumentTitleFunc = groupName => $"Example API {groupName}"
+                    DocumentTitleFunc = groupName => $"Example API {groupName}",
+                    CSharpClient =
+                    {
+                        ClassName = "ExampleApi",
+                        Namespace = "Be.Vlaanderen.Apis"
+                    },
+                    TypeScriptClient =
+                    {
+                        ClassName = "ExampleApi",
+                    }
                 })
 
                 .UseMvc();

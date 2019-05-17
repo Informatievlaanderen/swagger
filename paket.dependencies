@@ -34,6 +34,12 @@ nuget Newtonsoft.Json 12.0.2
 nuget Swashbuckle.AspNetCore 4.0.1
 nuget Swashbuckle.AspNetCore.Filters 4.5.5
 
+nuget NSwag.CodeGeneration.CSharp 12.2.5
+nuget NJsonSchema.CodeGeneration.CSharp 9.13.37
+
+nuget NSwag.CodeGeneration.TypeScript 12.2.5
+nuget NJsonSchema.CodeGeneration.TypeScript 9.13.37
+
 // VBR STUFF
 nuget Be.Vlaanderen.Basisregisters.Build.Pipeline ~> 1.6
 nuget Be.Vlaanderen.Basisregisters.AspNetCore.Mvc.Formatters.Json ~> 1.2
