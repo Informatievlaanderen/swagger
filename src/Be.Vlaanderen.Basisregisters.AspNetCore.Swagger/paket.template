@@ -16,6 +16,8 @@ description Swagger helpers.
 
 dependencies
   framework: netstandard20
+    Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer >= LOCKEDVERSION
+    Microsoft.Extensions.Localization.Abstractions >= LOCKEDVERSION
     Swashbuckle.AspNetCore >= LOCKEDVERSION
     Swashbuckle.AspNetCore.Filters >= LOCKEDVERSION
 

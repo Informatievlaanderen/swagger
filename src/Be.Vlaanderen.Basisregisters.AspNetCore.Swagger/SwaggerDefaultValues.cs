@@ -5,6 +5,9 @@ namespace Be.Vlaanderen.Basisregisters.AspNetCore.Swagger
     using Swashbuckle.AspNetCore.Swagger;
     using Swashbuckle.AspNetCore.SwaggerGen;
 
+    /// <summary>
+    /// Fix up some Swagger parameter values by discovering them from ModelMetadata and RouteInfo.
+    /// </summary>
     public class SwaggerDefaultValues : IOperationFilter
     {
         public void Apply(Operation operation, OperationFilterContext context)

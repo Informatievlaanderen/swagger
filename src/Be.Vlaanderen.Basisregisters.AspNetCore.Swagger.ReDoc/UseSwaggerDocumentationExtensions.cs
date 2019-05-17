@@ -5,14 +5,34 @@ namespace Be.Vlaanderen.Basisregisters.AspNetCore.Swagger.ReDoc
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Http;
     using Microsoft.AspNetCore.Mvc.ApiExplorer;
+    using Microsoft.Extensions.DependencyInjection;
+    using Microsoft.Extensions.Localization;
+
+    public class SwaggerDocumentationOptions
+    {
+        /// <summary>
+        /// Defines the behavior of a provider that discovers and describes API version information within an application.
+        /// </summary>
+        public IApiVersionDescriptionProvider ApiVersionDescriptionProvider { get; set; }
+
+        /// <summary>
+        /// Sets a title for the ReDoc page.
+        /// </summary>
+        public Func<string, string> DocumentTitleFunc { get; set; }
+    }
 
     public static class UseSwaggerDocumentationExtensions
     {
         public static IApplicationBuilder UseSwaggerDocumentation(
             this IApplicationBuilder app,
-            IApiVersionDescriptionProvider provider,
-            Func<string, string> titleFunc)
+            SwaggerDocumentationOptions options)
         {
+            if (options.ApiVersionDescriptionProvider == null)
+                throw new ArgumentNullException(nameof(options.ApiVersionDescriptionProvider));
+
+            if (options.DocumentTitleFunc == null)
+                throw new ArgumentNullException(nameof(options.DocumentTitleFunc));
+
             app.Map(new PathString("/docs"), apiDocs =>
             {
                 apiDocs.UseSwagger(x =>
@@ -21,12 +41,20 @@ namespace Be.Vlaanderen.Basisregisters.AspNetCore.Swagger.ReDoc
                     x.PreSerializeFilters.Add((doc, _) => doc.BasePath = "/");
                 });
 
-                var apiVersions = provider.ApiVersionDescriptions.Select(x => x.GroupName).OrderBy(x => x).ToList();
+                var apiVersions = options
+                    .ApiVersionDescriptionProvider
+                    .ApiVersionDescriptions
+                    .Select(x => x.GroupName)
+                    .OrderBy(x => x)
+                    .ToList();
+
+                var stringLocalizer = app.ApplicationServices.GetRequiredService<IStringLocalizer<Localization>>();
+
                 foreach (var description in apiVersions)
                 {
                     apiDocs.UseReDoc(x =>
                     {
-                        x.DocumentTitle = titleFunc(description);
+                        x.DocumentTitle = stringLocalizer[options.DocumentTitleFunc(description)];
                         x.SpecUrl = $"/docs/{description}/docs.json";
                         x.RoutePrefix = $"{description}";
                     });
@@ -35,7 +63,7 @@ namespace Be.Vlaanderen.Basisregisters.AspNetCore.Swagger.ReDoc
                 if (apiVersions.Count > 0)
                     apiDocs.UseReDoc(x =>
                     {
-                        x.DocumentTitle = titleFunc(apiVersions[0]);
+                        x.DocumentTitle = stringLocalizer[options.DocumentTitleFunc(apiVersions[0])];
                         x.SpecUrl = $"/docs/{apiVersions[0]}/docs.json";
                         x.RoutePrefix = string.Empty;
                     });

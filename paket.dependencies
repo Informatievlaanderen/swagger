@@ -16,11 +16,18 @@ nuget Microsoft.NETCore.DotNetHostPolicy 2.2.4
 nuget NETStandard.Library 2.0.3
 
 // PRODUCTION STUFF
+nuget Microsoft.AspNetCore.Hosting 2.2.0
+nuget Microsoft.AspNetCore.Server.Kestrel 2.2.0
+nuget Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets 2.2.1
 nuget Microsoft.AspNetCore.StaticFiles 2.2.0
 nuget Microsoft.AspNetCore.Routing 2.2.2
 nuget Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer 3.2.0
+nuget Microsoft.AspNetCore.Localization 2.2.0
+nuget Microsoft.AspNetCore.Cors 2.2.0
 
+nuget Microsoft.Extensions.Logging.Console 2.2.0
 nuget Microsoft.Extensions.FileProviders.Embedded 2.2.0
+nuget Microsoft.Extensions.Localization.Abstractions 2.2.0
 
 nuget Newtonsoft.Json 12.0.2
 
@@ -29,13 +36,13 @@ nuget Swashbuckle.AspNetCore.Filters 4.5.5
 
 // VBR STUFF
 nuget Be.Vlaanderen.Basisregisters.Build.Pipeline ~> 1.6
+nuget Be.Vlaanderen.Basisregisters.AspNetCore.Mvc.Formatters.Json ~> 1.2
 
 // TEST STUFF
 nuget Microsoft.NET.Test.Sdk 16.0.1
 nuget xunit 2.4.1
 nuget xunit.runner.visualstudio 2.4.1
 nuget Shouldly 3.0.2
-
 
 // BUILD STUFF
 nuget FAKE 4.64.13 // Don't update to v5!

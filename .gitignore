@@ -12,6 +12,8 @@
 [Xx]64/
 [Dd]ist/
 
+tracing*.log
+
 *.suo
 *.user
 *.sln.docstates
