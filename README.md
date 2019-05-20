@@ -87,6 +87,10 @@ public IServiceProvider ConfigureServices(IServiceCollection services)
 * Provide version 1.19.2 of [ReDoc](https://github.com/Rebilly/ReDoc) in an embedded way.
 * Provide Flemish Government branding of ReDoc.
 * Provide documentation for multiple versions.
+* Provide C# client code.
+* Provide jQuery client code.
+* Provide AngularJS client code.
+* Provide Angular client code.
 
 ### Usage
 
@@ -133,6 +137,7 @@ public void Configure(
 * [Swashbuckle](https://github.com/domaindrivendev/Swashbuckle/blob/master/LICENSE) - _Seamlessly adds a swagger to WebApi projects!_ - [BSD](https://choosealicense.com/licenses/bsd-3-clause/)
 * [Swashbuckle Filters](https://github.com/mattfrear/Swashbuckle.AspNetCore.Filters/blob/master/LICENSE) - _A bunch of useful filters for Swashbuckle.AspNetCore._ - [MIT](https://choosealicense.com/licenses/mit/)
 * [ReDoc](https://github.com/Rebilly/ReDoc/blob/master/LICENSE) - _📘 OpenAPI/Swagger-generated API Reference Documentation._ - [MIT](https://choosealicense.com/licenses/mit/)
+* [NSwag](https://github.com/RicoSuter/NSwag/blob/master/LICENSE.md) - _The Swagger/OpenAPI toolchain for .NET, ASP.NET Core and TypeScript._ - [MIT](https://choosealicense.com/licenses/mit/)
 
 ### Tooling
 
