@@ -1,3 +1,11 @@
+# [1.2.0](https://github.com/informatievlaanderen/swagger/compare/v1.1.0...v1.2.0) (2019-05-20)
+
+
+### Features
+
+* add client code generation for c#, jquery, angularjs and angular ([7d41099](https://github.com/informatievlaanderen/swagger/commit/7d41099))
+* wip - add client generator ([a268d6a](https://github.com/informatievlaanderen/swagger/commit/a268d6a))
+
 # [1.1.0](https://github.com/informatievlaanderen/swagger/compare/v1.0.5...v1.1.0) (2019-05-16)
 
 
