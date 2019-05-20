@@ -34,6 +34,8 @@ nuget Newtonsoft.Json 12.0.2
 nuget Swashbuckle.AspNetCore 4.0.1
 nuget Swashbuckle.AspNetCore.Filters 4.5.5
 
+nuget NJsonSchema 9.13.37
+
 nuget NSwag.CodeGeneration.CSharp 12.2.5
 nuget NJsonSchema.CodeGeneration.CSharp 9.13.37
 

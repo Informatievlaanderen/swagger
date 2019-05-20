@@ -1,6 +1,7 @@
 namespace Be.Vlaanderen.Basisregisters.AspNetCore.Swagger.ReDoc
 {
     using System;
+    using System.Collections.Generic;
     using System.Linq;
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Http;
@@ -8,6 +9,7 @@ namespace Be.Vlaanderen.Basisregisters.AspNetCore.Swagger.ReDoc
     using Microsoft.Extensions.DependencyInjection;
     using Microsoft.Extensions.Localization;
     using NSwag;
+    using NSwag.CodeGeneration;
     using NSwag.CodeGeneration.CSharp;
     using NSwag.CodeGeneration.TypeScript;
 
@@ -62,8 +64,10 @@ namespace Be.Vlaanderen.Basisregisters.AspNetCore.Swagger.ReDoc
 
             app
                 .MapDocs(options)
-                .MapCSharpClients(options)
-                .MapAngularClients(options);
+                .MapClient(options, "csharp", GenerateCSharpCode)
+                .MapClient(options, "jquery", GeneratejQueryCode)
+                .MapClient(options, "angular", GenerateAngularCode)
+                .MapClient(options, "angularjs", GenerateAngularJsCode);
 
             return app;
         }
@@ -109,55 +113,14 @@ namespace Be.Vlaanderen.Basisregisters.AspNetCore.Swagger.ReDoc
             return app;
         }
 
-        private static IApplicationBuilder MapCSharpClients(this IApplicationBuilder app, SwaggerDocumentationOptions options)
-        {
-            app.Map(new PathString("/clients/csharp"), apiClients =>
+        private static IApplicationBuilder MapClient(
+            this IApplicationBuilder app,
+            SwaggerDocumentationOptions options,
+            string language,
+            Func<SwaggerDocumentationOptions, string, SwaggerDocument, string> generateCode)
+            => app.Map(new PathString($"/clients/{language}"), apiClients =>
             {
-                var apiVersions = options
-                    .ApiVersionDescriptionProvider
-                    .ApiVersionDescriptions
-                    .Select(x => x.GroupName)
-                    .OrderBy(x => x)
-                    .ToList();
-
-                // Hello Client: v1, Swagger: /docs/v1/docs.json, Prefix: v1
-                foreach (var description in apiVersions)
-                {
-                    apiClients.Map(new PathString($"/{description}"), apiClient => apiClient.Run(async context =>
-                    {
-                        var baseUrl = $"{context.Request.Scheme}://{context.Request.Host}";
-                        var document = await SwaggerDocument.FromUrlAsync($"{baseUrl}/docs/{description}/docs.json");
-
-                        var settings = new SwaggerToCSharpClientGeneratorSettings
-                        {
-                            ClassName = $"{options.CSharpClient.ClassName}{description.FirstLetterToUpperCaseOrConvertNullToEmptyString()}",
-                            CSharpGeneratorSettings =
-                            {
-                                Namespace = options.CSharpClient.Namespace,
-                            }
-                        };
-
-                        var generator = new SwaggerToCSharpClientGenerator(document, settings);
-                        var code = generator.GenerateFile();
-
-                        await context.Response.WriteAsync(code);
-                    }));
-                }
-            });
-
-            return app;
-        }
-
-        private static IApplicationBuilder MapAngularClients(this IApplicationBuilder app, SwaggerDocumentationOptions options)
-        {
-            app.Map(new PathString("/clients/angular"), apiClients =>
-            {
-                var apiVersions = options
-                    .ApiVersionDescriptionProvider
-                    .ApiVersionDescriptions
-                    .Select(x => x.GroupName)
-                    .OrderBy(x => x)
-                    .ToList();
+                var apiVersions = GetApiVersions(options);
 
                 foreach (var description in apiVersions)
                 {
@@ -166,22 +129,61 @@ namespace Be.Vlaanderen.Basisregisters.AspNetCore.Swagger.ReDoc
                         var baseUrl = $"{context.Request.Scheme}://{context.Request.Host}";
                         var document = await SwaggerDocument.FromUrlAsync($"{baseUrl}/docs/{description}/docs.json");
 
-                        var settings = new SwaggerToTypeScriptClientGeneratorSettings
-                        {
-                            ClassName = $"{options.TypeScriptClient.ClassName}{description.FirstLetterToUpperCaseOrConvertNullToEmptyString()}",
-                            Template = TypeScriptTemplate.Angular
-                        };
-
-                        var generator = new SwaggerToTypeScriptClientGenerator(document, settings);
-                        var code = generator.GenerateFile();
-
-                        await context.Response.WriteAsync(code);
+                        await context.Response.WriteAsync(generateCode(options, description, document));
                     }));
                 }
             });
 
-            return app;
-        }
+        private static string GenerateCSharpCode(
+            SwaggerDocumentationOptions options,
+            string description,
+            SwaggerDocument document)
+            => new SwaggerToCSharpClientGenerator(document, new SwaggerToCSharpClientGeneratorSettings
+            {
+                ClassName = $"{options.CSharpClient.ClassName}{description.FirstLetterToUpperCaseOrConvertNullToEmptyString()}",
+                CSharpGeneratorSettings =
+                {
+                    Namespace = options.CSharpClient.Namespace,
+                }
+            }).GenerateFile(ClientGeneratorOutputType.Full);
+
+        private static string GenerateAngularCode(
+            SwaggerDocumentationOptions options,
+            string description,
+            SwaggerDocument document)
+            => new SwaggerToTypeScriptClientGenerator(document, new SwaggerToTypeScriptClientGeneratorSettings
+            {
+                ClassName =$"{options.TypeScriptClient.ClassName}{description.FirstLetterToUpperCaseOrConvertNullToEmptyString()}",
+                Template = TypeScriptTemplate.Angular
+            }).GenerateFile();
+
+        private static string GenerateAngularJsCode(
+            SwaggerDocumentationOptions options,
+            string description,
+            SwaggerDocument document)
+            => new SwaggerToTypeScriptClientGenerator(document, new SwaggerToTypeScriptClientGeneratorSettings
+            {
+                ClassName = $"{options.TypeScriptClient.ClassName}{description.FirstLetterToUpperCaseOrConvertNullToEmptyString()}",
+                Template = TypeScriptTemplate.AngularJS
+            }).GenerateFile();
+
+        private static string GeneratejQueryCode(
+            SwaggerDocumentationOptions options,
+            string description,
+            SwaggerDocument document)
+            => new SwaggerToTypeScriptClientGenerator(document, new SwaggerToTypeScriptClientGeneratorSettings
+            {
+                ClassName = $"{options.TypeScriptClient.ClassName}{description.FirstLetterToUpperCaseOrConvertNullToEmptyString()}",
+                Template = TypeScriptTemplate.JQueryCallbacks
+            }).GenerateFile();
+
+        private static IEnumerable<string> GetApiVersions(SwaggerDocumentationOptions options)
+            => options
+                .ApiVersionDescriptionProvider
+                .ApiVersionDescriptions
+                .Select(x => x.GroupName)
+                .OrderBy(x => x)
+                .ToList();
 
         private static string FirstLetterToUpperCaseOrConvertNullToEmptyString(this string s)
         {
