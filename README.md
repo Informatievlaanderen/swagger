@@ -74,7 +74,7 @@ public IServiceProvider ConfigureServices(IServiceCollection services)
 
           AdditionalHeaderOperationFilters = new List<HeaderOperationFilter>
           {
-              new HeaderOperationFilter("apiKey", "Optionel API key for the request.")
+              new HeaderOperationFilter("apiKey", "Optional API key for the request.")
           }
       });
 }
