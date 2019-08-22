@@ -1,3 +1,10 @@
+# [1.3.0](https://github.com/informatievlaanderen/swagger/compare/v1.2.0...v1.3.0) (2019-08-22)
+
+
+### Features
+
+* bump to .net 2.2.6 ([2ec0934](https://github.com/informatievlaanderen/swagger/commit/2ec0934))
+
 # [1.2.0](https://github.com/informatievlaanderen/swagger/compare/v1.1.0...v1.2.0) (2019-05-20)
 
 
