@@ -117,7 +117,7 @@ namespace Be.Vlaanderen.Basisregisters.AspNetCore.Swagger.ReDoc
             this IApplicationBuilder app,
             SwaggerDocumentationOptions options,
             string language,
-            Func<SwaggerDocumentationOptions, string, SwaggerDocument, string> generateCode)
+            Func<SwaggerDocumentationOptions, string, OpenApiDocument, string> generateCode)
             => app.Map(new PathString($"/clients/{language}"), apiClients =>
             {
                 var apiVersions = GetApiVersions(options);
@@ -127,7 +127,7 @@ namespace Be.Vlaanderen.Basisregisters.AspNetCore.Swagger.ReDoc
                     apiClients.Map(new PathString($"/{description}"), apiClient => apiClient.Run(async context =>
                     {
                         var baseUrl = $"{context.Request.Scheme}://{context.Request.Host}";
-                        var document = await SwaggerDocument.FromUrlAsync($"{baseUrl}/docs/{description}/docs.json");
+                        var document = await OpenApiDocument.FromUrlAsync($"{baseUrl}/docs/{description}/docs.json");
 
                         await context.Response.WriteAsync(generateCode(options, description, document));
                     }));
@@ -137,21 +137,21 @@ namespace Be.Vlaanderen.Basisregisters.AspNetCore.Swagger.ReDoc
         private static string GenerateCSharpCode(
             SwaggerDocumentationOptions options,
             string description,
-            SwaggerDocument document)
-            => new SwaggerToCSharpClientGenerator(document, new SwaggerToCSharpClientGeneratorSettings
+            OpenApiDocument document)
+            => new CSharpClientGenerator(document, new CSharpClientGeneratorSettings
             {
                 ClassName = $"{options.CSharpClient.ClassName}{description.FirstLetterToUpperCaseOrConvertNullToEmptyString()}",
                 CSharpGeneratorSettings =
                 {
-                    Namespace = options.CSharpClient.Namespace,
+                    Namespace = options.CSharpClient.Namespace
                 }
             }).GenerateFile(ClientGeneratorOutputType.Full);
 
         private static string GenerateAngularCode(
             SwaggerDocumentationOptions options,
             string description,
-            SwaggerDocument document)
-            => new SwaggerToTypeScriptClientGenerator(document, new SwaggerToTypeScriptClientGeneratorSettings
+            OpenApiDocument document)
+            => new TypeScriptClientGenerator(document, new TypeScriptClientGeneratorSettings
             {
                 ClassName =$"{options.TypeScriptClient.ClassName}{description.FirstLetterToUpperCaseOrConvertNullToEmptyString()}",
                 Template = TypeScriptTemplate.Angular
@@ -160,8 +160,8 @@ namespace Be.Vlaanderen.Basisregisters.AspNetCore.Swagger.ReDoc
         private static string GenerateAngularJsCode(
             SwaggerDocumentationOptions options,
             string description,
-            SwaggerDocument document)
-            => new SwaggerToTypeScriptClientGenerator(document, new SwaggerToTypeScriptClientGeneratorSettings
+            OpenApiDocument document)
+            => new TypeScriptClientGenerator(document, new TypeScriptClientGeneratorSettings
             {
                 ClassName = $"{options.TypeScriptClient.ClassName}{description.FirstLetterToUpperCaseOrConvertNullToEmptyString()}",
                 Template = TypeScriptTemplate.AngularJS
@@ -170,8 +170,8 @@ namespace Be.Vlaanderen.Basisregisters.AspNetCore.Swagger.ReDoc
         private static string GeneratejQueryCode(
             SwaggerDocumentationOptions options,
             string description,
-            SwaggerDocument document)
-            => new SwaggerToTypeScriptClientGenerator(document, new SwaggerToTypeScriptClientGeneratorSettings
+            OpenApiDocument document)
+            => new TypeScriptClientGenerator(document, new TypeScriptClientGeneratorSettings
             {
                 ClassName = $"{options.TypeScriptClient.ClassName}{description.FirstLetterToUpperCaseOrConvertNullToEmptyString()}",
                 Template = TypeScriptTemplate.JQueryCallbacks

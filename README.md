@@ -87,10 +87,10 @@ public IServiceProvider ConfigureServices(IServiceCollection services)
 * Provide version 1.19.2 of [ReDoc](https://github.com/Rebilly/ReDoc) in an embedded way.
 * Provide Flemish Government branding of ReDoc.
 * Provide documentation for multiple versions.
-* Provide C# client code.
-* Provide jQuery client code.
-* Provide AngularJS client code.
-* Provide Angular client code.
+* Provide C# client code. `/clients/csharp`
+* Provide jQuery client code. `/clients/jquery`
+* Provide AngularJS client code.`/clients/angularjs`
+* Provide Angular client code.`/clients/angular`
 
 ### Usage
 

@@ -9,10 +9,10 @@ source https://api.nuget.org/v3/index.json
 // source https://informatievlaanderen.myget.org/F/nuget-mirror/api/v3/index.json username: "%MYGET_FEED_USER%" password: "%MYGET_FEED_PASS%" authtype: "basic"
 
 // DOTNETCORE ISSUES
-nuget Microsoft.NETCore.App 2.2.4
-nuget Microsoft.NETCore.DotNetAppHost 2.2.4
-nuget Microsoft.NETCore.DotNetHostResolver 2.2.4
-nuget Microsoft.NETCore.DotNetHostPolicy 2.2.4
+nuget Microsoft.NETCore.App 2.2.6
+nuget Microsoft.NETCore.DotNetAppHost 2.2.6
+nuget Microsoft.NETCore.DotNetHostResolver 2.2.6
+nuget Microsoft.NETCore.DotNetHostPolicy 2.2.6
 nuget NETStandard.Library 2.0.3
 
 // PRODUCTION STUFF
@@ -21,7 +21,7 @@ nuget Microsoft.AspNetCore.Server.Kestrel 2.2.0
 nuget Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets 2.2.1
 nuget Microsoft.AspNetCore.StaticFiles 2.2.0
 nuget Microsoft.AspNetCore.Routing 2.2.2
-nuget Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer 3.2.0
+nuget Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer 3.2.1
 nuget Microsoft.AspNetCore.Localization 2.2.0
 nuget Microsoft.AspNetCore.Cors 2.2.0
 
@@ -34,20 +34,20 @@ nuget Newtonsoft.Json 12.0.2
 nuget Swashbuckle.AspNetCore 4.0.1
 nuget Swashbuckle.AspNetCore.Filters 4.5.5
 
-nuget NJsonSchema 9.13.37
+nuget NJsonSchema 10.0.22
 
-nuget NSwag.CodeGeneration.CSharp 12.2.5
-nuget NJsonSchema.CodeGeneration.CSharp 9.13.37
+nuget NSwag.CodeGeneration.CSharp 13.0.5
+nuget NJsonSchema.CodeGeneration.CSharp 10.0.22
 
-nuget NSwag.CodeGeneration.TypeScript 12.2.5
-nuget NJsonSchema.CodeGeneration.TypeScript 9.13.37
+nuget NSwag.CodeGeneration.TypeScript 13.0.5
+nuget NJsonSchema.CodeGeneration.TypeScript 10.0.22
 
 // VBR STUFF
-nuget Be.Vlaanderen.Basisregisters.Build.Pipeline ~> 1.6
-nuget Be.Vlaanderen.Basisregisters.AspNetCore.Mvc.Formatters.Json ~> 1.2
+nuget Be.Vlaanderen.Basisregisters.Build.Pipeline ~> 1.7
+nuget Be.Vlaanderen.Basisregisters.AspNetCore.Mvc.Formatters.Json ~> 1.3
 
 // TEST STUFF
-nuget Microsoft.NET.Test.Sdk 16.0.1
+nuget Microsoft.NET.Test.Sdk 16.2.0
 nuget xunit 2.4.1
 nuget xunit.runner.visualstudio 2.4.1
 nuget Shouldly 3.0.2

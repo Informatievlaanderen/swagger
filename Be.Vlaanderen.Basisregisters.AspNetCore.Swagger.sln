@@ -1,12 +1,7 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27130.2036
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29123.88
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".paket", ".paket", "{ED752CB6-0C58-4520-8091-2630647230C6}"
-	ProjectSection(SolutionItems) = preProject
-		paket.dependencies = paket.dependencies
-	EndProjectSection
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{C2F8FF63-7A48-4179-A720-86206C42F496}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{A1834318-2802-4E88-B720-A33B9214F680}"
@@ -15,7 +10,18 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Be.Vlaanderen.Basisregister
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{453A566F-E4D5-4D12-A5A7-67D02B4330FD}"
 	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+		.gitattributes = .gitattributes
+		.gitignore = .gitignore
 		build.fsx = build.fsx
+		CHANGELOG.md = CHANGELOG.md
+		global.json = global.json
+		LICENSE = LICENSE
+		package.json = package.json
+		paket.dependencies = paket.dependencies
+		paket.lock = paket.lock
+		README.md = README.md
+		SEMVER.md = SEMVER.md
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Be.Vlaanderen.Basisregisters.AspNetCore.Swagger.ReDoc", "src\Be.Vlaanderen.Basisregisters.AspNetCore.Swagger.ReDoc\Be.Vlaanderen.Basisregisters.AspNetCore.Swagger.ReDoc.csproj", "{F1E5D658-A475-4144-8645-E6EBD04736E3}"
