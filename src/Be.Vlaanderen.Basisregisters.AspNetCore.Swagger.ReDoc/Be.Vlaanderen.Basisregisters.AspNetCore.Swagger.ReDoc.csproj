@@ -12,7 +12,6 @@
     <EmbeddedResource Include="www\android-chrome-48x48.png" />
     <EmbeddedResource Include="www\android-chrome-72x72.png" />
     <EmbeddedResource Include="www\android-chrome-96x96.png" />
-    <EmbeddedResource Include="www\api-documentation.css" />
     <EmbeddedResource Include="www\api-documentation.html" />
     <EmbeddedResource Include="www\apple-touch-icon-114x114-precomposed.png" />
     <EmbeddedResource Include="www\apple-touch-icon-114x114.png" />
@@ -39,6 +38,9 @@
     <EmbeddedResource Include="www\favicon-194x194.png" />
     <EmbeddedResource Include="www\favicon-32x32.png" />
     <EmbeddedResource Include="www\favicon.ico" />
+    <EmbeddedResource Include="www\styles\redoc-content.css" />
+    <EmbeddedResource Include="www\styles\vlaanderen-fonts.css" />
+    <EmbeddedResource Include="www\styles\vlaanderen.css" />
     <EmbeddedResource Include="www\fonts\flanders-sans-bold.eot" />
     <EmbeddedResource Include="www\fonts\flanders-sans-bold.svg" />
     <EmbeddedResource Include="www\fonts\flanders-sans-bold.ttf" />
@@ -86,8 +88,8 @@
     <EmbeddedResource Include="www\mstile-310x150.png" />
     <EmbeddedResource Include="www\mstile-310x310.png" />
     <EmbeddedResource Include="www\mstile-70x70.png" />
-    <EmbeddedResource Include="www\redoc.min.js" />
-    <EmbeddedResource Include="www\redoc.min.map" />
+    <EmbeddedResource Include="www\redoc.standalone.js" />
+    <EmbeddedResource Include="www\redoc.standalone.js.map" />
     <EmbeddedResource Include="www\robots.txt" />
     <EmbeddedResource Include="www\safari-pinned-tab.svg" />
   </ItemGroup>

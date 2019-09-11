@@ -1,0 +1,63 @@
+@font-face {
+  font-family: flanders-sans;
+  font-style: normal;
+  font-weight: 300;
+  src: url(../fonts/flanders-sans-light.eot);
+  src: local("☺"),url(../fonts/flanders-sans-light.eot?#iefix) format("embedded-opentype"),url(../fonts/flanders-sans-light.woff) format("woff"),url(../fonts/flanders-sans-light.ttf) format("truetype"),url(../fonts/flanders-sans-light.svg#222d09d62eecf7d55dbbce60a3976b34) format("svg")
+}
+
+@font-face {
+  font-family: flanders-sans;
+  font-style: normal;
+  font-weight: 400;
+  src: url(../fonts/flanders-sans-regular.eot);
+  src: local("☺"),url(../fonts/flanders-sans-regular.eot?#iefix) format("embedded-opentype"),url(../fonts/flanders-sans-regular.woff) format("woff"),url(../fonts/flanders-sans-regular.ttf) format("truetype"),url(../fonts/flanders-sans-regular.svg#a781d42e8795b6c33f49152946c2a117) format("svg")
+}
+
+@font-face {
+  font-family: flanders-sans;
+  font-style: normal;
+  font-weight: 500;
+  src: url(../fonts/flanders-sans-medium.eot);
+  src: local("☺"),url(../fonts/flanders-sans-medium.eot?#iefix) format("embedded-opentype"),url(../fonts/flanders-sans-medium.woff) format("woff"),url(../fonts/flanders-sans-medium.ttf) format("truetype"),url(../fonts/flanders-sans-medium.svg#a00e3e9aae2b74f48ebe54da93879a7b) format("svg")
+}
+
+@font-face {
+  font-family: flanders-sans;
+  font-style: normal;
+  font-weight: 700;
+  src: url(../fonts/flanders-sans-bold.eot);
+  src: local("☺"),url(../fonts/flanders-sans-bold.eot?#iefix) format("embedded-opentype"),url(../fonts/flanders-sans-bold.woff) format("woff"),url(../fonts/flanders-sans-bold.ttf) format("truetype"),url(../fonts/flanders-sans-bold.svg#ccf2aa22c7445e01b2080bbe048caaae) format("svg")
+}
+
+@font-face {
+  font-family: flanders-serif;
+  font-style: normal;
+  font-weight: 300;
+  src: url(../fonts/flanders-serif-light.eot);
+  src: local("☺"),url(../fonts/flanders-serif-light.eot?#iefix) format("embedded-opentype"),url(../fonts/flanders-serif-light.woff) format("woff"),url(../fonts/flanders-serif-light.ttf) format("truetype"),url(../fonts/flanders-serif-light.svg#4fc80da9bffb2c7f9bab36f5bc2547c3) format("svg")
+}
+
+@font-face {
+  font-family: flanders-serif;
+  font-style: normal;
+  font-weight: 400;
+  src: url(../fonts/flanders-serif-regular.eot);
+  src: local("☺"),url(../fonts/flanders-serif-regular.eot?#iefix) format("embedded-opentype"),url(../fonts/flanders-serif-regular.woff) format("woff"),url(../fonts/flanders-serif-regular.ttf) format("truetype"),url(../fonts/flanders-serif-regular.svg#c9ee3795e38de3b215a11c6c94805cdf) format("svg")
+}
+
+@font-face {
+  font-family: flanders-serif;
+  font-style: normal;
+  font-weight: 500;
+  src: url(../fonts/flanders-serif-medium.eot);
+  src: local("☺"),url(../fonts/flanders-serif-medium.eot?#iefix) format("embedded-opentype"),url(../fonts/flanders-serif-medium.woff) format("woff"),url(../fonts/flanders-serif-medium.ttf) format("truetype"),url(../fonts/flanders-serif-medium.svg#75cad6c0849d41d12ae932e20db953b7) format("svg")
+}
+
+@font-face {
+  font-family: flanders-serif;
+  font-style: normal;
+  font-weight: 700;
+  src: url(../fonts/flanders-serif-bold.eot);
+  src: local("☺"),url(../fonts/flanders-serif-bold.eot?#iefix) format("embedded-opentype"),url(../fonts/flanders-serif-bold.woff) format("woff"),url(../fonts/flanders-serif-bold.ttf) format("truetype"),url(../fonts/flanders-serif-bold.svg#d3487c6f0d0ab598dfe16ba06ff005fe) format("svg")
+}
