@@ -64,11 +64,15 @@ namespace Be.Vlaanderen.Basisregisters.AspNetCore.Swagger.ReDoc
             using (var stream = _options.IndexStream())
             {
                 // Inject parameters before writing to response
-                var htmlBuilder = new StringBuilder(new StreamReader(stream).ReadToEnd());
-                foreach (var entry in GetIndexParameters(culture))
-                    htmlBuilder.Replace(entry.Key, entry.Value);
+                using (var streamreader = new StreamReader(stream))
+                {
+                    var htmlBuilder = new StringBuilder(streamreader.ReadToEnd());
 
-                await response.WriteAsync(htmlBuilder.ToString(), Encoding.UTF8);
+                    foreach (var entry in GetIndexParameters(culture))
+                        htmlBuilder.Replace(entry.Key, entry.Value);
+
+                    await response.WriteAsync(htmlBuilder.ToString(), Encoding.UTF8);
+                }
             }
         }
 

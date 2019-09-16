@@ -12,7 +12,8 @@
   <title>%(DocumentTitle)</title>
   <meta name="description" content="Een stelsel van authentieke gegevensbronnen van de Vlaamse Overheid.">
 
-  <link href="api-documentation.css" rel="stylesheet" />
+  <link href="styles/vlaanderen.css" rel="stylesheet" />
+  <link href="styles/redoc-content.css" rel="stylesheet" />
 
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png?v=gAElMxQYY">
   <link rel="icon" type="image/png" sizes="194x194" href="favicon-194x194.png?v=gAElMxQYY">
@@ -41,7 +42,7 @@
     </div>
   </div>
 
-  <redoc scroll-y-offset="#vlaanderen-top" no-auto-auth lazy-rendering></redoc>
+  <div id="redoc-container"></div>
 
   <footer>
     <div style="height: 0; width: 0; position: absolute; visibility: hidden; display: none;">
@@ -69,9 +70,20 @@
     </div>
   </footer>
 
-  <script src="redoc.min.js"></script>
+  <script src="redoc.standalone.js"></script>
   <script type="text/javascript">
-    Redoc.init('%(SpecUrl)', JSON.parse('%(Options)'));
+    let options = {
+      scrollYOffset: '#vlaanderen-top',
+      noAutoAuth: true,
+      lazyRendering: true,
+      ...JSON.parse('%(Options)')
+    };
+
+    Redoc.init(
+      '%(SpecUrl)',
+      options,
+      document.getElementById('redoc-container')
+    );
   </script>
 </body>
 </html>

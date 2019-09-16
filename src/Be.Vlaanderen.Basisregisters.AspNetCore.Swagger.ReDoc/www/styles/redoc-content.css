@@ -1,0 +1,28 @@
+.api-content {
+  margin-top: 45px;
+}
+
+h1[section] {
+  padding-top: 40px !important;
+}
+
+h2[section] {
+  padding-top: 20px !important;
+}
+
+operation {
+  padding-bottom: 20px !important;
+}
+
+.operation-samples {
+  padding-bottom: 0 !important;
+}
+
+.api-content {
+  margin-bottom: 90px;
+}
+
+.tag-info {
+  padding-bottom: 5px !important;
+  padding-top: 30px !important;
+}

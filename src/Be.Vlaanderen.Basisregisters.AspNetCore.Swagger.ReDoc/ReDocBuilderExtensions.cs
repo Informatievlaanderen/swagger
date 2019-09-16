@@ -18,7 +18,6 @@ namespace Be.Vlaanderen.Basisregisters.AspNetCore.Swagger.ReDoc
             setupAction?.Invoke(options);
 
             app
-                //.UseDefaultFiles()
                 .UseMiddleware<ReDocIndexMiddleware>(options)
                 .UseFileServer(new FileServerOptions
                 {
