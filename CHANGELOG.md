@@ -1,3 +1,11 @@
+## [1.3.1](https://github.com/informatievlaanderen/swagger/compare/v1.3.0...v1.3.1) (2019-09-16)
+
+
+### Bug Fixes
+
+*  update dependencies ([499e49a](https://github.com/informatievlaanderen/swagger/commit/499e49a))
+* updated to Redoc 2.0.0-rc.14 ([57629e8](https://github.com/informatievlaanderen/swagger/commit/57629e8))
+
 # [1.3.0](https://github.com/informatievlaanderen/swagger/compare/v1.2.0...v1.3.0) (2019-08-22)
 
 
