@@ -1,3 +1,16 @@
+# [1.4.0](https://github.com/informatievlaanderen/swagger/compare/v1.3.1...v1.4.0) (2019-10-01)
+
+
+### Bug Fixes
+
+* use correct styling ([ae3d139](https://github.com/informatievlaanderen/swagger/commit/ae3d139))
+
+
+### Features
+
+* add support for x-servers extension ([a7e0406](https://github.com/informatievlaanderen/swagger/commit/a7e0406))
+* sort actions by name ([23ed1df](https://github.com/informatievlaanderen/swagger/commit/23ed1df))
+
 ## [1.3.1](https://github.com/informatievlaanderen/swagger/compare/v1.3.0...v1.3.1) (2019-09-16)
 
 
