@@ -20,7 +20,6 @@ namespace Be.Vlaanderen.Basisregisters.AspNetCore.Swagger
         /// Function which returns global metadata to be included in the Swagger output.
         /// </summary>
         public Func<IApiVersionDescriptionProvider, ApiVersionDescription, Info> ApiInfoFunc { get; set; }
-            = null;
 
         /// <summary>
         /// Inject human-friendly descriptions for Operations, Parameters and Schemas based on XML Comment files.
