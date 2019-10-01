@@ -1,3 +1,10 @@
+## [1.4.1](https://github.com/informatievlaanderen/swagger/compare/v1.4.0...v1.4.1) (2019-10-01)
+
+
+### Bug Fixes
+
+* correct margins ([5f11d1d](https://github.com/informatievlaanderen/swagger/commit/5f11d1d))
+
 # [1.4.0](https://github.com/informatievlaanderen/swagger/compare/v1.3.1...v1.4.0) (2019-10-01)
 
 
