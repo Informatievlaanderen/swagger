@@ -4,8 +4,8 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 [assembly: AssemblyProduct("Dummy")]
 [assembly: AssemblyDescription("Dummy API")]
-[assembly: AssemblyVersion("2.0.0.0")]
-[assembly: AssemblyFileVersion("2.0.0.0")]
+[assembly: AssemblyVersion("2.1.8.3")]
+[assembly: AssemblyFileVersion("2.1.8.3")]
 [assembly: AssemblyCopyright("Copyright (c) agentschap Informatie Vlaanderen")]
 [assembly: AssemblyCompany("agentschap Informatie Vlaanderen")]
 

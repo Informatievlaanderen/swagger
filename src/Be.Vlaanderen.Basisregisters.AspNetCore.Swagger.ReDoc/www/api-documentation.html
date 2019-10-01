@@ -2,8 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <meta http-equiv="content-type" content="text/html; charset=utf-8">
-  <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge,chrome=1">
+  <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
   <meta name="MobileOptimized" content="width">
   <meta name="HandheldFriendly" content="true">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0">
@@ -15,16 +16,16 @@
   <link href="styles/vlaanderen.css" rel="stylesheet" />
   <link href="styles/redoc-content.css" rel="stylesheet" />
 
-  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png?v=gAElMxQYY">
   <link rel="icon" type="image/png" sizes="194x194" href="favicon-194x194.png?v=gAElMxQYY">
   <link rel="icon" type="image/png" sizes="192x192" href="android-chrome-192x192.png?v=gAElMxQYY">
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png?v=gAElMxQYY">
   <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png?v=gAElMxQYY">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png?v=gAElMxQYY">
   <link rel="mask-icon" color="#ffffff" href="safari-pinned-tab.svg?v=gAElMxQYY">
   <link rel="shortcut icon" href="favicon.ico?v=gAElMxQYY">
   <link rel="manifest" href="manifest.json?v=gAElMxQYY">
-  <meta name="apple-mobile-web-app-title" content="MunicipalityRegistry - API">
-  <meta name="application-name" content="MunicipalityRegistry - API">
+  <meta name="apple-mobile-web-app-title" content="Basisregisters Vlaanderen">
+  <meta name="application-name" content="Basisregisters Vlaanderen">
   <meta name="msapplication-TileColor" content="#ffe615">
   <meta name="msapplication-TileImage" content="mstile-144x144.png?v=gAElMxQYY">
   <meta name="msapplication-config" content="browserconfig.xml?v=gAElMxQYY">
@@ -33,20 +34,25 @@
   %(HeadContent)
 </head>
 <body>
-  <div id="vlaanderen-top">
+  <header id="vlaanderen-top">
     <div id="vlaanderen-navigation">
       <a id="vlaanderen-link" href="https://www.vlaanderen.be/nl" target="_self">
         <div id="vlaanderen-top-logo"></div>
         <span>Vlaanderen</span>
       </a>
+      <div id="home-navigation">
+        <a href="%(HeaderLink)" id="home-link">
+          <span>%(HeaderTitle)</span>
+        </a>
+      </div>
     </div>
-  </div>
+  </header>
 
   <div id="redoc-container"></div>
 
   <footer>
     <div style="height: 0; width: 0; position: absolute; visibility: hidden; display: none;">
-      <!--?xml version="1.0" encoding="UTF-8"?--><svg xmlns="http://www.w3.org/2000/svg"><symbol id="cross" viewBox="0 0 28.84 28.84"><title>cross</title><path d="M26.01 28.84L14.42 17.25 2.83 28.84 0 26.01l11.59-11.59L0 2.83 2.83 0l11.59 11.59L26.01 0l2.83 2.83-11.59 11.59 11.59 11.59-2.83 2.83z"></path></symbol><symbol id="login-circle" viewBox="0 0 14 14"><title>login</title><path d="M7 4a2 2 0 1 1-2 2 2 2 0 0 1 2-2zm0 10a7 7 0 0 0 4.65-1.78 6 6 0 0 0-9.3 0A7 7 0 0 0 7 14z"></path></symbol><symbol id="question-circle" viewBox="0 0 14 14"><title>question-circle</title><path data-name="copy 2" d="M6.36 9.19l1.55-.42a.72.72 0 0 1-.27-.55C7.64 7.12 10 7 10 5.06 10 3.84 8.87 3 7.06 3A4.11 4.11 0 0 0 4 4.25l1.13 1.2a2.24 2.24 0 0 1 1.72-.81C7.63 4.64 8 5 8 5.38 8 6.28 5.9 6.47 5.9 8a1.66 1.66 0 0 0 .46 1.19zM7 12a1.07 1.07 0 1 0-1.1-1.05A1.11 1.11 0 0 0 7 12z"></path></symbol><symbol id="search" viewBox="0 0 63.08 63.05"><title>search</title><path data-name="icon search" d="M26.68 53.32A26.66 26.66 0 1 0 0 26.66a26.66 26.66 0 0 0 26.68 26.66zm0-45.91A19.24 19.24 0 1 1 7.42 26.66 19.24 19.24 0 0 1 26.68 7.41zm32.7 55.64A3.71 3.71 0 0 0 62 56.72L45.54 40.26a3.71 3.71 0 0 0-5.25 5.25L56.75 62a3.71 3.71 0 0 0 2.62 1.09z" style="isolation:isolate"></path></symbol><symbol id="up-down" viewBox="0 0 7.03 10.01"><title>up-down</title><path d="M.18 7.17c.25.25 2.83 2.65 2.83 2.65a.68.68 0 0 0 1 0s2.6-2.4 2.84-2.65a.69.69 0 0 0 0-1 .66.66 0 0 0-.93 0L3.5 8.42l-2.36-2.2a.66.66 0 0 0-.93 0 .7.7 0 0 0-.03.95zm6.65-4.3C6.59 2.62 4.01.2 4.01.2a.67.67 0 0 0-1 0S.44 2.62.2 2.87a.7.7 0 0 0 0 1 .65.65 0 0 0 .92 0l2.4-2.26 2.36 2.22a.65.65 0 0 0 .92 0 .7.7 0 0 0 0-1z"></path></symbol><symbol id="vlaanderen-logo" viewBox="0 0 19.61 31.05"><title>vlaanderen-logo</title><path data-name="Logo Vlaanderen" d="M19.61 16c-1.08-.82-1.59 0-2.27 0s-1.12-1-1.56-.75c-.85.43.34 2 .86 2.27a12.51 12.51 0 0 0 1.18.59 1.72 1.72 0 0 1 1 1.55 3 3 0 0 1 0 .75c-.31 1.32-2.64 2.52-4 1.61a3 3 0 0 1-1.4-2c-.36-1.73-1.62-3-2-4.7-.25-1-.43-2.12-.7-3.15S10.17 10 9.94 9A27.44 27.44 0 0 0 9 5.92C7.71 2.61 7.14 2.85 7.14 2.85s.46.92 2.15 9A47.8 47.8 0 0 0 10.42 17c.16.42.44 1.32.62 1.72.54 1.16 2 2.92 2.05 4.51.05.92.16 1.68.18 2.37a7.37 7.37 0 0 0 .24 1.4c.35 1 3.14 4.09 6.1 4.09v-2.41a10.88 10.88 0 0 1-5.79-1.82 6.37 6.37 0 0 1 .35-1.7 2.78 2.78 0 0 1 2.39-1.94 17.91 17.91 0 0 1 3 .31V16zM6.82 7.36c-.11 1.77-2.87 4.2-3.73 5.75A11.43 11.43 0 0 0 2 15.95a7.53 7.53 0 0 0 .62 4.67c.91 2.18-.12 3 .59 2.54.88-.72.75-2.39.68-3.43a14.77 14.77 0 0 1 0-2.82 13.29 13.29 0 0 1 2.41-5.33 4.84 4.84 0 0 0 .52-4.22m.56 5s.29 1.4-1 5c-3.26 9.45 3 10.34 4.74 12.56 0 0 .69-1-2.14-4-1-1.12-2-3.6-1.15-7.15 1.17-5.13-.5-6.39-.5-6.39M1.21 6.2A4.53 4.53 0 0 1 1 4.7c.2-2.22 2.23-3.12 2.73-3.45A2.7 2.7 0 0 0 4.76 0a3 3 0 0 1-1.21 3.67A6.06 6.06 0 0 0 1.21 6.2m5.11-2.15c.11.23 1 1.45-2.48 4.27s-2.36 4.84-2.36 4.84-3.66-2 .56-5.53 3.35-4.2 3.35-4.2a1.05 1.05 0 0 1 .93.63m4.46 1.08c.59.08 1 1.92 2.35 2.32 1 .29 2.08.13 2.32.74a.52.52 0 0 0 .37.92c.39-1.12.58-5.24-5.03-3.98zm1.86.86c0-.13.12 0 .27-.12a1.66 1.66 0 0 1 .59-.48 1 1 0 0 1 .62 0c.12 0 0 .33 0 .4s-.74-.09-.74.32c0 .67.91 0 1.38 0 .23 1.64-2.48 1.19-2.08-.16z"></path></symbol><symbol id="warning" viewBox="0 0 22.03 20"><title>warning</title><path data-name="icon warning" d="M3.06 20.01a5.83 5.83 0 0 1-1-.09 2.25 2.25 0 0 1-1.91-3.08 4.91 4.91 0 0 1 .42-.92c0-.15 8-14 8.06-14.16A4.86 4.86 0 0 1 9.51.62a2.16 2.16 0 0 1 3 0 4.37 4.37 0 0 1 .84 1c-.07 0 8.14 14.36 8.12 14.28a4.36 4.36 0 0 1 .54 1.46 2.32 2.32 0 0 1-2.48 2.65c-1.32.05-.64 0-2 0H3.06zm16-1.34a3.66 3.66 0 0 0 .7 0 .94.94 0 0 0 .8-1.33 4.13 4.13 0 0 0-.36-.75c-.57-1-8.07-14.14-8.1-14.24-.72-1-1.34-1-2.1 0 0 .05-8.22 14.29-8.17 14.36-.82 1.3-.36 1.93 1.18 1.94h16zm-9-12h2v6h-2.05v-6zm-.05 9.34v-2h2v2h-2z"></path></symbol></svg>
+      <svg xmlns="http://www.w3.org/2000/svg"><symbol id="vlaanderen-logo" viewBox="0 0 19.61 31.05"><title>vlaanderen-logo</title><path data-name="Logo Vlaanderen" d="M19.61 16c-1.08-.82-1.59 0-2.27 0s-1.12-1-1.56-.75c-.85.43.34 2 .86 2.27a12.51 12.51 0 0 0 1.18.59 1.72 1.72 0 0 1 1 1.55 3 3 0 0 1 0 .75c-.31 1.32-2.64 2.52-4 1.61a3 3 0 0 1-1.4-2c-.36-1.73-1.62-3-2-4.7-.25-1-.43-2.12-.7-3.15S10.17 10 9.94 9A27.44 27.44 0 0 0 9 5.92C7.71 2.61 7.14 2.85 7.14 2.85s.46.92 2.15 9A47.8 47.8 0 0 0 10.42 17c.16.42.44 1.32.62 1.72.54 1.16 2 2.92 2.05 4.51.05.92.16 1.68.18 2.37a7.37 7.37 0 0 0 .24 1.4c.35 1 3.14 4.09 6.1 4.09v-2.41a10.88 10.88 0 0 1-5.79-1.82 6.37 6.37 0 0 1 .35-1.7 2.78 2.78 0 0 1 2.39-1.94 17.91 17.91 0 0 1 3 .31V16zM6.82 7.36c-.11 1.77-2.87 4.2-3.73 5.75A11.43 11.43 0 0 0 2 15.95a7.53 7.53 0 0 0 .62 4.67c.91 2.18-.12 3 .59 2.54.88-.72.75-2.39.68-3.43a14.77 14.77 0 0 1 0-2.82 13.29 13.29 0 0 1 2.41-5.33 4.84 4.84 0 0 0 .52-4.22m.56 5s.29 1.4-1 5c-3.26 9.45 3 10.34 4.74 12.56 0 0 .69-1-2.14-4-1-1.12-2-3.6-1.15-7.15 1.17-5.13-.5-6.39-.5-6.39M1.21 6.2A4.53 4.53 0 0 1 1 4.7c.2-2.22 2.23-3.12 2.73-3.45A2.7 2.7 0 0 0 4.76 0a3 3 0 0 1-1.21 3.67A6.06 6.06 0 0 0 1.21 6.2m5.11-2.15c.11.23 1 1.45-2.48 4.27s-2.36 4.84-2.36 4.84-3.66-2 .56-5.53 3.35-4.2 3.35-4.2a1.05 1.05 0 0 1 .93.63m4.46 1.08c.59.08 1 1.92 2.35 2.32 1 .29 2.08.13 2.32.74a.52.52 0 0 0 .37.92c.39-1.12.58-5.24-5.03-3.98zm1.86.86c0-.13.12 0 .27-.12a1.66 1.66 0 0 1 .59-.48 1 1 0 0 1 .62 0c.12 0 0 .33 0 .4s-.74-.09-.74.32c0 .67.91 0 1.38 0 .23 1.64-2.48 1.19-2.08-.16z"></path></symbol></svg>
     </div>
     <div id="vlaanderen-footer">
       <div id="vlaanderen-footer-logo">
@@ -55,15 +61,16 @@
         </svg>
         <div id="vlaanderen-footer-logo-text">
           <div id="vlaanderen-footer-logo-title">Vlaanderen</div>
-          <div id="vlaanderen-footer-logo-tagline">is verbonden</div>
+          <div id="vlaanderen-footer-logo-tagline">verbeelding werkt</div>
         </div>
       </div>
       <div id="vlaanderen-footer-info">
-        <div id="vlaanderen-footer-info-title">Dit is een offici&euml;le website van de Vlaamse overheid</div>
+        <div id="vlaanderen-footer-info-title">Dit is een officiële website van de Vlaamse overheid</div>
         <div id="vlaanderen-footer-info-publisher">
           <span>uitgegeven door</span>
           <span itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-            <a itemprop="url" href="https://www.vlaanderen.be/nl/contact/adressengids/diensten-van-de-vlaamse-overheid/administratieve-diensten-van-de-vlaamse-overheid/beleidsdomein-kanselarij-en-bestuur/agentschap-informatie-vlaanderen" target="_self"><span itemprop="name">het Agentschap Informatie Vlaanderen</span></a><span id="version"></span>
+            <a itemprop="url" href="https://www.vlaanderen.be/nl/contact/adressengids/diensten-van-de-vlaamse-overheid/administratieve-diensten-van-de-vlaamse-overheid/beleidsdomein-kanselarij-en-bestuur/agentschap-informatie-vlaanderen" target="_self">
+              <span itemprop="name">het Agentschap Informatie Vlaanderen</span></a><span id="vbrVersion">, versie %(FooterVersion)</span>
           </span>
         </div>
       </div>

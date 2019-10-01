@@ -25,6 +25,21 @@ namespace Be.Vlaanderen.Basisregisters.AspNetCore.Swagger.ReDoc
         /// </summary>
         public Func<string, string> DocumentTitleFunc { get; set; }
 
+        /// <summary>
+        /// Sets a header title for the ReDoc page.
+        /// </summary>
+        public Func<string, string> HeaderTitleFunc { get; set; }
+
+        /// <summary>
+        /// Sets a header link for the ReDoc page.
+        /// </summary>
+        public Func<string, string> HeaderLinkFunc { get; set; }
+
+        /// <summary>
+        /// Sets a version for the footer of the ReDoc page.
+        /// </summary>
+        public string FooterVersion { get; set; }
+
         public CSharpClientOptions CSharpClient { get; } = new CSharpClientOptions();
 
         public class CSharpClientOptions
@@ -52,6 +67,15 @@ namespace Be.Vlaanderen.Basisregisters.AspNetCore.Swagger.ReDoc
 
             if (options.DocumentTitleFunc == null)
                 throw new ArgumentNullException(nameof(options.DocumentTitleFunc));
+
+            if (options.HeaderTitleFunc == null)
+                options.HeaderTitleFunc = options.DocumentTitleFunc;
+
+            if (options.HeaderLinkFunc == null)
+                options.HeaderLinkFunc = x => "/";
+
+            if (string.IsNullOrWhiteSpace(options.FooterVersion))
+                options.FooterVersion = string.Empty;
 
             if (string.IsNullOrWhiteSpace(options.CSharpClient.ClassName))
                 throw new ArgumentNullException(nameof(options.CSharpClient.ClassName));
@@ -96,6 +120,9 @@ namespace Be.Vlaanderen.Basisregisters.AspNetCore.Swagger.ReDoc
                     apiDocs.UseReDoc(x =>
                     {
                         x.DocumentTitle = stringLocalizer[options.DocumentTitleFunc(description)];
+                        x.HeaderTitle = stringLocalizer[options.HeaderTitleFunc(description)];
+                        x.HeaderLink = stringLocalizer[options.HeaderLinkFunc(description)];
+                        x.FooterVersion = options.FooterVersion;
                         x.SpecUrl = $"/docs/{description}/docs.json";
                         x.RoutePrefix = $"{description}";
                     });
@@ -105,6 +132,9 @@ namespace Be.Vlaanderen.Basisregisters.AspNetCore.Swagger.ReDoc
                     apiDocs.UseReDoc(x =>
                     {
                         x.DocumentTitle = stringLocalizer[options.DocumentTitleFunc(apiVersions[0])];
+                        x.HeaderTitle = stringLocalizer[options.HeaderTitleFunc(apiVersions[0])];
+                        x.HeaderLink = stringLocalizer[options.HeaderLinkFunc(apiVersions[0])];
+                        x.FooterVersion = options.FooterVersion;
                         x.SpecUrl = $"/docs/{apiVersions[0]}/docs.json";
                         x.RoutePrefix = string.Empty;
                     });

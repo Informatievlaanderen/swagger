@@ -23,10 +23,25 @@ namespace Be.Vlaanderen.Basisregisters.AspNetCore.Swagger.ReDoc
         public string DocumentTitle { get; set; } = "API Documentation";
 
         /// <summary>
+        /// Gets or sets a header title for the redoc page
+        /// </summary>
+        public string HeaderTitle { get; set; } = "API Documentation";
+
+        /// <summary>
+        /// Gets or sets a header link for the redoc page
+        /// </summary>
+        public string HeaderLink { get; set; } = "/";
+
+        /// <summary>
         /// Gets or sets additional content to place in the head of the redoc page
         /// </summary>
-        public string HeadContent { get; set; } = "";
+        public string HeadContent { get; set; } = string.Empty;
 
+        /// <summary>
+        /// Gets or sets the version to display in the footer
+        /// </summary>
+        public string FooterVersion { get; set; } = string.Empty;
+        
         /// <summary>
         /// Gets or sets the Swagger JSON endpoint. Can be fully-qualified or relative to the redoc page
         /// </summary>

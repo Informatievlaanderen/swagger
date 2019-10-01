@@ -80,7 +80,10 @@ namespace Be.Vlaanderen.Basisregisters.AspNetCore.Swagger.ReDoc
             new Dictionary<string, string>
             {
                 {"%(DocumentTitle)", _options.DocumentTitle},
+                {"%(HeaderTitle)", _options.HeaderTitle},
+                {"%(HeaderLink)", _options.HeaderLink},
                 {"%(HeadContent)", _options.HeadContent},
+                {"%(FooterVersion)", string.IsNullOrWhiteSpace(_options.FooterVersion) ? "x.x.x" : _options.FooterVersion},
                 {"%(SpecUrl)", $"{_options.SpecUrl}?culture={culture.IetfLanguageTag}"},
                 {"%(Options)", SerializeToJson(_options.Options)}
             };

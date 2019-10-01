@@ -90,6 +90,8 @@ namespace Dummy.Api
                 new CultureInfo("nl")
             };
 
+            var version = Assembly.GetEntryAssembly().GetName().Version;
+
             app
                 .UseRequestLocalization(new RequestLocalizationOptions
                 {
@@ -104,6 +106,9 @@ namespace Dummy.Api
                 .UseSwaggerDocumentation(new SwaggerDocumentationOptions
                 {
                     ApiVersionDescriptionProvider = apiVersionProvider,
+                    HeaderTitleFunc = groupName => "Example API",
+                    HeaderLinkFunc = groupName => "/docs/",
+                    FooterVersion = $"{version.Minor}.{version.Build}.{version.Revision}",
                     DocumentTitleFunc = groupName => $"Example API {groupName}",
                     CSharpClient =
                     {
