@@ -13,6 +13,9 @@ namespace Be.Vlaanderen.Basisregisters.AspNetCore.Swagger
             => _servers = servers;
 
         public void Apply(SwaggerDocument swaggerDoc, DocumentFilterContext context)
-            => swaggerDoc.Extensions["x-servers"] = _servers.Select(x => new { url = x.Url, description = x.Description });
+        {
+            swaggerDoc.Extensions["x-servers"] = _servers.Select(x => new {url = x.Url, description = x.Description});
+            swaggerDoc.Extensions["servers"] = _servers.Select(x => new {url = x.Url, description = x.Description});
+        }
     }
 }

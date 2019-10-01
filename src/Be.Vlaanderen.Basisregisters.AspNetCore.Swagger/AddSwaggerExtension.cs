@@ -5,7 +5,10 @@ namespace Be.Vlaanderen.Basisregisters.AspNetCore.Swagger
     using System.IO;
     using System.Linq;
     using System.Reflection;
+    using System.Text;
+    using Microsoft.AspNetCore.Mvc;
     using Microsoft.AspNetCore.Mvc.ApiExplorer;
+    using Microsoft.AspNetCore.Mvc.Controllers;
     using Microsoft.Extensions.DependencyInjection;
     using Swashbuckle.AspNetCore.Filters;
     using Swashbuckle.AspNetCore.Swagger;
@@ -118,6 +121,7 @@ namespace Be.Vlaanderen.Basisregisters.AspNetCore.Swagger
                     //x.OperationFilter<SecurityRequirementsOperationFilter>(false, "oauth2");
                     //x.OperationFilter<SecurityRequirementsOperationFilter>(false, "apiKey");
 
+                    // Add server support for ReDoc
                     if (options.Servers != null && options.Servers.Any())
                         x.DocumentFilter<AlternateServersFilter>(options.Servers);
 
@@ -133,6 +137,9 @@ namespace Be.Vlaanderen.Basisregisters.AspNetCore.Swagger
                             additionalHeader.ParameterName,
                             additionalHeader.Description,
                             additionalHeader.Required);
+
+                    // Order actions by Tag
+                    x.OrderActionsBy(GetTag);
 
                     options.MiddlewareHooks.AfterSwaggerGen?.Invoke(x);
                 });
@@ -164,5 +171,27 @@ namespace Be.Vlaanderen.Basisregisters.AspNetCore.Swagger
 
         private static string CreateXmlCommentsPath(string directory, string name)
             => Path.Combine(directory, $"{name}.xml");
+
+        private static string GetTag(ApiDescription desc)
+        {
+            if (!(desc.ActionDescriptor is ControllerActionDescriptor controllerActionDescriptor))
+                return string.Empty;
+
+            var apiGroupNames = controllerActionDescriptor
+                .ControllerTypeInfo
+                .GetCustomAttributes<ApiExplorerSettingsAttribute>(true)
+                .Where(x => !x.IgnoreApi)
+                .Select(x => x.GroupName)
+                .ToList();
+
+            if (apiGroupNames.Count == 0)
+                return string.Empty;
+
+            var tags = new StringBuilder();
+            foreach (var apiGroupName in apiGroupNames)
+                tags.Append(apiGroupName);
+
+            return tags.ToString();
+        }
     }
 }

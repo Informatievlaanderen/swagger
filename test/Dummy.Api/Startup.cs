@@ -68,6 +68,11 @@ namespace Dummy.Api
                             Name = "agentschap Informatie Vlaanderen",
                             Email = "informatie.vlaanderen@vlaanderen.be",
                             Url = "https://vlaanderen.be/informatie-vlaanderen"
+                        },
+                        License = new License
+                        {
+                            Name = "European Union Public Licence (EUPL)",
+                            Url = "https://joinup.ec.europa.eu/news/understanding-eupl-v12"
                         }
                     },
 
