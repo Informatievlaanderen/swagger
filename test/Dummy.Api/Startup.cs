@@ -71,6 +71,11 @@ namespace Dummy.Api
                         }
                     },
 
+                    Servers = new []
+                    {
+                        new Server("https://api.example.com/", "Production")
+                    },
+
                     XmlCommentPaths = new [] { typeof(Startup).GetTypeInfo().Assembly.GetName().Name },
 
                     //AdditionalHeaderOperationFilters = new List<HeaderOperationFilter>

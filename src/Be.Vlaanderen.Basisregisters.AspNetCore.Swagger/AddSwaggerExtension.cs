@@ -3,29 +3,13 @@ namespace Be.Vlaanderen.Basisregisters.AspNetCore.Swagger
     using System;
     using System.Collections.Generic;
     using System.IO;
+    using System.Linq;
     using System.Reflection;
     using Microsoft.AspNetCore.Mvc.ApiExplorer;
     using Microsoft.Extensions.DependencyInjection;
     using Swashbuckle.AspNetCore.Filters;
     using Swashbuckle.AspNetCore.Swagger;
     using Swashbuckle.AspNetCore.SwaggerGen;
-
-    public class HeaderOperationFilter
-    {
-        public string ParameterName { get; }
-        public string Description { get; }
-        public bool Required { get; } = false;
-
-        public HeaderOperationFilter(
-            string parameterName,
-            string description,
-            bool required = false)
-        {
-            ParameterName = parameterName;
-            Description = description;
-            Required = required;
-        }
-    }
 
     public class SwaggerOptions
     {
@@ -47,6 +31,12 @@ namespace Be.Vlaanderen.Basisregisters.AspNetCore.Swagger
         /// </summary>
         public IEnumerable<HeaderOperationFilter> AdditionalHeaderOperationFilters { get; set; }
             = new List<HeaderOperationFilter>();
+
+        /// <summary>
+        /// Available servers.
+        /// </summary>
+        public IEnumerable<Server> Servers { get; set; }
+            = new List<Server>();
 
         /// <summary>
         /// Hook in additional options at various stages.
@@ -127,6 +117,9 @@ namespace Be.Vlaanderen.Basisregisters.AspNetCore.Swagger
 
                     //x.OperationFilter<SecurityRequirementsOperationFilter>(false, "oauth2");
                     //x.OperationFilter<SecurityRequirementsOperationFilter>(false, "apiKey");
+
+                    if (options.Servers != null && options.Servers.Any())
+                        x.DocumentFilter<AlternateServersFilter>(options.Servers);
 
                     // Adds a 401 Unauthorized and 403 Forbidden response to every action which requires authorization
                     x.OperationFilter<AuthorizationResponseOperationFilter>();
