@@ -1,6 +1,7 @@
 namespace Dummy.Api
 {
     using System;
+    using System.ComponentModel.DataAnnotations;
     using System.Linq;
     using System.Reflection;
     using System.Text;
@@ -27,7 +28,10 @@ namespace Dummy.Api
         [AllowAnonymous]
         [ProducesResponseType(typeof(HomeResponse), StatusCodes.Status200OK)]
         [SwaggerResponseExample(StatusCodes.Status200OK, typeof(HomeResponseExamples), jsonConverter: typeof(StringEnumConverter))]
-        public IActionResult GetHome() => Ok(new HomeResponse());
+        public IActionResult GetHome(
+            [MaxLength(20)] string exampleMaxLimit,
+            [MinLength(10), MaxLength(20)] string exampleLimits,
+            [MinLength(10)] string exampleMinLimit) => Ok(new HomeResponse());
 
         /// <summary>
         /// Some protected action.
