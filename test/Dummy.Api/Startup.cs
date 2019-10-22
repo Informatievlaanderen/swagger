@@ -83,6 +83,8 @@ namespace Dummy.Api
 
                     XmlCommentPaths = new [] { typeof(Startup).GetTypeInfo().Assembly.GetName().Name },
 
+                    CustomSortFunc = SortByApiOrder.Sort
+
                     //AdditionalHeaderOperationFilters = new List<HeaderOperationFilter>
                     //{
                     //    new HeaderOperationFilter("apiKey", "Optionele API key voor het verzoek.")

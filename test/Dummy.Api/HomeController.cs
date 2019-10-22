@@ -13,6 +13,7 @@ namespace Dummy.Api
     [Route("v{version:apiVersion}/")]
     [ApiExplorerSettings(GroupName = "Home")]
     [Authorize]
+    [Produces(AcceptTypes.Json, AcceptTypes.JsonLd, AcceptTypes.Xml)]
     public class HomeController : ApiController
     {
         /// <summary>

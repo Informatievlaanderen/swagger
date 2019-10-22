@@ -40,6 +40,8 @@ namespace Be.Vlaanderen.Basisregisters.AspNetCore.Swagger
         public IEnumerable<Server> Servers { get; set; }
             = new List<Server>();
 
+        public Func<ApiDescription, string> CustomSortFunc { get; set; } = SortByTag.Sort;
+
         /// <summary>
         /// Hook in additional options at various stages.
         /// </summary>
@@ -137,8 +139,9 @@ namespace Be.Vlaanderen.Basisregisters.AspNetCore.Swagger
                             additionalHeader.Description,
                             additionalHeader.Required);
 
-                    // Order actions by Tag
-                    x.OrderActionsBy(GetTag);
+                    // Order actions
+                    if (options.CustomSortFunc != null)
+                        x.OrderActionsBy(options.CustomSortFunc);
 
                     options.MiddlewareHooks.AfterSwaggerGen?.Invoke(x);
                 });
@@ -170,8 +173,11 @@ namespace Be.Vlaanderen.Basisregisters.AspNetCore.Swagger
 
         private static string CreateXmlCommentsPath(string directory, string name)
             => Path.Combine(directory, $"{name}.xml");
+    }
 
-        private static string GetTag(ApiDescription desc)
+    public static class SortByTag
+    {
+        public static string Sort(ApiDescription desc)
         {
             if (!(desc.ActionDescriptor is ControllerActionDescriptor controllerActionDescriptor))
                 return string.Empty;
