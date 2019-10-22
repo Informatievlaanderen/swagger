@@ -1,3 +1,10 @@
+# [1.5.0](https://github.com/informatievlaanderen/swagger/compare/v1.4.2...v1.5.0) (2019-10-22)
+
+
+### Features
+
+* allow custom sorting to be specified ([d070cf6](https://github.com/informatievlaanderen/swagger/commit/d070cf6))
+
 ## [1.4.2](https://github.com/informatievlaanderen/swagger/compare/v1.4.1...v1.4.2) (2019-10-22)
 
 
