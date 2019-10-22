@@ -1,5 +1,6 @@
 {
-  "name": "Vlaamse basisregisters - MunicipalityRegistry - API",
+  "short_name": "%(ApplicationName)",
+  "name": "%(DocumentTitle)",
   "icons": [
     {
       "src": "/docs/android-chrome-36x36.png?v=gAElMxQYYl",

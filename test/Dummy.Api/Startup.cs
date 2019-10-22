@@ -116,10 +116,12 @@ namespace Dummy.Api
                 .UseSwaggerDocumentation(new SwaggerDocumentationOptions
                 {
                     ApiVersionDescriptionProvider = apiVersionProvider,
+                    DocumentTitleFunc = groupName => $"Example API {groupName}",
+                    DocumentDescriptionFunc = groupName => $"This contains all the documentation for Example API {groupName}",
+                    ApplicationNameFunc = _ => "Example API",
                     HeaderTitleFunc = groupName => "Example API",
                     HeaderLinkFunc = groupName => "/docs/",
                     FooterVersion = $"{version.Minor}.{version.Build}.{version.Revision}",
-                    DocumentTitleFunc = groupName => $"Example API {groupName}",
                     CSharpClient =
                     {
                         ClassName = "ExampleApi",

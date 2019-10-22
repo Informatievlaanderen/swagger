@@ -1,14 +1,18 @@
 namespace Be.Vlaanderen.Basisregisters.AspNetCore.Swagger.ReDoc
 {
+    using System;
     using System.Collections.Generic;
     using System.Globalization;
     using System.IO;
     using System.Linq;
+    using System.Net.Mime;
+    using System.Reflection;
     using System.Text;
     using System.Text.RegularExpressions;
     using System.Threading.Tasks;
     using Microsoft.AspNetCore.Http;
     using Microsoft.AspNetCore.Localization;
+    using Microsoft.Net.Http.Headers;
     using Newtonsoft.Json;
 
     public class ReDocIndexMiddleware
@@ -42,37 +46,58 @@ namespace Be.Vlaanderen.Basisregisters.AspNetCore.Swagger.ReDoc
                     RespondWithRedirect(httpContext.Response, relativeRedirectPath);
                     return;
 
-                case "GET" when Regex.IsMatch(path, $"/{_options.RoutePrefix}/?api-documentation.html"):
+                case "GET" when Regex.IsMatch(path, $"^/({_options.RoutePrefix}/)?api-documentation.html", RegexOptions.IgnoreCase):
                     await RespondWithIndexHtml(httpContext.Response, culture);
                     return;
-            }
 
-            await _next(httpContext);
+                case "GET" when Regex.IsMatch(path, $"^/({_options.RoutePrefix}/)?manifest.json", RegexOptions.IgnoreCase):
+                    await RespondWithManifest(httpContext.Response, culture);
+                    return;
+
+                default:
+                    await _next(httpContext);
+                    break;
+            }
         }
 
         private static void RespondWithRedirect(HttpResponse response, string redirectPath)
         {
-            response.StatusCode = 301;
-            response.Headers["Location"] = redirectPath;
+            response.StatusCode = StatusCodes.Status301MovedPermanently;
+            response.Headers[HeaderNames.Location] = redirectPath;
         }
 
         private async Task RespondWithIndexHtml(HttpResponse response, CultureInfo culture)
         {
-            response.StatusCode = 200;
-            response.ContentType = "text/html";
+            response.StatusCode = StatusCodes.Status200OK;
+            response.ContentType = MediaTypeNames.Text.Html;
+            await RespondWithStream(response, culture, _options.IndexStream);
+        }
 
-            using (var stream = _options.IndexStream())
+        private async Task RespondWithManifest(HttpResponse response, CultureInfo culture)
+        {
+            response.StatusCode = StatusCodes.Status200OK;
+            response.ContentType = "application/json";
+            await RespondWithStream(response, culture, () => typeof(ReDocOptions).GetTypeInfo().Assembly
+                .GetManifestResourceStream("Be.Vlaanderen.Basisregisters.AspNetCore.Swagger.ReDoc.www.manifest.json"));
+        }
+
+        private async Task RespondWithStream(HttpResponse response, CultureInfo culture, Func<Stream> streamFunc)
+        {
+            using (var stream = streamFunc())
+                await ReplaceTokens(response, culture, stream);
+        }
+
+        private async Task ReplaceTokens(HttpResponse response, CultureInfo culture, Stream stream)
+        {
+            // Inject parameters before writing to response
+            using (var streamreader = new StreamReader(stream))
             {
-                // Inject parameters before writing to response
-                using (var streamreader = new StreamReader(stream))
-                {
-                    var htmlBuilder = new StringBuilder(streamreader.ReadToEnd());
+                var responseBuilder = new StringBuilder(streamreader.ReadToEnd());
 
-                    foreach (var entry in GetIndexParameters(culture))
-                        htmlBuilder.Replace(entry.Key, entry.Value);
+                foreach (var entry in GetIndexParameters(culture))
+                    responseBuilder.Replace(entry.Key, entry.Value);
 
-                    await response.WriteAsync(htmlBuilder.ToString(), Encoding.UTF8);
-                }
+                await response.WriteAsync(responseBuilder.ToString(), Encoding.UTF8);
             }
         }
 
@@ -80,6 +105,8 @@ namespace Be.Vlaanderen.Basisregisters.AspNetCore.Swagger.ReDoc
             new Dictionary<string, string>
             {
                 {"%(DocumentTitle)", _options.DocumentTitle},
+                {"%(DocumentDescription)", _options.DocumentDescription},
+                {"%(ApplicationName)", _options.ApplicationName},
                 {"%(HeaderTitle)", _options.HeaderTitle},
                 {"%(HeaderLink)", _options.HeaderLink},
                 {"%(HeadContent)", _options.HeadContent},

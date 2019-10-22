@@ -22,21 +22,43 @@ namespace Be.Vlaanderen.Basisregisters.AspNetCore.Swagger.ReDoc
 
         /// <summary>
         /// Sets a title for the ReDoc page.
+        /// This is used in the &lt;title&gt; tag.
         /// </summary>
         public Func<string, string> DocumentTitleFunc { get; set; }
 
         /// <summary>
+        /// Sets a description for the ReDoc page.
+        /// This is used in the &lt;meta name="description"&gt; tag.
+        /// </summary>
+        public Func<string, string> DocumentDescriptionFunc { get; set; }
+
+        /// <summary>
+        /// Sets an application name for the ReDoc page.
+        /// This is used in the &lt;apple-mobile-web-app-title&gt; and &lt;application-name&gt; tag.
+        /// </summary>
+        public Func<string, string> ApplicationNameFunc { get; set; }
+
+        /// <summary>
         /// Sets a header title for the ReDoc page.
+        /// This is visible on the page.
         /// </summary>
         public Func<string, string> HeaderTitleFunc { get; set; }
 
         /// <summary>
         /// Sets a header link for the ReDoc page.
+        /// This is visible on the page in conjunction with HeaderTitle.
         /// </summary>
         public Func<string, string> HeaderLinkFunc { get; set; }
 
         /// <summary>
-        /// Sets a version for the footer of the ReDoc page.
+        /// Sets additional content to place in the head of the ReDoc page.
+        /// This is used in the &lt;head&gt; tag.
+        /// </summary>
+        public Func<string, string> HeadContentFunc { get; set; }
+
+        /// <summary>
+        /// Sets the version to display in the footer.
+        /// This is visible on the page.
         /// </summary>
         public string FooterVersion { get; set; }
 
@@ -62,20 +84,32 @@ namespace Be.Vlaanderen.Basisregisters.AspNetCore.Swagger.ReDoc
             this IApplicationBuilder app,
             SwaggerDocumentationOptions options)
         {
+            // A bit of a hack to give all the Funcs the default value, but still managing them in one place.
+            var defaultValues = new ReDocOptions();
+
             if (options.ApiVersionDescriptionProvider == null)
                 throw new ArgumentNullException(nameof(options.ApiVersionDescriptionProvider));
 
             if (options.DocumentTitleFunc == null)
-                throw new ArgumentNullException(nameof(options.DocumentTitleFunc));
+                options.DocumentTitleFunc = _ => defaultValues.DocumentTitle;
+
+            if (options.DocumentDescriptionFunc == null)
+                options.DocumentDescriptionFunc = _ => defaultValues.DocumentDescription;
+
+            if (options.ApplicationNameFunc == null)
+                options.ApplicationNameFunc = _ => defaultValues.ApplicationName;
 
             if (options.HeaderTitleFunc == null)
-                options.HeaderTitleFunc = options.DocumentTitleFunc;
+                options.HeaderTitleFunc = _ => defaultValues.HeaderTitle;
 
             if (options.HeaderLinkFunc == null)
-                options.HeaderLinkFunc = x => "/";
+                options.HeaderLinkFunc = _ => defaultValues.HeaderLink;
+
+            if (options.HeadContentFunc == null)
+                options.HeadContentFunc = _ => defaultValues.HeadContent;
 
             if (string.IsNullOrWhiteSpace(options.FooterVersion))
-                options.FooterVersion = string.Empty;
+                options.FooterVersion = defaultValues.FooterVersion;
 
             if (string.IsNullOrWhiteSpace(options.CSharpClient.ClassName))
                 throw new ArgumentNullException(nameof(options.CSharpClient.ClassName));
@@ -120,8 +154,11 @@ namespace Be.Vlaanderen.Basisregisters.AspNetCore.Swagger.ReDoc
                     apiDocs.UseReDoc(x =>
                     {
                         x.DocumentTitle = stringLocalizer[options.DocumentTitleFunc(description)];
+                        x.DocumentDescription = stringLocalizer[options.DocumentDescriptionFunc(description)];
+                        x.ApplicationName = stringLocalizer[options.ApplicationNameFunc(description)];
                         x.HeaderTitle = stringLocalizer[options.HeaderTitleFunc(description)];
                         x.HeaderLink = stringLocalizer[options.HeaderLinkFunc(description)];
+                        x.HeadContent = options.HeadContentFunc(description);
                         x.FooterVersion = options.FooterVersion;
                         x.SpecUrl = $"/docs/{description}/docs.json";
                         x.RoutePrefix = $"{description}";
@@ -132,8 +169,11 @@ namespace Be.Vlaanderen.Basisregisters.AspNetCore.Swagger.ReDoc
                     apiDocs.UseReDoc(x =>
                     {
                         x.DocumentTitle = stringLocalizer[options.DocumentTitleFunc(apiVersions[0])];
+                        x.DocumentDescription = stringLocalizer[options.DocumentDescriptionFunc(apiVersions[0])];
+                        x.ApplicationName = stringLocalizer[options.ApplicationNameFunc(apiVersions[0])];
                         x.HeaderTitle = stringLocalizer[options.HeaderTitleFunc(apiVersions[0])];
                         x.HeaderLink = stringLocalizer[options.HeaderLinkFunc(apiVersions[0])];
+                        x.HeadContent = options.HeadContentFunc(apiVersions[0]);
                         x.FooterVersion = options.FooterVersion;
                         x.SpecUrl = $"/docs/{apiVersions[0]}/docs.json";
                         x.RoutePrefix = string.Empty;
