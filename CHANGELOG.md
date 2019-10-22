@@ -1,3 +1,10 @@
+## [1.4.2](https://github.com/informatievlaanderen/swagger/compare/v1.4.1...v1.4.2) (2019-10-22)
+
+
+### Bug Fixes
+
+* allow description, application and head to be set, fixes [#4](https://github.com/informatievlaanderen/swagger/issues/4) ([9545d1b](https://github.com/informatievlaanderen/swagger/commit/9545d1b))
+
 ## [1.4.1](https://github.com/informatievlaanderen/swagger/compare/v1.4.0...v1.4.1) (2019-10-01)
 
 
