@@ -1,3 +1,10 @@
+## [1.5.1](https://github.com/informatievlaanderen/swagger/compare/v1.5.0...v1.5.1) (2019-10-24)
+
+
+### Bug Fixes
+
+* work in edge and ie ([cad2038](https://github.com/informatievlaanderen/swagger/commit/cad2038))
+
 # [1.5.0](https://github.com/informatievlaanderen/swagger/compare/v1.4.2...v1.5.0) (2019-10-22)
 
 
