@@ -79,14 +79,7 @@
 
   <script src="redoc.standalone.js"></script>
   <script type="text/javascript">
-    let options = {
-      scrollYOffset: '#vlaanderen-top',
-      noAutoAuth: true,
-      lazyRendering: true,
-      menuToggle: true,
-      hideLoading : true,
-      ...JSON.parse('%(Options)')
-    };
+    let options = JSON.parse('%(Options)');
 
     Redoc.init(
       '%(SpecUrl)',

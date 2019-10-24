@@ -68,6 +68,13 @@ namespace Be.Vlaanderen.Basisregisters.AspNetCore.Swagger.ReDoc
         /// Gets or sets an "options" object that is serialized to JSON and passed to Redoc.init
         /// See https://github.com/Rebilly/ReDoc/tree/v1.22.0#advanced-usage for supported options
         /// </summary>
-        public object Options { get; set; } = new { };
+        public object Options { get; set; } = new
+        {
+            scrollYOffset = "#vlaanderen-top",
+            noAutoAuth = true,
+            lazyRendering = true,
+            menuToggle = true,
+            hideLoading = true
+        };
     }
 }
