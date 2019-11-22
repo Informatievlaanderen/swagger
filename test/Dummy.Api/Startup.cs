@@ -1,6 +1,5 @@
 namespace Dummy.Api
 {
-    using System.Collections.Generic;
     using System.Globalization;
     using System.Reflection;
     using Be.Vlaanderen.Basisregisters.AspNetCore.Mvc.Formatters.Json;
@@ -35,8 +34,7 @@ namespace Dummy.Api
 
                 .SetCompatibilityVersion(CompatibilityVersion.Version_2_2)
 
-                .AddJsonFormatters()
-                .AddJsonOptions(cfg => cfg.SerializerSettings.ConfigureDefaultForApi())
+                .AddNewtonsoftJson(cfg => cfg.SerializerSettings.ConfigureDefaultForApi())
 
                 .AddDataAnnotationsLocalization()
 

@@ -2,6 +2,10 @@
   <Import Project="..\..\packages\Be.Vlaanderen.Basisregisters.Build.Pipeline\Content\Be.Vlaanderen.Basisregisters.Build.Pipeline.Settings.Library.props" />
 
   <ItemGroup>
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Be.Vlaanderen.Basisregisters.AspNetCore.Swagger\Be.Vlaanderen.Basisregisters.AspNetCore.Swagger.csproj" />
   </ItemGroup>
 

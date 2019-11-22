@@ -1,12 +1,5 @@
-Microsoft.NETCore.App
-
-Microsoft.AspNetCore.Mvc.Core
-Microsoft.AspNetCore.Hosting
-Microsoft.AspNetCore.Server.Kestrel
-Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets
 Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer
-Microsoft.AspNetCore.Localization
-Microsoft.AspNetCore.Cors
+Microsoft.AspNetCore.Mvc.NewtonsoftJson
 
 Microsoft.Extensions.Logging.Console
 

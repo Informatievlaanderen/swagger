@@ -15,13 +15,10 @@ licenseUrl https://opensource.org/licenses/MIT
 description Swagger ReDoc documentation.
 
 dependencies
-  framework: netstandard20
+  framework: netcoreapp30
     Be.Vlaanderen.Basisregisters.AspNetCore.Swagger CURRENTVERSION
 
-    Microsoft.AspNetCore.StaticFiles >= LOCKEDVERSION
-    Microsoft.AspNetCore.Routing >= LOCKEDVERSION
     Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer >= LOCKEDVERSION
-    Microsoft.AspNetCore.Localization >= LOCKEDVERSION
     Microsoft.Extensions.Localization.Abstractions >= LOCKEDVERSION
     Microsoft.Extensions.FileProviders.Embedded >= LOCKEDVERSION
     Newtonsoft.Json >= LOCKEDVERSION
@@ -30,5 +27,5 @@ dependencies
     NSwag.CodeGeneration.TypeScript >= LOCKEDVERSION
 
 files
-  bin\Release\netstandard2.0\Be.Vlaanderen.Basisregisters.AspNetCore.Swagger.ReDoc.dll => lib\netstandard2.0
-  bin\Release\netstandard2.0\Be.Vlaanderen.Basisregisters.AspNetCore.Swagger.ReDoc.pdb => lib\netstandard2.0
+  bin\Release\netcoreapp3.0\Be.Vlaanderen.Basisregisters.AspNetCore.Swagger.ReDoc.dll => lib\netcoreapp3.0
+  bin\Release\netcoreapp3.0\Be.Vlaanderen.Basisregisters.AspNetCore.Swagger.ReDoc.pdb => lib\netcoreapp3.0

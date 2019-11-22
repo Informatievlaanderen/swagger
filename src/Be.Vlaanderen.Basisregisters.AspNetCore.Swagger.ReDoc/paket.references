@@ -1,7 +1,4 @@
-Microsoft.AspNetCore.StaticFiles
-Microsoft.AspNetCore.Routing
 Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer
-Microsoft.AspNetCore.Localization
 
 Microsoft.Extensions.Localization.Abstractions
 Microsoft.Extensions.FileProviders.Embedded
