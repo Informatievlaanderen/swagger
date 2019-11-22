@@ -1,3 +1,15 @@
+# [2.0.0](https://github.com/informatievlaanderen/swagger/compare/v1.5.1...v2.0.0) (2019-11-22)
+
+
+### Code Refactoring
+
+* upgrade to netcoreapp30 ([156d8fd](https://github.com/informatievlaanderen/swagger/commit/156d8fd))
+
+
+### BREAKING CHANGES
+
+* Upgrade to .NET Core 3
+
 ## [1.5.1](https://github.com/informatievlaanderen/swagger/compare/v1.5.0...v1.5.1) (2019-10-24)
 
 
