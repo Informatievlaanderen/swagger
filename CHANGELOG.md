@@ -1,3 +1,10 @@
+# [2.1.0](https://github.com/informatievlaanderen/swagger/compare/v2.0.0...v2.1.0) (2019-12-15)
+
+
+### Features
+
+* upgrade to netcoreapp31 ([4d18780](https://github.com/informatievlaanderen/swagger/commit/4d18780aa7fb4a78e3f1a9d51effa5bf86e9f54d))
+
 # [2.0.0](https://github.com/informatievlaanderen/swagger/compare/v1.5.1...v2.0.0) (2019-11-22)
 
 
