@@ -15,7 +15,7 @@ licenseUrl https://opensource.org/licenses/MIT
 description Swagger helpers.
 
 dependencies
-  framework: netcoreapp30
+  framework: netcoreapp31
     Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer >= LOCKEDVERSION
     Microsoft.Extensions.Localization.Abstractions >= LOCKEDVERSION
 
@@ -23,5 +23,5 @@ dependencies
     Swashbuckle.AspNetCore.Filters >= LOCKEDVERSION
 
 files
-  bin\Release\netcoreapp3.0\Be.Vlaanderen.Basisregisters.AspNetCore.Swagger.dll => lib\netcoreapp3.0
-  bin\Release\netcoreapp3.0\Be.Vlaanderen.Basisregisters.AspNetCore.Swagger.pdb => lib\netcoreapp3.0
+  bin\Release\netcoreapp3.1\Be.Vlaanderen.Basisregisters.AspNetCore.Swagger.dll => lib\netcoreapp3.1
+  bin\Release\netcoreapp3.1\Be.Vlaanderen.Basisregisters.AspNetCore.Swagger.pdb => lib\netcoreapp3.1
