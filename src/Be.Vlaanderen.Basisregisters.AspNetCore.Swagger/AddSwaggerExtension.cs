@@ -10,6 +10,7 @@ namespace Be.Vlaanderen.Basisregisters.AspNetCore.Swagger
     using Microsoft.AspNetCore.Mvc.ApiExplorer;
     using Microsoft.AspNetCore.Mvc.Controllers;
     using Microsoft.Extensions.DependencyInjection;
+    using Microsoft.OpenApi.Models;
     using Swashbuckle.AspNetCore.Filters;
     using Swashbuckle.AspNetCore.Swagger;
     using Swashbuckle.AspNetCore.SwaggerGen;
@@ -19,7 +20,7 @@ namespace Be.Vlaanderen.Basisregisters.AspNetCore.Swagger
         /// <summary>
         /// Function which returns global metadata to be included in the Swagger output.
         /// </summary>
-        public Func<IApiVersionDescriptionProvider, ApiVersionDescription, Info> ApiInfoFunc { get; set; }
+        public Func<IApiVersionDescriptionProvider, ApiVersionDescription, OpenApiInfo> ApiInfoFunc { get; set; }
 
         /// <summary>
         /// Inject human-friendly descriptions for Operations, Parameters and Schemas based on XML Comment files.
@@ -94,10 +95,10 @@ namespace Be.Vlaanderen.Basisregisters.AspNetCore.Swagger
                     x.OperationFilter<SwaggerDefaultValues>();
 
                     // Apply [Description] on Response properties
-                    x.OperationFilter<DescriptionOperationFilter>();
+                    //x.OperationFilter<DescriptionOperationFilter>(); Mark DescriptionOperationFilter as obsolete, because you can accomplish the same thing with summary tags
 
                     // Adds an Upload button to endpoints which have [AddSwaggerFileUploadButton]
-                    x.OperationFilter<AddFileParamTypesOperationFilter>();
+                    //x.OperationFilter<AddFileParamTypesOperationFilter>(); Marked AddFileParamTypesOperationFilter as Obsolete, because Swashbuckle 4.0 supports IFormFile directly.
 
                     // Apply [SwaggerResponseHeader] to headers
                     x.OperationFilter<AddResponseHeadersFilter>();

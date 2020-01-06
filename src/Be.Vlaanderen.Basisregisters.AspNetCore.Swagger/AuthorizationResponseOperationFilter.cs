@@ -7,6 +7,7 @@ namespace Be.Vlaanderen.Basisregisters.AspNetCore.Swagger
     using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Http;
     using Microsoft.Extensions.Localization;
+    using Microsoft.OpenApi.Models;
     using Swashbuckle.AspNetCore.Swagger;
     using Swashbuckle.AspNetCore.SwaggerGen;
 
@@ -34,7 +35,7 @@ namespace Be.Vlaanderen.Basisregisters.AspNetCore.Swagger
         public AuthorizationResponseOperationFilter(IStringLocalizer<Localization> stringLocalizer)
             => _filter = new AuthorizationResponseOperationFilter<AuthorizeAttribute>(stringLocalizer);
 
-        public void Apply(Operation operation, OperationFilterContext context) => _filter.Apply(operation, context);
+        public void Apply(OpenApiOperation operation, OperationFilterContext context) => _filter.Apply(operation, context);
     }
 
     public class AuthorizationResponseOperationFilter<T> : IOperationFilter where T : Attribute
@@ -44,7 +45,7 @@ namespace Be.Vlaanderen.Basisregisters.AspNetCore.Swagger
         public AuthorizationResponseOperationFilter(IStringLocalizer<Localization> stringLocalizer)
             => _stringLocalizer = stringLocalizer;
 
-        public void Apply(Operation operation, OperationFilterContext context)
+        public void Apply(OpenApiOperation operation, OperationFilterContext context)
         {
             if (context.GetControllerAndActionAttributes<AllowAnonymousAttribute>().Any())
                 return;
@@ -56,12 +57,12 @@ namespace Be.Vlaanderen.Basisregisters.AspNetCore.Swagger
             var unauthorized = StatusCodes.Status401Unauthorized.ToString();
             var forbidden = StatusCodes.Status403Forbidden.ToString();
 
-            operation.Responses.Add(unauthorized, new Response
+            operation.Responses.Add(unauthorized, new OpenApiResponse
             {
                 Description = _stringLocalizer["Unauthorized request. This may be because the request to the service has not been properly authenticated."]
             });
 
-            operation.Responses.Add(forbidden, new Response
+            operation.Responses.Add(forbidden, new OpenApiResponse
             {
                 Description = _stringLocalizer["Forbidden request. This may be because the credentials are incorrect for the resource requested."]
             });

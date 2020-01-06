@@ -43,8 +43,8 @@ namespace Dummy.Api
         public HomeResponse() => Version = new Random().Next(10, 200);
     }
 
-    public class HomeResponseExamples : IExamplesProvider
+    public class HomeResponseExamples : IExamplesProvider<HomeResponse>
     {
-        public object GetExamples() => new HomeResponse();
+        public HomeResponse GetExamples() => new HomeResponse();
     }
 }
