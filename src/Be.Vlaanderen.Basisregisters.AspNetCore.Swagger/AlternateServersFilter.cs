@@ -2,7 +2,8 @@ namespace Be.Vlaanderen.Basisregisters.AspNetCore.Swagger
 {
     using System.Collections.Generic;
     using System.Linq;
-    using Swashbuckle.AspNetCore.Swagger;
+    using Microsoft.OpenApi.Any;
+    using Microsoft.OpenApi.Models;
     using Swashbuckle.AspNetCore.SwaggerGen;
 
     public class AlternateServersFilter : IDocumentFilter
@@ -12,10 +13,17 @@ namespace Be.Vlaanderen.Basisregisters.AspNetCore.Swagger
         public AlternateServersFilter(IEnumerable<Server> servers)
             => _servers = servers;
 
-        public void Apply(SwaggerDocument swaggerDoc, DocumentFilterContext context)
+        public void Apply(OpenApiDocument swaggerDoc, DocumentFilterContext context)
         {
-            swaggerDoc.Extensions["x-servers"] = _servers.Select(x => new {url = x.Url, description = x.Description});
-            swaggerDoc.Extensions["servers"] = _servers.Select(x => new {url = x.Url, description = x.Description});
+            var serverArray = new OpenApiArray();
+            _servers.ToList().ForEach(x => serverArray.Add(new OpenApiObject
+            {
+                {"url", new OpenApiString(x.Url) },
+                { "description", new OpenApiString(x.Description) }
+            }));
+
+            swaggerDoc.Extensions["x-servers"] = serverArray;
+            swaggerDoc.Extensions["servers"] = serverArray;
         }
     }
 }

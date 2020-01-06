@@ -17,7 +17,7 @@ namespace Dummy.Api
                 : new OkObjectResult($"Welcome to the Example API v{Assembly.GetEntryAssembly().GetName().Version}.");
     }
 
-    public class EmptyResponseExamples : IExamplesProvider
+    public class EmptyResponseExamples : IExamplesProvider<object>
     {
         public object GetExamples() => new { };
     }

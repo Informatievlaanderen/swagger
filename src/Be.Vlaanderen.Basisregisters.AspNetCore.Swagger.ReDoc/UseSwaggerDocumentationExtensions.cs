@@ -136,8 +136,13 @@ namespace Be.Vlaanderen.Basisregisters.AspNetCore.Swagger.ReDoc
             {
                 apiDocs.UseSwagger(x =>
                 {
+                    x.SerializeAsV2 = true;
                     x.RouteTemplate = "{documentName}/docs.json";
-                    x.PreSerializeFilters.Add((doc, _) => doc.BasePath = "/");
+                    //for v3: x.RouteTemplate = "swagger/{documentName}/swagger.json";
+                    x.PreSerializeFilters.Add((swaggerDoc, httpReq) =>
+                    {
+                        swaggerDoc.Servers = new List<Microsoft.OpenApi.Models.OpenApiServer> { new Microsoft.OpenApi.Models.OpenApiServer { Url = $"{httpReq.Scheme}://{httpReq.Host.Value}/" } };
+                    });
                 });
 
                 var apiVersions = options
@@ -223,7 +228,7 @@ namespace Be.Vlaanderen.Basisregisters.AspNetCore.Swagger.ReDoc
             OpenApiDocument document)
             => new TypeScriptClientGenerator(document, new TypeScriptClientGeneratorSettings
             {
-                ClassName =$"{options.TypeScriptClient.ClassName}{description.FirstLetterToUpperCaseOrConvertNullToEmptyString()}",
+                ClassName = $"{options.TypeScriptClient.ClassName}{description.FirstLetterToUpperCaseOrConvertNullToEmptyString()}",
                 Template = TypeScriptTemplate.Angular
             }).GenerateFile();
 

@@ -1,7 +1,8 @@
 namespace Be.Vlaanderen.Basisregisters.AspNetCore.Swagger
 {
     using System.Reflection;
-    using Swashbuckle.AspNetCore.Swagger;
+    using Microsoft.OpenApi.Any;
+    using Microsoft.OpenApi.Models;
     using Swashbuckle.AspNetCore.SwaggerGen;
 
     /// <summary>
@@ -9,12 +10,12 @@ namespace Be.Vlaanderen.Basisregisters.AspNetCore.Swagger
     /// </summary>
     public class AutoRestSchemaFilter : ISchemaFilter
     {
-        public void Apply(Schema schema, SchemaFilterContext context)
+        public void Apply(OpenApiSchema schema, SchemaFilterContext context)
         {
-            var typeInfo = context.SystemType.GetTypeInfo();
+            var typeInfo = context.Type.GetTypeInfo();
 
             if (typeInfo.IsEnum)
-                schema.Extensions.Add("x-ms-enum", new { name = typeInfo.Name, modelAsString = true });
+                schema.Extensions.Add("x-ms-enum", new OpenApiString(typeInfo.Name));
         }
     }
 }

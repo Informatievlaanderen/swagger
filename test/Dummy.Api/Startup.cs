@@ -1,5 +1,6 @@
 namespace Dummy.Api
 {
+    using System;
     using System.Globalization;
     using System.Reflection;
     using Be.Vlaanderen.Basisregisters.AspNetCore.Mvc.Formatters.Json;
@@ -12,6 +13,7 @@ namespace Dummy.Api
     using Microsoft.AspNetCore.Mvc.ApplicationModels;
     using Microsoft.Extensions.DependencyInjection;
     using Microsoft.Extensions.DependencyInjection.Extensions;
+    using Microsoft.OpenApi.Models;
     using Swashbuckle.AspNetCore.Swagger;
     using SwaggerOptions = Be.Vlaanderen.Basisregisters.AspNetCore.Swagger.SwaggerOptions;
 
@@ -27,10 +29,9 @@ namespace Dummy.Api
                 .AddCors(options => options.AddDefaultPolicy(builder => builder
                     .AllowAnyOrigin()
                     .AllowAnyHeader()
-                    .AllowAnyMethod()
-                    .AllowCredentials()))
+                    .AllowAnyMethod()))
 
-                .AddMvcCore()
+                .AddMvcCore(x => x.EnableEndpointRouting = false)
 
                 .SetCompatibilityVersion(CompatibilityVersion.Version_2_2)
 
@@ -56,21 +57,21 @@ namespace Dummy.Api
                 // These settings are required for Swagger
                 .AddSwagger<Startup>(new SwaggerOptions
                 {
-                    ApiInfoFunc = (provider, description) => new Info
+                    ApiInfoFunc = (provider, description) => new OpenApiInfo
                     {
                         Version = description.ApiVersion.ToString(),
                         Title = "Example API",
                         Description = GetApiLeadingText(description),
-                        Contact = new Contact
+                        Contact = new OpenApiContact
                         {
                             Name = "agentschap Informatie Vlaanderen",
                             Email = "informatie.vlaanderen@vlaanderen.be",
-                            Url = "https://vlaanderen.be/informatie-vlaanderen"
+                            Url = new Uri("https://vlaanderen.be/informatie-vlaanderen")
                         },
-                        License = new License
+                        License = new OpenApiLicense
                         {
                             Name = "European Union Public Licence (EUPL)",
-                            Url = "https://joinup.ec.europa.eu/news/understanding-eupl-v12"
+                            Url = new Uri("https://joinup.ec.europa.eu/news/understanding-eupl-v12")
                         }
                     },
 
