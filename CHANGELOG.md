@@ -1,3 +1,15 @@
+# [3.0.0](https://github.com/informatievlaanderen/swagger/compare/v2.1.0...v3.0.0) (2020-01-10)
+
+
+### Features
+
+* upgrade swashbuckle to v5 ([ca9efb9](https://github.com/informatievlaanderen/swagger/commit/ca9efb92c1854e611614051d66f4bdf77487a520))
+
+
+### BREAKING CHANGES
+
+* upgrade swashbuckle
+
 # [2.1.0](https://github.com/informatievlaanderen/swagger/compare/v2.0.0...v2.1.0) (2019-12-15)
 
 
