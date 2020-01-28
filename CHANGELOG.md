@@ -1,3 +1,10 @@
+# [3.1.0](https://github.com/informatievlaanderen/swagger/compare/v3.0.0...v3.1.0) (2020-01-28)
+
+
+### Features
+
+* update swagger to 5.0.0 and netcore 3.1.1 ([e2322ef](https://github.com/informatievlaanderen/swagger/commit/e2322ef56f2c14becae73042f6bb85d3fcf05e82))
+
 # [3.0.0](https://github.com/informatievlaanderen/swagger/compare/v2.1.0...v3.0.0) (2020-01-10)
 
 
