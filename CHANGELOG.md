@@ -1,3 +1,10 @@
+# [3.2.0](https://github.com/informatievlaanderen/swagger/compare/v3.1.0...v3.2.0) (2020-01-29)
+
+
+### Features
+
+* use openapi v3 ([06427f3](https://github.com/informatievlaanderen/swagger/commit/06427f3b5031541fe95c024014cc49e569c8ae25))
+
 # [3.1.0](https://github.com/informatievlaanderen/swagger/compare/v3.0.0...v3.1.0) (2020-01-28)
 
 
