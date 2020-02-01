@@ -9,7 +9,7 @@ source https://api.nuget.org/v3/index.json
 // source https://informatievlaanderen.myget.org/F/nuget-mirror/api/v3/index.json username: "%MYGET_FEED_USER%" password: "%MYGET_FEED_PASS%" authtype: "basic"
 
 // PRODUCTION STUFF
-nuget Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer 4.1.0
+nuget Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer 4.1.1
 nuget Microsoft.AspNetCore.Mvc.NewtonsoftJson 3.1.1
 
 nuget Microsoft.Extensions.Logging.Console 3.1.1
@@ -21,18 +21,18 @@ nuget Newtonsoft.Json 12.0.3
 nuget Swashbuckle.AspNetCore 5.0.0
 nuget Swashbuckle.AspNetCore.Filters 5.0.0
 
-nuget NJsonSchema 10.0.28
+nuget NJsonSchema 10.1.5
 
-nuget NSwag.CodeGeneration.CSharp 13.1.6
-nuget NJsonSchema.CodeGeneration.CSharp 10.0.28
+nuget NSwag.CodeGeneration.CSharp 13.2.2
+nuget NJsonSchema.CodeGeneration.CSharp 10.1.5
 
-nuget NSwag.CodeGeneration.TypeScript 13.1.6
-nuget NJsonSchema.CodeGeneration.TypeScript 10.0.28
+nuget NSwag.CodeGeneration.TypeScript 13.2.2
+nuget NJsonSchema.CodeGeneration.TypeScript 10.1.5
 
 // VBR STUFF
-nuget Be.Vlaanderen.Basisregisters.Build.Pipeline 3.2.0
+nuget Be.Vlaanderen.Basisregisters.Build.Pipeline 3.3.1
 
-nuget Be.Vlaanderen.Basisregisters.AspNetCore.Mvc.Formatters.Json 2.1.0
+nuget Be.Vlaanderen.Basisregisters.AspNetCore.Mvc.Formatters.Json 2.2.0
 
 // TEST STUFF
 nuget Microsoft.NET.Test.Sdk 16.4.0
