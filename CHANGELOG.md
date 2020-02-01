@@ -1,3 +1,10 @@
+# [3.3.0](https://github.com/informatievlaanderen/swagger/compare/v3.2.0...v3.3.0) (2020-02-01)
+
+
+### Features
+
+* upgrade netcoreapp31 and dependencies ([90fc5a5](https://github.com/informatievlaanderen/swagger/commit/90fc5a57c06eee33265184def9e353669d2ed355))
+
 # [3.2.0](https://github.com/informatievlaanderen/swagger/compare/v3.1.0...v3.2.0) (2020-01-29)
 
 
