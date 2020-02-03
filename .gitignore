@@ -3,6 +3,7 @@
 .idea/
 .ionide/
 .paket/
+.redoc_upgrade_dowload/
 
 [Pp]ackages/
 [Pp]aket-files/
