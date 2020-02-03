@@ -24,43 +24,50 @@ namespace Be.Vlaanderen.Basisregisters.AspNetCore.Swagger.ReDoc
         /// Sets a title for the ReDoc page.
         /// This is used in the &lt;title&gt; tag.
         /// </summary>
-        public Func<string, string> DocumentTitleFunc { get; set; }
+        public Func<string, string>? DocumentTitleFunc { get; set; }
 
         /// <summary>
         /// Sets a description for the ReDoc page.
         /// This is used in the &lt;meta name="description"&gt; tag.
         /// </summary>
-        public Func<string, string> DocumentDescriptionFunc { get; set; }
+        public Func<string, string>? DocumentDescriptionFunc { get; set; }
 
         /// <summary>
         /// Sets an application name for the ReDoc page.
         /// This is used in the &lt;apple-mobile-web-app-title&gt; and &lt;application-name&gt; tag.
         /// </summary>
-        public Func<string, string> ApplicationNameFunc { get; set; }
+        public Func<string, string>? ApplicationNameFunc { get; set; }
 
         /// <summary>
         /// Sets a header title for the ReDoc page.
         /// This is visible on the page.
         /// </summary>
-        public Func<string, string> HeaderTitleFunc { get; set; }
+        public Func<string, string>? HeaderTitleFunc { get; set; }
 
         /// <summary>
         /// Sets a header link for the ReDoc page.
         /// This is visible on the page in conjunction with HeaderTitle.
         /// </summary>
-        public Func<string, string> HeaderLinkFunc { get; set; }
+        public Func<string, string>? HeaderLinkFunc { get; set; }
 
         /// <summary>
         /// Sets additional content to place in the head of the ReDoc page.
         /// This is used in the &lt;head&gt; tag.
         /// </summary>
-        public Func<string, string> HeadContentFunc { get; set; }
+        public Func<string, string>? HeadContentFunc { get; set; }
+
+        /// <summary>
+        /// Sets a custom RouteTemplate, you can use {documentName} placeholder.
+        /// </summary>
+        public string? RouteTemplate { get; set; }
+        public Func<string, string>? SpecUrlFunc { get; set; }
+        public Func<string, string>? RoutePrefixFunc { get; set; }
 
         /// <summary>
         /// Sets the version to display in the footer.
         /// This is visible on the page.
         /// </summary>
-        public string FooterVersion { get; set; }
+        public string? FooterVersion { get; set; }
 
         public CSharpClientOptions CSharpClient { get; } = new CSharpClientOptions();
 
@@ -120,6 +127,15 @@ namespace Be.Vlaanderen.Basisregisters.AspNetCore.Swagger.ReDoc
             if (string.IsNullOrWhiteSpace(options.TypeScriptClient.ClassName))
                 throw new ArgumentNullException(nameof(options.TypeScriptClient.ClassName));
 
+            if (string.IsNullOrWhiteSpace(options.RouteTemplate))
+                options.RouteTemplate = "{documentName}/docs.json";
+
+            if (options.RoutePrefixFunc == null)
+                options.RoutePrefixFunc = description => description;
+
+            if (options.SpecUrlFunc == null)
+                options.SpecUrlFunc = description => $"/docs/{description}/docs.json";
+
             app
                 .MapDocs(options)
                 .MapClient(options, "csharp", GenerateCSharpCode)
@@ -136,9 +152,7 @@ namespace Be.Vlaanderen.Basisregisters.AspNetCore.Swagger.ReDoc
             {
                 apiDocs.UseSwagger(x =>
                 {
-                    //x.SerializeAsV2 = true;
-                    //x.RouteTemplate = "{documentName}/docs.json";
-                    x.RouteTemplate = "swagger/{documentName}/swagger.json";
+                    x.RouteTemplate = options.RouteTemplate;
                     x.PreSerializeFilters.Add((swaggerDoc, httpReq) =>
                     {
                         swaggerDoc.Servers = new List<Microsoft.OpenApi.Models.OpenApiServer> { new Microsoft.OpenApi.Models.OpenApiServer { Url = $"{httpReq.Scheme}://{httpReq.Host.Value}/" } };
@@ -165,8 +179,8 @@ namespace Be.Vlaanderen.Basisregisters.AspNetCore.Swagger.ReDoc
                         x.HeaderLink = stringLocalizer[options.HeaderLinkFunc(description)];
                         x.HeadContent = options.HeadContentFunc(description);
                         x.FooterVersion = options.FooterVersion;
-                        x.SpecUrl = $"/docs/{description}/docs.json";
-                        x.RoutePrefix = $"{description}";
+                        x.SpecUrl = options.SpecUrlFunc(description);
+                        x.RoutePrefix = options.RoutePrefixFunc(description);
                     });
                 }
 
@@ -180,7 +194,7 @@ namespace Be.Vlaanderen.Basisregisters.AspNetCore.Swagger.ReDoc
                         x.HeaderLink = stringLocalizer[options.HeaderLinkFunc(apiVersions[0])];
                         x.HeadContent = options.HeadContentFunc(apiVersions[0]);
                         x.FooterVersion = options.FooterVersion;
-                        x.SpecUrl = $"/docs/{apiVersions[0]}/docs.json";
+                        x.SpecUrl = options.SpecUrlFunc(apiVersions[0]);
                         x.RoutePrefix = string.Empty;
                     });
             });
@@ -202,7 +216,7 @@ namespace Be.Vlaanderen.Basisregisters.AspNetCore.Swagger.ReDoc
                     apiClients.Map(new PathString($"/{description}"), apiClient => apiClient.Run(async context =>
                     {
                         var baseUrl = $"{context.Request.Scheme}://{context.Request.Host}";
-                        var document = await OpenApiDocument.FromUrlAsync($"{baseUrl}/docs/{description}/docs.json");
+                        var document = await OpenApiDocument.FromUrlAsync($"{baseUrl}{options.SpecUrlFunc(description)}");
 
                         await context.Response.WriteAsync(generateCode(options, description, document));
                     }));
