@@ -21,6 +21,7 @@ dependencies
 
     Swashbuckle.AspNetCore >= LOCKEDVERSION
     Swashbuckle.AspNetCore.Filters >= LOCKEDVERSION
+    Swashbuckle.AspNetCore.Newtonsoft >= LOCKEDVERSION
 
 files
   bin\Release\netcoreapp3.1\Be.Vlaanderen.Basisregisters.AspNetCore.Swagger.dll => lib\netcoreapp3.1

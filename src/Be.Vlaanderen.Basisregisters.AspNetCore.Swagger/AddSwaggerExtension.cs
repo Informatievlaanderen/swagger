@@ -145,7 +145,8 @@ namespace Be.Vlaanderen.Basisregisters.AspNetCore.Swagger
                         x.OrderActionsBy(options.CustomSortFunc);
 
                     options.MiddlewareHooks.AfterSwaggerGen?.Invoke(x);
-                });
+                })
+                .AddSwaggerGenNewtonsoftSupport();
 
             return services;
         }
