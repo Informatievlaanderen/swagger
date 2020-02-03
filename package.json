@@ -1,6 +1,6 @@
 {
   "name": "swagger",
-  "version": "3.5.0",
+  "version": "3.6.0",
   "description": "Swagger and ReDoc helpers.",
   "author": "Basisregisters Vlaanderen",
   "license": "MIT",

@@ -1,3 +1,15 @@
+# [3.6.0](https://github.com/informatievlaanderen/swagger/compare/v3.5.0...v3.6.0) (2020-02-03)
+
+
+### Bug Fixes
+
+* upgrade ReDoc to 2.0.0-rc.20 ([e0fcc0b](https://github.com/informatievlaanderen/swagger/commit/e0fcc0b63ea05906cbde05d9330264437f7dacc8))
+
+
+### Features
+
+* create script to updated redoc to latest cdn version ([b86f1eb](https://github.com/informatievlaanderen/swagger/commit/b86f1eb5c36afe5925c66c69fa60a4a57822e0c8))
+
 # [3.5.0](https://github.com/informatievlaanderen/swagger/compare/v3.4.0...v3.5.0) (2020-02-03)
 
 
