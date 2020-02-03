@@ -1,3 +1,10 @@
+# [3.5.0](https://github.com/informatievlaanderen/swagger/compare/v3.4.0...v3.5.0) (2020-02-03)
+
+
+### Features
+
+* support newtonsoft ([dbc3cdd](https://github.com/informatievlaanderen/swagger/commit/dbc3cdd4a0b8b97f90e9e959e4811a678d9fdb60))
+
 # [3.4.0](https://github.com/informatievlaanderen/swagger/compare/v3.3.0...v3.4.0) (2020-02-03)
 
 
