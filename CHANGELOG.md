@@ -1,3 +1,10 @@
+# [3.4.0](https://github.com/informatievlaanderen/swagger/compare/v3.3.0...v3.4.0) (2020-02-03)
+
+
+### Features
+
+* make routetemplate configurable ([f9073dc](https://github.com/informatievlaanderen/swagger/commit/f9073dc65e17583dd914228c9635c3af6d19f5d2))
+
 # [3.3.0](https://github.com/informatievlaanderen/swagger/compare/v3.2.0...v3.3.0) (2020-02-01)
 
 
