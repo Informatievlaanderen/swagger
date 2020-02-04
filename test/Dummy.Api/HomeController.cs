@@ -1,6 +1,7 @@
 namespace Dummy.Api
 {
     using System;
+    using System.ComponentModel;
     using System.Runtime.Serialization;
     using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Http;
@@ -47,6 +48,7 @@ namespace Dummy.Api
         public int Version { get; set; }
 
         [DataMember(Name = "Enum")]
+        [Description("Bla bla")]
         public HomeEnum E { get; set; }
 
         public HomeResponse() => Version = new Random().Next(10, 200);
