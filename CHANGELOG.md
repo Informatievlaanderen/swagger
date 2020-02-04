@@ -1,3 +1,10 @@
+# [3.7.0](https://github.com/informatievlaanderen/swagger/compare/v3.6.0...v3.7.0) (2020-02-04)
+
+
+### Features
+
+* support Description attribute ([4a76df6](https://github.com/informatievlaanderen/swagger/commit/4a76df691ac5de677303cbe0e734311c0ce209cb))
+
 # [3.6.0](https://github.com/informatievlaanderen/swagger/compare/v3.5.0...v3.6.0) (2020-02-03)
 
 
