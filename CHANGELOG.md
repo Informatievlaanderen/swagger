@@ -1,3 +1,43 @@
+# [3.7.0](https://github.com/informatievlaanderen/swagger/compare/v3.6.0...v3.7.0) (2020-02-04)
+
+
+### Features
+
+* support Description attribute ([4a76df6](https://github.com/informatievlaanderen/swagger/commit/4a76df691ac5de677303cbe0e734311c0ce209cb))
+
+# [3.6.0](https://github.com/informatievlaanderen/swagger/compare/v3.5.0...v3.6.0) (2020-02-03)
+
+
+### Bug Fixes
+
+* upgrade ReDoc to 2.0.0-rc.20 ([e0fcc0b](https://github.com/informatievlaanderen/swagger/commit/e0fcc0b63ea05906cbde05d9330264437f7dacc8))
+
+
+### Features
+
+* create script to updated redoc to latest cdn version ([b86f1eb](https://github.com/informatievlaanderen/swagger/commit/b86f1eb5c36afe5925c66c69fa60a4a57822e0c8))
+
+# [3.5.0](https://github.com/informatievlaanderen/swagger/compare/v3.4.0...v3.5.0) (2020-02-03)
+
+
+### Features
+
+* support newtonsoft ([dbc3cdd](https://github.com/informatievlaanderen/swagger/commit/dbc3cdd4a0b8b97f90e9e959e4811a678d9fdb60))
+
+# [3.4.0](https://github.com/informatievlaanderen/swagger/compare/v3.3.0...v3.4.0) (2020-02-03)
+
+
+### Features
+
+* make routetemplate configurable ([f9073dc](https://github.com/informatievlaanderen/swagger/commit/f9073dc65e17583dd914228c9635c3af6d19f5d2))
+
+# [3.3.0](https://github.com/informatievlaanderen/swagger/compare/v3.2.0...v3.3.0) (2020-02-01)
+
+
+### Features
+
+* upgrade netcoreapp31 and dependencies ([90fc5a5](https://github.com/informatievlaanderen/swagger/commit/90fc5a57c06eee33265184def9e353669d2ed355))
+
 # [3.2.0](https://github.com/informatievlaanderen/swagger/compare/v3.1.0...v3.2.0) (2020-01-29)
 
 

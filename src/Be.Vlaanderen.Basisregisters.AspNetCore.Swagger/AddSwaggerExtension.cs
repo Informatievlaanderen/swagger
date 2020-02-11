@@ -95,7 +95,7 @@ namespace Be.Vlaanderen.Basisregisters.AspNetCore.Swagger
                     x.OperationFilter<SwaggerDefaultValues>();
 
                     // Apply [Description] on Response properties
-                    //x.OperationFilter<DescriptionOperationFilter>(); Mark DescriptionOperationFilter as obsolete, because you can accomplish the same thing with summary tags
+                    x.OperationFilter<DescriptionOperationFilter>();
 
                     // Adds an Upload button to endpoints which have [AddSwaggerFileUploadButton]
                     //x.OperationFilter<AddFileParamTypesOperationFilter>(); Marked AddFileParamTypesOperationFilter as Obsolete, because Swashbuckle 4.0 supports IFormFile directly.
@@ -145,7 +145,8 @@ namespace Be.Vlaanderen.Basisregisters.AspNetCore.Swagger
                         x.OrderActionsBy(options.CustomSortFunc);
 
                     options.MiddlewareHooks.AfterSwaggerGen?.Invoke(x);
-                });
+                })
+                .AddSwaggerGenNewtonsoftSupport();
 
             return services;
         }
