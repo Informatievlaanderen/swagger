@@ -1,7 +1,7 @@
 RESTRICTION: == netcoreapp3.1
 NUGET
   remote: https://api.nuget.org/v3/index.json
-    Be.Vlaanderen.Basisregisters.AspNetCore.Mvc.Formatters.Json (2.2)
+    Be.Vlaanderen.Basisregisters.AspNetCore.Mvc.Formatters.Json (3.0)
       Be.Vlaanderen.Basisregisters.Converters.TrimString (>= 2.2)
       Be.Vlaanderen.Basisregisters.Utilities.Rfc3339DateTimeOffset (>= 2.2)
       Newtonsoft.Json (>= 12.0.3)
