@@ -365,7 +365,7 @@ NUGET
       Swashbuckle.AspNetCore.SwaggerUI (>= 5.0)
     Swashbuckle.AspNetCore.Annotations (5.0)
       Swashbuckle.AspNetCore.SwaggerGen (>= 5.0)
-    Swashbuckle.AspNetCore.Filters (5.0)
+    Swashbuckle.AspNetCore.Filters (5.0.2)
       Microsoft.AspNetCore.Mvc.NewtonsoftJson (>= 3.0)
       Microsoft.Extensions.DependencyInjection (>= 2.1)
       Microsoft.OpenApi (>= 1.1.4)
