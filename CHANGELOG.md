@@ -1,3 +1,10 @@
+## [3.7.3](https://github.com/informatievlaanderen/swagger/compare/v3.7.2...v3.7.3) (2020-03-03)
+
+
+### Bug Fixes
+
+* force build ([434915e](https://github.com/informatievlaanderen/swagger/commit/434915e645c72ae339c86d0e548881086ff20121))
+
 ## [3.7.2](https://github.com/informatievlaanderen/swagger/compare/v3.7.1...v3.7.2) (2020-02-26)
 
 
