@@ -1,7 +1,7 @@
 RESTRICTION: == netcoreapp3.1
 NUGET
   remote: https://api.nuget.org/v3/index.json
-    Be.Vlaanderen.Basisregisters.AspNetCore.Mvc.Formatters.Json (2.2)
+    Be.Vlaanderen.Basisregisters.AspNetCore.Mvc.Formatters.Json (3.0)
       Be.Vlaanderen.Basisregisters.Converters.TrimString (>= 2.2)
       Be.Vlaanderen.Basisregisters.Utilities.Rfc3339DateTimeOffset (>= 2.2)
       Newtonsoft.Json (>= 12.0.3)
@@ -365,7 +365,7 @@ NUGET
       Swashbuckle.AspNetCore.SwaggerUI (>= 5.0)
     Swashbuckle.AspNetCore.Annotations (5.0)
       Swashbuckle.AspNetCore.SwaggerGen (>= 5.0)
-    Swashbuckle.AspNetCore.Filters (5.0)
+    Swashbuckle.AspNetCore.Filters (5.0.2)
       Microsoft.AspNetCore.Mvc.NewtonsoftJson (>= 3.0)
       Microsoft.Extensions.DependencyInjection (>= 2.1)
       Microsoft.OpenApi (>= 1.1.4)

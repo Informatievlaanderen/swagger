@@ -1,3 +1,17 @@
+## [3.7.2](https://github.com/informatievlaanderen/swagger/compare/v3.7.1...v3.7.2) (2020-02-26)
+
+
+### Bug Fixes
+
+* update mvc json formatter ([db262d6](https://github.com/informatievlaanderen/swagger/commit/db262d69873469e79b789b6669862cc723be0df3))
+
+## [3.7.1](https://github.com/informatievlaanderen/swagger/compare/v3.7.0...v3.7.1) (2020-02-26)
+
+
+### Bug Fixes
+
+* update swashbuckle.aspnetcore.filters ([04a9318](https://github.com/informatievlaanderen/swagger/commit/04a931802c3e541257bde3b5aef9c559def6f9c8))
+
 # [3.7.0](https://github.com/informatievlaanderen/swagger/compare/v3.6.0...v3.7.0) (2020-02-04)
 
 
