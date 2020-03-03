@@ -10,11 +10,11 @@ source https://api.nuget.org/v3/index.json
 
 // PRODUCTION STUFF
 nuget Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer 4.1.1
-nuget Microsoft.AspNetCore.Mvc.NewtonsoftJson 3.1.1
+nuget Microsoft.AspNetCore.Mvc.NewtonsoftJson 3.1.2
 
-nuget Microsoft.Extensions.Logging.Console 3.1.1
-nuget Microsoft.Extensions.FileProviders.Embedded 3.1.1
-nuget Microsoft.Extensions.Localization.Abstractions 3.1.1
+nuget Microsoft.Extensions.Logging.Console 3.1.2
+nuget Microsoft.Extensions.FileProviders.Embedded 3.1.2
+nuget Microsoft.Extensions.Localization.Abstractions 3.1.2
 
 nuget Newtonsoft.Json 12.0.3
 
@@ -24,19 +24,19 @@ nuget Swashbuckle.AspNetCore.Newtonsoft 5.0.0
 
 nuget NJsonSchema 10.1.5
 
-nuget NSwag.CodeGeneration.CSharp 13.2.2
+nuget NSwag.CodeGeneration.CSharp 13.2.3
 nuget NJsonSchema.CodeGeneration.CSharp 10.1.5
 
-nuget NSwag.CodeGeneration.TypeScript 13.2.2
+nuget NSwag.CodeGeneration.TypeScript 13.2.3
 nuget NJsonSchema.CodeGeneration.TypeScript 10.1.5
 
 // VBR STUFF
-nuget Be.Vlaanderen.Basisregisters.Build.Pipeline 3.3.1
+nuget Be.Vlaanderen.Basisregisters.Build.Pipeline 3.3.2
 
-nuget Be.Vlaanderen.Basisregisters.AspNetCore.Mvc.Formatters.Json 3.0.0
+nuget Be.Vlaanderen.Basisregisters.AspNetCore.Mvc.Formatters.Json 3.0.1
 
 // TEST STUFF
-nuget Microsoft.NET.Test.Sdk 16.4.0
+nuget Microsoft.NET.Test.Sdk 16.5.0
 nuget xunit 2.4.1
 nuget xunit.runner.visualstudio 2.4.1
 nuget Shouldly 3.0.2
