@@ -1,3 +1,10 @@
+## [3.7.5](https://github.com/informatievlaanderen/swagger/compare/v3.7.4...v3.7.5) (2020-04-03)
+
+
+### Bug Fixes
+
+* use correct build user GR-1214 ([9294fa1](https://github.com/informatievlaanderen/swagger/commit/9294fa10c62db1f696591bf12937637bf7839e89))
+
 ## [3.7.4](https://github.com/informatievlaanderen/swagger/compare/v3.7.3...v3.7.4) (2020-04-03)
 
 
