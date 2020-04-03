@@ -1,3 +1,10 @@
+## [3.7.4](https://github.com/informatievlaanderen/swagger/compare/v3.7.3...v3.7.4) (2020-04-03)
+
+
+### Bug Fixes
+
+* update redoc version ([#18](https://github.com/informatievlaanderen/swagger/issues/18)) GR-1214 ([bfc4801](https://github.com/informatievlaanderen/swagger/commit/bfc4801b1275e61c9b94368785019e99a0999954))
+
 ## [3.7.3](https://github.com/informatievlaanderen/swagger/compare/v3.7.2...v3.7.3) (2020-03-03)
 
 
