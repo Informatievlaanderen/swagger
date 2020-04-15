@@ -17,11 +17,21 @@ description Swagger helpers.
 dependencies
   framework: netcoreapp31
     Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer >= LOCKEDVERSION
+    Microsoft.Extensions.FileProviders.Embedded >= LOCKEDVERSION
     Microsoft.Extensions.Localization.Abstractions >= LOCKEDVERSION
+
+    Newtonsoft.Json >= LOCKEDVERSION
 
     Swashbuckle.AspNetCore >= LOCKEDVERSION
     Swashbuckle.AspNetCore.Filters >= LOCKEDVERSION
     Swashbuckle.AspNetCore.Newtonsoft >= LOCKEDVERSION
+    Swashbuckle.AspNetCore.Annotations >= LOCKEDVERSION
+
+    NJsonSchema >= LOCKEDVERSION
+    NSwag.CodeGeneration.CSharp >= LOCKEDVERSION
+    NJsonSchema.CodeGeneration.CSharp >= LOCKEDVERSION
+    NSwag.CodeGeneration.TypeScript >= LOCKEDVERSION
+    NJsonSchema.CodeGeneration.TypeScript >= LOCKEDVERSION
 
 files
   bin\Release\netcoreapp3.1\Be.Vlaanderen.Basisregisters.AspNetCore.Swagger.dll => lib\netcoreapp3.1
