@@ -1,3 +1,10 @@
+## [3.7.7](https://github.com/informatievlaanderen/swagger/compare/v3.7.6...v3.7.7) (2020-05-05)
+
+
+### Bug Fixes
+
+* move to GH-actions ([67e4dc0](https://github.com/informatievlaanderen/swagger/commit/67e4dc04496ab5b0f5e3dfca59b4c70e82aecdf3))
+
 ## [3.7.6](https://github.com/informatievlaanderen/swagger/compare/v3.7.5...v3.7.6) (2020-04-15)
 
 
