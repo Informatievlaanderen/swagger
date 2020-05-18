@@ -1,3 +1,10 @@
+## [3.7.9](https://github.com/informatievlaanderen/swagger/compare/v3.7.8...v3.7.9) (2020-05-18)
+
+
+### Bug Fixes
+
+* move to 3.1.4 ([0be9195](https://github.com/informatievlaanderen/swagger/commit/0be9195d5ab32b05f9c05bb7ec79936ad574d231))
+
 ## [3.7.8](https://github.com/informatievlaanderen/swagger/compare/v3.7.7...v3.7.8) (2020-05-13)
 
 
