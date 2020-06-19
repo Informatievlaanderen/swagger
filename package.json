@@ -1,6 +1,6 @@
 {
   "name": "swagger",
-  "version": "3.7.9",
+  "version": "3.7.10",
   "description": "Swagger and ReDoc helpers.",
   "author": "Basisregisters Vlaanderen",
   "license": "MIT",
@@ -48,7 +48,10 @@
     ]
   },
   "release": {
-    "branches": [ "master", "main" ],
+    "branches": [
+      "master",
+      "main"
+    ],
     "verifyConditions": [
       "@semantic-release/changelog",
       "@semantic-release/git",
