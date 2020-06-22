@@ -1,3 +1,11 @@
+## [3.7.11](https://github.com/informatievlaanderen/swagger/compare/v3.7.10...v3.7.11) (2020-06-22)
+
+
+### Bug Fixes
+
+* make sure docs work again GRAR-1375 ([d223c6c](https://github.com/informatievlaanderen/swagger/commit/d223c6cbe899a316c16e1379a7d4e7fb19fa433c))
+* pin openapi to 1.1.4 GRAR-1375 ([77e2cff](https://github.com/informatievlaanderen/swagger/commit/77e2cff3f96a1e5591158ab973be68f0e4020457))
+
 ## [3.7.10](https://github.com/informatievlaanderen/swagger/compare/v3.7.9...v3.7.10) (2020-06-19)
 
 
