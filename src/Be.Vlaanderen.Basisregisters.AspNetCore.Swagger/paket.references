@@ -5,6 +5,7 @@ Microsoft.Extensions.Localization.Abstractions
 Swashbuckle.AspNetCore
 Swashbuckle.AspNetCore.Filters
 Swashbuckle.AspNetCore.Newtonsoft
+Microsoft.OpenApi
 
 SourceLink.Embed.AllSourceFiles
 SourceLink.Copy.PdbFiles

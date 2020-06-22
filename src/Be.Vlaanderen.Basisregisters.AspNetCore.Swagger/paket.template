@@ -26,6 +26,7 @@ dependencies
     Swashbuckle.AspNetCore.Filters >= LOCKEDVERSION
     Swashbuckle.AspNetCore.Newtonsoft >= LOCKEDVERSION
     Swashbuckle.AspNetCore.Annotations >= LOCKEDVERSION
+    Microsoft.OpenApi >= LOCKEDVERSION
 
     NJsonSchema >= LOCKEDVERSION
     NSwag.CodeGeneration.CSharp >= LOCKEDVERSION

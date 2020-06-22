@@ -15,6 +15,7 @@ nuget Swashbuckle.AspNetCore 5.5.0
 nuget Swashbuckle.AspNetCore.Filters 5.1.1
 nuget Swashbuckle.AspNetCore.Newtonsoft 5.5.0
 nuget Swashbuckle.AspNetCore.Annotations 5.5.0
+nuget Microsoft.OpenApi 1.1.4
 
 nuget NJsonSchema 10.1.21
 
