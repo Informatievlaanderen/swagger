@@ -1,3 +1,10 @@
+## [3.7.12](https://github.com/informatievlaanderen/swagger/compare/v3.7.11...v3.7.12) (2020-06-25)
+
+
+### Bug Fixes
+
+* update to openapi 1.2.2 ([279838f](https://github.com/informatievlaanderen/swagger/commit/279838f3d91782683dae8e530023f0d1a8ca8b7e))
+
 ## [3.7.11](https://github.com/informatievlaanderen/swagger/compare/v3.7.10...v3.7.11) (2020-06-22)
 
 
