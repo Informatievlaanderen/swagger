@@ -1,3 +1,10 @@
+## [3.7.15](https://github.com/informatievlaanderen/swagger/compare/v3.7.14...v3.7.15) (2020-09-02)
+
+
+### Bug Fixes
+
+* get baseurl correctly when servers are defined ([31e38ba](https://github.com/informatievlaanderen/swagger/commit/31e38bae97e80556f35060ae9658141d61114764))
+
 ## [3.7.14](https://github.com/informatievlaanderen/swagger/compare/v3.7.13...v3.7.14) (2020-09-02)
 
 
