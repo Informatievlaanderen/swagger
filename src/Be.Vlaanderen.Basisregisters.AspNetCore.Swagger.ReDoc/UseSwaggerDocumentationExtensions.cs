@@ -218,6 +218,9 @@ namespace Be.Vlaanderen.Basisregisters.AspNetCore.Swagger.ReDoc
                         var baseUrl = $"{context.Request.Scheme}://{context.Request.Host}";
 
                         var document = await OpenApiDocument.FromUrlAsync($"{baseUrl}{options.SpecUrlFunc(description)}");
+                        if (document.Servers.Count > 1)
+                            document.Servers.Remove(document.Servers.ElementAt(0));
+                        
                         var code = generateCode(options, description, document);
 
                         context.Response.ContentType = "text/plain; charset=utf-8";
@@ -233,6 +236,7 @@ namespace Be.Vlaanderen.Basisregisters.AspNetCore.Swagger.ReDoc
             => new CSharpClientGenerator(document, new CSharpClientGeneratorSettings
             {
                 ClassName = $"{options.CSharpClient.ClassName}{description.FirstLetterToUpperCaseOrConvertNullToEmptyString()}",
+                UseBaseUrl = true,
                 CSharpGeneratorSettings =
                 {
                     Namespace = options.CSharpClient.Namespace,
