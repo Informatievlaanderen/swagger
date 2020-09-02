@@ -216,9 +216,12 @@ namespace Be.Vlaanderen.Basisregisters.AspNetCore.Swagger.ReDoc
                     apiClients.Map(new PathString($"/{description}"), apiClient => apiClient.Run(async context =>
                     {
                         var baseUrl = $"{context.Request.Scheme}://{context.Request.Host}";
-                        var document = await OpenApiDocument.FromUrlAsync($"{baseUrl}{options.SpecUrlFunc(description)}");
 
-                        await context.Response.WriteAsync(generateCode(options, description, document));
+                        var document = await OpenApiDocument.FromUrlAsync($"{baseUrl}{options.SpecUrlFunc(description)}");
+                        var code = generateCode(options, description, document);
+
+                        context.Response.ContentType = "text/plain; charset=utf-8";
+                        await context.Response.WriteAsync(code);
                     }));
                 }
             });
@@ -232,7 +235,7 @@ namespace Be.Vlaanderen.Basisregisters.AspNetCore.Swagger.ReDoc
                 ClassName = $"{options.CSharpClient.ClassName}{description.FirstLetterToUpperCaseOrConvertNullToEmptyString()}",
                 CSharpGeneratorSettings =
                 {
-                    Namespace = options.CSharpClient.Namespace
+                    Namespace = options.CSharpClient.Namespace,
                 }
             }).GenerateFile(ClientGeneratorOutputType.Full);
 
