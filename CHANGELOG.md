@@ -1,3 +1,10 @@
+## [3.7.14](https://github.com/informatievlaanderen/swagger/compare/v3.7.13...v3.7.14) (2020-09-02)
+
+
+### Bug Fixes
+
+* code generation items utf8 ([4349584](https://github.com/informatievlaanderen/swagger/commit/4349584eaa112d98321f0338e7a1894485a2b9cc))
+
 ## [3.7.13](https://github.com/informatievlaanderen/swagger/compare/v3.7.12...v3.7.13) (2020-07-18)
 
 
