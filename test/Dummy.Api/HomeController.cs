@@ -51,6 +51,9 @@ namespace Dummy.Api
         [Description("Bla bla")]
         public HomeEnum E { get; set; }
 
+        [DataMember(Name = "GeometrieMethode")]
+        public PositieGeometrieMethode GeometrieMethode { get; set; } = PositieGeometrieMethode.Geinterpoleerd;
+
         public HomeResponse() => Version = new Random().Next(10, 200);
     }
 
