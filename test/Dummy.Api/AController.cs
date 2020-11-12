@@ -4,13 +4,11 @@ namespace Dummy.Api
     using System.ComponentModel.DataAnnotations;
     using System.Linq;
     using System.Reflection;
-    using System.Text;
     using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Http;
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.AspNetCore.Mvc.ApiExplorer;
     using Microsoft.AspNetCore.Mvc.Controllers;
-    using Newtonsoft.Json.Converters;
     using Swashbuckle.AspNetCore.Filters;
 
     [ApiVersion("1.0")]
@@ -27,7 +25,7 @@ namespace Dummy.Api
         [HttpGet]
         [AllowAnonymous]
         [ProducesResponseType(typeof(HomeResponse), StatusCodes.Status200OK)]
-        [SwaggerResponseExample(StatusCodes.Status200OK, typeof(HomeResponseExamples), jsonConverter: typeof(StringEnumConverter))]
+        [SwaggerResponseExample(StatusCodes.Status200OK, typeof(HomeResponseExamples))]
         public IActionResult GetHome(
             [MaxLength(20)] string exampleMaxLimit,
             [MinLength(10), MaxLength(20)] string exampleLimits,

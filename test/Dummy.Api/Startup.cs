@@ -32,6 +32,7 @@ namespace Dummy.Api
                     .AllowAnyMethod()))
 
                 .AddMvcCore(x => x.EnableEndpointRouting = false)
+                .AddXmlDataContractSerializerFormatters()
 
                 .SetCompatibilityVersion(CompatibilityVersion.Version_2_2)
 
