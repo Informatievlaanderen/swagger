@@ -1,3 +1,10 @@
+## [3.7.17](https://github.com/informatievlaanderen/swagger/compare/v3.7.16...v3.7.17) (2020-11-12)
+
+
+### Bug Fixes
+
+* update swashbuckle BREAKING CHANGE ([3e43c28](https://github.com/informatievlaanderen/swagger/commit/3e43c28565e39c531f1ebf42c809c58e59158d4d))
+
 ## [3.7.16](https://github.com/informatievlaanderen/swagger/compare/v3.7.15...v3.7.16) (2020-09-21)
 
 
