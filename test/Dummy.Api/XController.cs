@@ -7,10 +7,10 @@ namespace Dummy.Api
 
     [ApiVersion("1.0")]
     [AdvertiseApiVersions("1.0")]
-    [Route("v{version:apiVersion}/z/")]
-    [ApiExplorerSettings(GroupName = "B")]
+    [Route("v{version:apiVersion}/x/")]
+    [ApiExplorerSettings(GroupName = "X")]
     [Authorize]
-    public class ZController : ApiController
+    public class XController : ApiController
     {
         /// <summary>
         /// Initial entry point of the API.
