@@ -1,3 +1,11 @@
+## [3.7.18](https://github.com/informatievlaanderen/swagger/compare/v3.7.17...v3.7.18) (2020-11-13)
+
+
+### Bug Fixes
+
+* add xml example in the dummy GRAR-1599 ([6a68b59](https://github.com/informatievlaanderen/swagger/commit/6a68b59db6f65cdb902e5ecf86a77a11de0af305))
+* move controllers to the correct file ([85004aa](https://github.com/informatievlaanderen/swagger/commit/85004aac3b011eb6ca43b66c7c499dfeb1389978))
+
 ## [3.7.17](https://github.com/informatievlaanderen/swagger/compare/v3.7.16...v3.7.17) (2020-11-12)
 
 
