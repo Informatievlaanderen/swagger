@@ -1,3 +1,10 @@
+## [3.7.19](https://github.com/informatievlaanderen/swagger/compare/v3.7.18...v3.7.19) (2020-11-18)
+
+
+### Bug Fixes
+
+* remove set-env usage in gh-actions ([be70a27](https://github.com/informatievlaanderen/swagger/commit/be70a27967ef8251f7b78f499e3071553b139a13))
+
 ## [3.7.18](https://github.com/informatievlaanderen/swagger/compare/v3.7.17...v3.7.18) (2020-11-13)
 
 
