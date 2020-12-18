@@ -28,7 +28,11 @@ Target.create "Lib_Build" (fun _ ->
     buildTest "Dummy.Api"
 )
 
-Target.create "Lib_Publish" (fun _ -> publishSource "Be.Vlaanderen.Basisregisters.AspNetCore.Swagger")
+Target.create "Lib_Publish" (fun _ ->
+    publishSource "Be.Vlaanderen.Basisregisters.AspNetCore.Swagger"
+    publishSource "Be.Vlaanderen.Basisregisters.AspNetCore.Swagger.ReDoc"
+)
+
 Target.create "Lib_Pack" (fun _ -> pack "Be.Vlaanderen.Basisregisters.AspNetCore.Swagger")
 
 // --------------------------------------------------------------------------------
