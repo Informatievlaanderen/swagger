@@ -1,3 +1,11 @@
+## [3.7.21](https://github.com/informatievlaanderen/swagger/compare/v3.7.20...v3.7.21) (2020-12-18)
+
+
+### Bug Fixes
+
+* add missing publish ([194f18d](https://github.com/informatievlaanderen/swagger/commit/194f18df554bfff4ddfda78f506de5175f5a5460))
+* upgrade redoc to rc45 ([daf6eb6](https://github.com/informatievlaanderen/swagger/commit/daf6eb6a0905f97ca762c6c912d9f62996e96eeb))
+
 ## [3.7.20](https://github.com/informatievlaanderen/swagger/compare/v3.7.19...v3.7.20) (2020-12-18)
 
 
