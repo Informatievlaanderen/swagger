@@ -1,13 +1,13 @@
-framework: netcoreapp31
+framework: net5.0
 source https://api.nuget.org/v3/index.json
 
 // PRODUCTION STUFF
-nuget Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer 4.1.1
-nuget Microsoft.AspNetCore.Mvc.NewtonsoftJson 3.1.8
+nuget Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer 4.2.0
+nuget Microsoft.AspNetCore.Mvc.NewtonsoftJson 5.0.1
 
-nuget Microsoft.Extensions.Logging.Console 3.1.8
-nuget Microsoft.Extensions.FileProviders.Embedded 3.1.8
-nuget Microsoft.Extensions.Localization.Abstractions 3.1.8
+nuget Microsoft.Extensions.Logging.Console 5.0.0
+nuget Microsoft.Extensions.FileProviders.Embedded 5.0.1
+nuget Microsoft.Extensions.Localization.Abstractions 5.0.1
 
 nuget Newtonsoft.Json 12.0.3
 
@@ -16,32 +16,24 @@ nuget Swashbuckle.AspNetCore.Filters 6.0.1
 nuget Swashbuckle.AspNetCore.Newtonsoft 5.6.3
 nuget Swashbuckle.AspNetCore.Annotations 5.6.3
 
-nuget NJsonSchema 10.1.26
+nuget NJsonSchema 10.3.2
 
-nuget NSwag.CodeGeneration.CSharp 13.7.4
-nuget NJsonSchema.CodeGeneration.CSharp 10.1.26
+nuget NSwag.CodeGeneration.CSharp 13.9.4
+nuget NJsonSchema.CodeGeneration.CSharp 10.3.2
 
-nuget NSwag.CodeGeneration.TypeScript 13.7.4
-nuget NJsonSchema.CodeGeneration.TypeScript 10.1.26
+nuget NSwag.CodeGeneration.TypeScript 13.9.4
+nuget NJsonSchema.CodeGeneration.TypeScript 10.3.2
 
 // VBR STUFF
-nuget Be.Vlaanderen.Basisregisters.Build.Pipeline 4.2.3
-nuget Be.Vlaanderen.Basisregisters.AspNetCore.Mvc.Formatters.Json 3.0.6
+nuget Be.Vlaanderen.Basisregisters.Build.Pipeline 5.0.1
+nuget Be.Vlaanderen.Basisregisters.AspNetCore.Mvc.Formatters.Json 3.0.8
 
 // TEST STUFF
-nuget Microsoft.NET.Test.Sdk 16.7.1
+nuget Microsoft.NET.Test.Sdk 16.8.3
 nuget xunit 2.4.1
 nuget xunit.runner.visualstudio 2.4.3
-nuget Shouldly 3.0.2
+nuget Shouldly 4.0.3
 
 // BUILD STUFF
 nuget SourceLink.Embed.AllSourceFiles 2.8.3 copy_local: true
 nuget SourceLink.Copy.PdbFiles 2.8.3 copy_local: true
-
-// MS Nuget issue, they are referencing previews
-// https://github.com/fsprojects/Paket/issues/3907
-//group NuGetIssue
-//  framework: netcoreapp31
-//  source https://api.nuget.org/v3/index.json
-//  nuget Be.Vlaanderen.Basisregisters.Build.Pipeline 4.2.3
-//  nuget Nuget.Packaging < 5.7
