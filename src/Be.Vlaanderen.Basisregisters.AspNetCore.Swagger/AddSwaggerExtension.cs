@@ -12,7 +12,6 @@ namespace Be.Vlaanderen.Basisregisters.AspNetCore.Swagger
     using Microsoft.Extensions.DependencyInjection;
     using Microsoft.OpenApi.Models;
     using Swashbuckle.AspNetCore.Filters;
-    using Swashbuckle.AspNetCore.Swagger;
     using Swashbuckle.AspNetCore.SwaggerGen;
 
     public class SwaggerOptions
@@ -27,7 +26,7 @@ namespace Be.Vlaanderen.Basisregisters.AspNetCore.Swagger
         /// A list of absolute paths to the files that contains XML Comments.
         /// </summary>
         public IEnumerable<string> XmlCommentPaths { get; set; }
-            = new string[0];
+            = Array.Empty<string>();
 
         /// <summary>
         /// Easily add additional header parameters to each request.
@@ -46,7 +45,7 @@ namespace Be.Vlaanderen.Basisregisters.AspNetCore.Swagger
         /// <summary>
         /// Hook in additional options at various stages.
         /// </summary>
-        public MiddlewareHookOptions MiddlewareHooks { get; } = new MiddlewareHookOptions();
+        public MiddlewareHookOptions MiddlewareHooks { get; } = new();
 
         public class MiddlewareHookOptions
         {
@@ -143,6 +142,8 @@ namespace Be.Vlaanderen.Basisregisters.AspNetCore.Swagger
                     // Order actions
                     if (options.CustomSortFunc != null)
                         x.OrderActionsBy(options.CustomSortFunc);
+
+                    x.DocInclusionPredicate((_, _) => true);
 
                     options.MiddlewareHooks.AfterSwaggerGen?.Invoke(x);
                 })
