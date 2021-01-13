@@ -1,3 +1,10 @@
+## [3.7.22](https://github.com/informatievlaanderen/swagger/compare/v3.7.21...v3.7.22) (2021-01-13)
+
+
+### Bug Fixes
+
+* include all actions by default ([aec2326](https://github.com/informatievlaanderen/swagger/commit/aec2326d8461b8dde4490ca4e9751576583be146))
+
 ## [3.7.21](https://github.com/informatievlaanderen/swagger/compare/v3.7.20...v3.7.21) (2020-12-18)
 
 
