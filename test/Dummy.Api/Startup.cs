@@ -14,7 +14,6 @@ namespace Dummy.Api
     using Microsoft.Extensions.DependencyInjection;
     using Microsoft.Extensions.DependencyInjection.Extensions;
     using Microsoft.OpenApi.Models;
-    using Swashbuckle.AspNetCore.Swagger;
     using SwaggerOptions = Be.Vlaanderen.Basisregisters.AspNetCore.Swagger.SwaggerOptions;
 
     public class Startup
@@ -34,7 +33,7 @@ namespace Dummy.Api
                 .AddMvcCore(x => x.EnableEndpointRouting = false)
                 .AddXmlDataContractSerializerFormatters()
 
-                .SetCompatibilityVersion(CompatibilityVersion.Version_2_2)
+                .SetCompatibilityVersion(CompatibilityVersion.Version_3_0)
 
                 .AddNewtonsoftJson(cfg => cfg.SerializerSettings.ConfigureDefaultForApi())
 
@@ -53,6 +52,7 @@ namespace Dummy.Api
                 .AddApiVersioning(cfg =>
                 {
                     cfg.ReportApiVersions = true;
+                    //cfg.UseApiBehavior = false;
                 })
 
                 // These settings are required for Swagger

@@ -69,7 +69,7 @@ namespace Be.Vlaanderen.Basisregisters.AspNetCore.Swagger.ReDoc
         /// </summary>
         public string? FooterVersion { get; set; }
 
-        public CSharpClientOptions CSharpClient { get; } = new CSharpClientOptions();
+        public CSharpClientOptions CSharpClient { get; } = new();
 
         public class CSharpClientOptions
         {
@@ -77,7 +77,7 @@ namespace Be.Vlaanderen.Basisregisters.AspNetCore.Swagger.ReDoc
             public string Namespace { get; set; }
         }
 
-        public TypeScriptClientOptions TypeScriptClient { get; } = new TypeScriptClientOptions();
+        public TypeScriptClientOptions TypeScriptClient { get; } = new();
 
         public class TypeScriptClientOptions
         {
@@ -97,23 +97,12 @@ namespace Be.Vlaanderen.Basisregisters.AspNetCore.Swagger.ReDoc
             if (options.ApiVersionDescriptionProvider == null)
                 throw new ArgumentNullException(nameof(options.ApiVersionDescriptionProvider));
 
-            if (options.DocumentTitleFunc == null)
-                options.DocumentTitleFunc = _ => defaultValues.DocumentTitle;
-
-            if (options.DocumentDescriptionFunc == null)
-                options.DocumentDescriptionFunc = _ => defaultValues.DocumentDescription;
-
-            if (options.ApplicationNameFunc == null)
-                options.ApplicationNameFunc = _ => defaultValues.ApplicationName;
-
-            if (options.HeaderTitleFunc == null)
-                options.HeaderTitleFunc = _ => defaultValues.HeaderTitle;
-
-            if (options.HeaderLinkFunc == null)
-                options.HeaderLinkFunc = _ => defaultValues.HeaderLink;
-
-            if (options.HeadContentFunc == null)
-                options.HeadContentFunc = _ => defaultValues.HeadContent;
+            options.DocumentTitleFunc ??= _ => defaultValues.DocumentTitle;
+            options.DocumentDescriptionFunc ??= _ => defaultValues.DocumentDescription;
+            options.ApplicationNameFunc ??= _ => defaultValues.ApplicationName;
+            options.HeaderTitleFunc ??= _ => defaultValues.HeaderTitle;
+            options.HeaderLinkFunc ??= _ => defaultValues.HeaderLink;
+            options.HeadContentFunc ??= _ => defaultValues.HeadContent;
 
             if (string.IsNullOrWhiteSpace(options.FooterVersion))
                 options.FooterVersion = defaultValues.FooterVersion;
@@ -130,11 +119,8 @@ namespace Be.Vlaanderen.Basisregisters.AspNetCore.Swagger.ReDoc
             if (string.IsNullOrWhiteSpace(options.RouteTemplate))
                 options.RouteTemplate = "{documentName}/docs.json";
 
-            if (options.RoutePrefixFunc == null)
-                options.RoutePrefixFunc = description => description;
-
-            if (options.SpecUrlFunc == null)
-                options.SpecUrlFunc = description => $"/docs/{description}/docs.json";
+            options.RoutePrefixFunc ??= description => description;
+            options.SpecUrlFunc ??= description => $"/docs/{description}/docs.json";
 
             app
                 .MapDocs(options)
@@ -155,17 +141,11 @@ namespace Be.Vlaanderen.Basisregisters.AspNetCore.Swagger.ReDoc
                     x.RouteTemplate = options.RouteTemplate;
                     x.PreSerializeFilters.Add((swaggerDoc, httpReq) =>
                     {
-                        swaggerDoc.Servers = new List<Microsoft.OpenApi.Models.OpenApiServer> { new Microsoft.OpenApi.Models.OpenApiServer { Url = $"{httpReq.Scheme}://{httpReq.Host.Value}/" } };
+                        swaggerDoc.Servers = new List<Microsoft.OpenApi.Models.OpenApiServer> { new() { Url = $"{httpReq.Scheme}://{httpReq.Host.Value}/" } };
                     });
                 });
 
-                var apiVersions = options
-                    .ApiVersionDescriptionProvider
-                    .ApiVersionDescriptions
-                    .Select(x => x.GroupName)
-                    .OrderBy(x => x)
-                    .ToList();
-
+                var apiVersions = GetApiVersions(options).ToList();
                 var stringLocalizer = app.ApplicationServices.GetRequiredService<IStringLocalizer<Localization>>();
 
                 foreach (var description in apiVersions)
