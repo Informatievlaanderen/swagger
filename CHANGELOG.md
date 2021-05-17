@@ -1,3 +1,10 @@
+## [3.7.24](https://github.com/informatievlaanderen/swagger/compare/v3.7.23...v3.7.24) (2021-05-17)
+
+
+### Bug Fixes
+
+*  change name Informatie Vlaanderen to Digitaal Vlaanderen ([6cc5bdc](https://github.com/informatievlaanderen/swagger/commit/6cc5bdc95225acacb6109f7c892f66793363970d))
+
 ## [3.7.23](https://github.com/informatievlaanderen/swagger/compare/v3.7.22...v3.7.23) (2021-02-02)
 
 
