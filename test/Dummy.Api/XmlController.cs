@@ -62,8 +62,8 @@ namespace Dummy.Api
     <rights>Gratis hergebruik volgens https://overheid.vlaanderen.be/sites/default/files/documenten/ict-egov/licenties/hergebruik/modellicentie_gratis_hergebruik_v1_0.html</rights>
     <updated>2020-09-18T06:25:34Z</updated>
     <author>
-        <name>agentschap Informatie Vlaanderen</name>
-        <email>informatie.vlaanderen@vlaanderen.be</email>
+        <name>agentschap Digitaal Vlaanderen</name>
+        <email>digitaal.vlaanderen@vlaanderen.be</email>
     </author>
     <link href=""https://api.basisregisters.dev-vlaanderen.be/v1/feeds/gebouwen"" rel=""self"" />
     <link href=""https://api.basisregisters.dev-vlaanderen.be/v1/feeds/gebouwen.atom"" rel=""alternate"" type=""application/atom+xml"" />

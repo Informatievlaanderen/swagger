@@ -5,8 +5,8 @@ id Be.Vlaanderen.Basisregisters.AspNetCore.Swagger
 title Be.Vlaanderen.Basisregisters.AspNetCore.Swagger
 
 authors Basisregisters Vlaanderen
-owners agentschap Informatie Vlaanderen <https://vlaanderen.be/informatie-vlaanderen>
-copyright Copyright (c) agentschap Informatie Vlaanderen
+owners agentschap Digitaal Vlaanderen <https://vlaanderen.be/informatie-vlaanderen>
+copyright Copyright (c) agentschap Digitaal Vlaanderen
 requireLicenseAcceptance false
 projectUrl https://github.com/Informatievlaanderen/swagger
 iconUrl https://raw.githubusercontent.com/Informatievlaanderen/build-pipeline/master/logo.png

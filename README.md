@@ -64,8 +64,8 @@ public IServiceProvider ConfigureServices(IServiceCollection services)
               Description = GetApiLeadingText(description),
               Contact = new Contact
               {
-                  Name = "agentschap Informatie Vlaanderen",
-                  Email = "informatie.vlaanderen@vlaanderen.be",
+                  Name = "agentschap Digitaal Vlaanderen",
+                  Email = "digitaal.vlaanderen@vlaanderen.be",
                   Url = "https://vlaanderen.be/informatie-vlaanderen"
               }
           },
