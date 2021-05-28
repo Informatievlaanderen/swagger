@@ -1,3 +1,10 @@
+## [3.7.25](https://github.com/informatievlaanderen/swagger/compare/v3.7.24...v3.7.25) (2021-05-28)
+
+
+### Bug Fixes
+
+* move to 5.0.6 ([fe50472](https://github.com/informatievlaanderen/swagger/commit/fe50472628bed7ce57a1c0654194b6bdb5dd004a))
+
 ## [3.7.24](https://github.com/informatievlaanderen/swagger/compare/v3.7.23...v3.7.24) (2021-05-17)
 
 
