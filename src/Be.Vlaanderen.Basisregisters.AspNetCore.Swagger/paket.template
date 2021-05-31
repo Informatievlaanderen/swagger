@@ -22,10 +22,10 @@ dependencies
 
     Newtonsoft.Json >= LOCKEDVERSION
 
-    Swashbuckle.AspNetCore >= LOCKEDVERSION
-    Swashbuckle.AspNetCore.Filters >= LOCKEDVERSION
-    Swashbuckle.AspNetCore.Newtonsoft >= LOCKEDVERSION
-    Swashbuckle.AspNetCore.Annotations >= LOCKEDVERSION
+    Swashbuckle.AspNetCore = LOCKEDVERSION
+    Swashbuckle.AspNetCore.Filters = LOCKEDVERSION
+    Swashbuckle.AspNetCore.Newtonsoft = LOCKEDVERSION
+    Swashbuckle.AspNetCore.Annotations = LOCKEDVERSION
     Microsoft.OpenApi >= LOCKEDVERSION
 
     NJsonSchema >= LOCKEDVERSION
