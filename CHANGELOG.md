@@ -1,3 +1,10 @@
+## [3.7.28](https://github.com/informatievlaanderen/swagger/compare/v3.7.27...v3.7.28) (2021-05-31)
+
+
+### Bug Fixes
+
+* pin swashbuckle versions in paket.templates ([5ee5706](https://github.com/informatievlaanderen/swagger/commit/5ee5706643850caa9fb24cd7562e3d3ae0d508c9))
+
 ## [3.7.27](https://github.com/informatievlaanderen/swagger/compare/v3.7.26...v3.7.27) (2021-05-31)
 
 
