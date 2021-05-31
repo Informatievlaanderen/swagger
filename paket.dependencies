@@ -11,12 +11,12 @@ nuget Microsoft.Extensions.Localization.Abstractions 5.0.6
 
 nuget Newtonsoft.Json 13.0.1
 
-nuget Swashbuckle.AspNetCore 5.6.3
-nuget Swashbuckle.AspNetCore.Filters 6.0.1
-nuget Swashbuckle.AspNetCore.Newtonsoft 5.6.3
-nuget Swashbuckle.AspNetCore.Annotations 5.6.3
-nuget Swashbuckle.AspNetCore.Swagger 5.6.3
-nuget Swashbuckle.AspNetCore.SwaggerUI 5.6.3
+nuget Swashbuckle.AspNetCore 6.1.4
+nuget Swashbuckle.AspNetCore.Filters 7.0.2
+nuget Swashbuckle.AspNetCore.Newtonsoft 6.1.4
+nuget Swashbuckle.AspNetCore.Annotations 6.1.4
+nuget Swashbuckle.AspNetCore.Swagger 6.1.4
+nuget Swashbuckle.AspNetCore.SwaggerUI 6.1.4
 
 nuget NJsonSchema 10.4.4
 
@@ -27,7 +27,7 @@ nuget NSwag.CodeGeneration.TypeScript 13.11.1
 nuget NJsonSchema.CodeGeneration.TypeScript 10.4.4
 
 // VBR STUFF
-nuget Be.Vlaanderen.Basisregisters.Build.Pipeline 5.0.3
+nuget Be.Vlaanderen.Basisregisters.Build.Pipeline 5.0.4
 nuget Be.Vlaanderen.Basisregisters.AspNetCore.Mvc.Formatters.Json 3.0.10
 
 // TEST STUFF

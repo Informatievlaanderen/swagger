@@ -72,8 +72,6 @@ namespace Be.Vlaanderen.Basisregisters.AspNetCore.Swagger
                 .AddSwaggerExamplesFromAssemblyOf<T>()
                 .AddSwaggerGen(x =>
                 {
-                    x.DescribeAllEnumsAsStrings();
-                    x.DescribeStringEnumsInCamelCase();
                     x.DescribeAllParametersInCamelCase();
 
                     foreach (var xmlCommentPath in options.XmlCommentPaths)

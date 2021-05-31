@@ -65,9 +65,9 @@ namespace Dummy.Api
                         Description = GetApiLeadingText(description),
                         Contact = new OpenApiContact
                         {
-                            Name = "agentschap Digitaal Vlaanderen",
+                            Name = "Digitaal Vlaanderen",
                             Email = "digitaal.vlaanderen@vlaanderen.be",
-                            Url = new Uri("https://vlaanderen.be/informatie-vlaanderen")
+                            Url = new Uri("https://vlaanderen.be/digitaal-vlaanderen")
                         },
                         License = new OpenApiLicense
                         {
