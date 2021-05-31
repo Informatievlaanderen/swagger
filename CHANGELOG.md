@@ -1,3 +1,10 @@
+## [3.7.26](https://github.com/informatievlaanderen/swagger/compare/v3.7.25...v3.7.26) (2021-05-31)
+
+
+### Bug Fixes
+
+* upgrade swagger version ([f33f39f](https://github.com/informatievlaanderen/swagger/commit/f33f39fb34b352527a00a4f925dcf02a737de571))
+
 ## [3.7.25](https://github.com/informatievlaanderen/swagger/compare/v3.7.24...v3.7.25) (2021-05-28)
 
 
