@@ -122,7 +122,18 @@ namespace Be.Vlaanderen.Basisregisters.AspNetCore.Swagger
 
                     // Add server support for ReDoc
                     if (options.Servers != null && options.Servers.Any())
+                    {
+                        foreach (var server in options.Servers)
+                        {
+                            x.AddServer(new OpenApiServer
+                            {
+                                Description = server.Description,
+                                Url = server.Url,
+                            });
+                        }
+
                         x.DocumentFilter<AlternateServersFilter>(options.Servers);
+                    }
 
                     // Adds a 401 Unauthorized and 403 Forbidden response to every action which requires authorization
                     x.OperationFilter<AuthorizationResponseOperationFilter>();
