@@ -1,3 +1,10 @@
+## [3.7.29](https://github.com/informatievlaanderen/swagger/compare/v3.7.28...v3.7.29) (2021-11-24)
+
+
+### Bug Fixes
+
+* correct duplicate servers in openapi contract GAWR-2413 ([b17130b](https://github.com/informatievlaanderen/swagger/commit/b17130b3a768ab790f4931bb6e33c226a19fcc6c))
+
 ## [3.7.28](https://github.com/informatievlaanderen/swagger/compare/v3.7.27...v3.7.28) (2021-05-31)
 
 
