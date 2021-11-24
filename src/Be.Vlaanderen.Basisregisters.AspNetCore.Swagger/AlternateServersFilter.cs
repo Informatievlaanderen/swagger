@@ -23,7 +23,6 @@ namespace Be.Vlaanderen.Basisregisters.AspNetCore.Swagger
             }));
 
             swaggerDoc.Extensions["x-servers"] = serverArray;
-            swaggerDoc.Extensions["servers"] = serverArray;
         }
     }
 }

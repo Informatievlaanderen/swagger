@@ -12,6 +12,7 @@ namespace Be.Vlaanderen.Basisregisters.AspNetCore.Swagger.ReDoc
     using NSwag.CodeGeneration;
     using NSwag.CodeGeneration.CSharp;
     using NSwag.CodeGeneration.TypeScript;
+    using OpenApiServer = Microsoft.OpenApi.Models.OpenApiServer;
 
     public class SwaggerDocumentationOptions
     {
@@ -141,7 +142,7 @@ namespace Be.Vlaanderen.Basisregisters.AspNetCore.Swagger.ReDoc
                     x.RouteTemplate = options.RouteTemplate;
                     x.PreSerializeFilters.Add((swaggerDoc, httpReq) =>
                     {
-                        swaggerDoc.Servers = new List<Microsoft.OpenApi.Models.OpenApiServer> { new() { Url = $"{httpReq.Scheme}://{httpReq.Host.Value}/" } };
+                        swaggerDoc.Servers.Add(new OpenApiServer { Url = $"{httpReq.Scheme}://{httpReq.Host.Value}/" });
                     });
                 });
 
@@ -200,7 +201,7 @@ namespace Be.Vlaanderen.Basisregisters.AspNetCore.Swagger.ReDoc
                         var document = await OpenApiDocument.FromUrlAsync($"{baseUrl}{options.SpecUrlFunc(description)}");
                         if (document.Servers.Count > 1)
                             document.Servers.Remove(document.Servers.ElementAt(0));
-                        
+
                         var code = generateCode(options, description, document);
 
                         context.Response.ContentType = "text/plain; charset=utf-8";
