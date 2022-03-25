@@ -1,3 +1,15 @@
+# [4.0.0](https://github.com/informatievlaanderen/swagger/compare/v3.7.29...v4.0.0) (2022-03-25)
+
+
+### Features
+
+* move to dotnet 6.0.3 ([#157](https://github.com/informatievlaanderen/swagger/issues/157)) ([3f036b7](https://github.com/informatievlaanderen/swagger/commit/3f036b7f8a49c64ebf94f9f2cd5d4c4c1a3090db))
+
+
+### BREAKING CHANGES
+
+* move to dotnet 6.0.3
+
 ## [3.7.29](https://github.com/informatievlaanderen/swagger/compare/v3.7.28...v3.7.29) (2021-11-24)
 
 
