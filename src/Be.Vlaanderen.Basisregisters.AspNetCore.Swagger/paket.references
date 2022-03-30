@@ -3,8 +3,12 @@ Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer
 Microsoft.Extensions.Localization.Abstractions
 
 Swashbuckle.AspNetCore
+Swashbuckle.AspNetCore.Annotations
 Swashbuckle.AspNetCore.Filters
 Swashbuckle.AspNetCore.Newtonsoft
+Swashbuckle.AspNetCore.Swagger
+Swashbuckle.AspNetCore.SwaggerUI
+Swashbuckle.AspNetCore.SwaggerGen
 
 SourceLink.Embed.AllSourceFiles
 SourceLink.Copy.PdbFiles

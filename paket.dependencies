@@ -17,6 +17,7 @@ nuget Swashbuckle.AspNetCore.Newtonsoft 6.2.3
 nuget Swashbuckle.AspNetCore.Annotations 6.2.3
 nuget Swashbuckle.AspNetCore.Swagger 6.2.3
 nuget Swashbuckle.AspNetCore.SwaggerUI 6.2.3
+nuget Swashbuckle.AspNetCore.SwaggerGen 6.2.3
 
 nuget NJsonSchema 10.6.10
 
