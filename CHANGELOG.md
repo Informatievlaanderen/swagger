@@ -1,3 +1,10 @@
+## [4.0.1](https://github.com/informatievlaanderen/swagger/compare/v4.0.0...v4.0.1) (2022-03-30)
+
+
+### Bug Fixes
+
+* revert swagger to 6.2.3 ([9b1847b](https://github.com/informatievlaanderen/swagger/commit/9b1847b3b84b6d7696507850742ad69f8ef2f3ce))
+
 # [4.0.0](https://github.com/informatievlaanderen/swagger/compare/v3.7.29...v4.0.0) (2022-03-25)
 
 
