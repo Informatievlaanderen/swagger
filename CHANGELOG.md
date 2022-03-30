@@ -1,3 +1,10 @@
+## [4.0.2](https://github.com/informatievlaanderen/swagger/compare/v4.0.1...v4.0.2) (2022-03-30)
+
+
+### Bug Fixes
+
+* pin swagger packages in paket.template ([458344e](https://github.com/informatievlaanderen/swagger/commit/458344ef553856a383b2a646ceda2f1a59a7bff8))
+
 ## [4.0.1](https://github.com/informatievlaanderen/swagger/compare/v4.0.0...v4.0.1) (2022-03-30)
 
 
