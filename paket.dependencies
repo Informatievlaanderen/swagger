@@ -11,12 +11,12 @@ nuget Microsoft.Extensions.Localization.Abstractions 6.0.3
 
 nuget Newtonsoft.Json 13.0.1
 
-nuget Swashbuckle.AspNetCore 6.3.0
+nuget Swashbuckle.AspNetCore 6.2.3
 nuget Swashbuckle.AspNetCore.Filters 6.0.1
-nuget Swashbuckle.AspNetCore.Newtonsoft 6.3.0
-nuget Swashbuckle.AspNetCore.Annotations 6.3.0
-nuget Swashbuckle.AspNetCore.Swagger 6.3.0
-nuget Swashbuckle.AspNetCore.SwaggerUI 6.3.0
+nuget Swashbuckle.AspNetCore.Newtonsoft 6.2.3
+nuget Swashbuckle.AspNetCore.Annotations 6.2.3
+nuget Swashbuckle.AspNetCore.Swagger 6.2.3
+nuget Swashbuckle.AspNetCore.SwaggerUI 6.2.3
 
 nuget NJsonSchema 10.6.10
 
