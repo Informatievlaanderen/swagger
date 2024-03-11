@@ -3,9 +3,9 @@ namespace Be.Vlaanderen.Basisregisters.AspNetCore.Swagger.ReDoc
     using System;
     using System.Collections.Generic;
     using System.Linq;
+    using Asp.Versioning.ApiExplorer;
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Http;
-    using Microsoft.AspNetCore.Mvc.ApiExplorer;
     using Microsoft.Extensions.DependencyInjection;
     using Microsoft.Extensions.Localization;
     using NSwag;

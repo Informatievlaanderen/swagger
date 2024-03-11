@@ -15,8 +15,8 @@ licenseUrl https://opensource.org/licenses/MIT
 description Swagger helpers.
 
 dependencies
-  framework: net6.0
-    Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer >= LOCKEDVERSION
+  framework: net8.0
+    Asp.Versioning.Mvc.ApiExplorer >= LOCKEDVERSION
     Microsoft.Extensions.FileProviders.Embedded >= LOCKEDVERSION
     Microsoft.Extensions.Localization.Abstractions >= LOCKEDVERSION
 
@@ -38,5 +38,5 @@ dependencies
     NJsonSchema.CodeGeneration.TypeScript >= LOCKEDVERSION
 
 files
-  bin\Release\net6.0\Be.Vlaanderen.Basisregisters.AspNetCore.Swagger.dll => lib\net6.0
-  bin\Release\net6.0\Be.Vlaanderen.Basisregisters.AspNetCore.Swagger.pdb => lib\net6.0
+  Be.Vlaanderen.Basisregisters.AspNetCore.Swagger.dll => lib\net8.0
+  Be.Vlaanderen.Basisregisters.AspNetCore.Swagger.pdb => lib\net8.0

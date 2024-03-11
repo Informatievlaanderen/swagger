@@ -1,4 +1,4 @@
-Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer
+Asp.Versioning.Mvc.ApiExplorer
 Microsoft.AspNetCore.Mvc.NewtonsoftJson
 
 Microsoft.Extensions.Logging.Console

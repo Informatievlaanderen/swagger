@@ -3,6 +3,7 @@ namespace Dummy.Api
     using System;
     using System.ComponentModel;
     using System.Runtime.Serialization;
+    using Asp.Versioning;
     using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Http;
     using Microsoft.AspNetCore.Mvc;

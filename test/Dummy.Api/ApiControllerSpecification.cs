@@ -3,6 +3,7 @@ namespace Dummy.Api
     using System;
     using System.Net.Mime;
     using System.Reflection;
+    using Asp.Versioning.ApplicationModels;
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.AspNetCore.Mvc.ApplicationModels;
 
