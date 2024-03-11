@@ -6,6 +6,7 @@ namespace Be.Vlaanderen.Basisregisters.AspNetCore.Swagger
     using System.Linq;
     using System.Reflection;
     using System.Text;
+    using Asp.Versioning.ApiExplorer;
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.AspNetCore.Mvc.ApiExplorer;
     using Microsoft.AspNetCore.Mvc.Controllers;

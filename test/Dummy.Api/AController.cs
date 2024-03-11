@@ -4,6 +4,7 @@ namespace Dummy.Api
     using System.ComponentModel.DataAnnotations;
     using System.Linq;
     using System.Reflection;
+    using Asp.Versioning;
     using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Http;
     using Microsoft.AspNetCore.Mvc;

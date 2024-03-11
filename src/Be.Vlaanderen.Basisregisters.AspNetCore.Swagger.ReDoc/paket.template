@@ -15,10 +15,10 @@ licenseUrl https://opensource.org/licenses/MIT
 description Swagger ReDoc documentation.
 
 dependencies
-  framework: net6.0
+  framework: net8.0
     Be.Vlaanderen.Basisregisters.AspNetCore.Swagger CURRENTVERSION
 
-    Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer >= LOCKEDVERSION
+    Asp.Versioning.Mvc.ApiExplorer >= LOCKEDVERSION
     Microsoft.Extensions.Localization.Abstractions >= LOCKEDVERSION
     Microsoft.Extensions.FileProviders.Embedded >= LOCKEDVERSION
     Newtonsoft.Json >= LOCKEDVERSION
@@ -27,5 +27,5 @@ dependencies
     NSwag.CodeGeneration.TypeScript >= LOCKEDVERSION
 
 files
-  bin\Release\net6.0\Be.Vlaanderen.Basisregisters.AspNetCore.Swagger.ReDoc.dll => lib\net6.0
-  bin\Release\net6.0\Be.Vlaanderen.Basisregisters.AspNetCore.Swagger.ReDoc.pdb => lib\net6.0
+  Be.Vlaanderen.Basisregisters.AspNetCore.Swagger.ReDoc.dll => lib\net8.0
+  Be.Vlaanderen.Basisregisters.AspNetCore.Swagger.ReDoc.pdb => lib\net8.0

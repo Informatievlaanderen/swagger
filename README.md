@@ -1,4 +1,4 @@
-# Be.Vlaanderen.Basisregisters.AspNetCore.Swagger [![Build Status](https://github.com/Informatievlaanderen/swagger/workflows/CI/badge.svg)](https://github.com/Informatievlaanderen/swagger/actions)
+# Be.Vlaanderen.Basisregisters.AspNetCore.Swagger [![Build Status](https://github.com/Informatievlaanderen/swagger/workflows/Build/badge.svg)](https://github.com/Informatievlaanderen/swagger/actions)
 
 Swagger and ReDoc helpers.
 

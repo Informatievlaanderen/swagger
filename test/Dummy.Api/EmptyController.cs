@@ -1,6 +1,7 @@
 namespace Dummy.Api
 {
     using System.Reflection;
+    using Asp.Versioning;
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.Net.Http.Headers;
     using Swashbuckle.AspNetCore.Filters;
