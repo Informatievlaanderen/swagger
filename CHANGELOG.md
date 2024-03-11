@@ -1,3 +1,15 @@
+# [5.0.0](https://github.com/informatievlaanderen/swagger/compare/v4.0.2...v5.0.0) (2024-03-11)
+
+
+### Features
+
+* move to dotnet 8.0.2 ([49ec14f](https://github.com/informatievlaanderen/swagger/commit/49ec14f6869ca8fbdd0c8eec05685c334dcd378c))
+
+
+### BREAKING CHANGES
+
+* move to dotnet 8.0.2
+
 ## [4.0.2](https://github.com/informatievlaanderen/swagger/compare/v4.0.1...v4.0.2) (2022-03-30)
 
 
