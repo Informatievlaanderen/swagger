@@ -1,3 +1,10 @@
+# [5.1.0](https://github.com/informatievlaanderen/swagger/compare/v5.0.0...v5.1.0) (2024-09-19)
+
+
+### Features
+
+* update swagger packages ([d21a613](https://github.com/informatievlaanderen/swagger/commit/d21a61348239956caeb0e9014a8721dc55cc3580))
+
 # [5.0.0](https://github.com/informatievlaanderen/swagger/compare/v4.0.2...v5.0.0) (2024-03-11)
 
 
