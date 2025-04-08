@@ -22,7 +22,7 @@
         <PackageVersion Include="Swashbuckle.AspNetCore.SwaggerUI" Version="8.1.0" />
         <PackageVersion Include="Swashbuckle.AspNetCore.SwaggerGen" Version="8.1.0" />
 
-        <PackageVersion Include="NJsonSchema" Version="11.0.2" />
+        <PackageVersion Include="NJsonSchema" Version="11.2.0" />
 
         <PackageVersion Include="NSwag.CodeGeneration.CSharp" Version="14.3.0" />
         <PackageVersion Include="NJsonSchema.CodeGeneration.CSharp" Version="11.2.0" />
