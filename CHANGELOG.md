@@ -1,3 +1,15 @@
+# [6.0.0](https://github.com/informatievlaanderen/swagger/compare/v5.1.0...v6.0.0) (2025-04-08)
+
+
+### Code Refactoring
+
+* use renovate and nuget + update pipeline ([c6d0a8e](https://github.com/informatievlaanderen/swagger/commit/c6d0a8eeeb674c2b2926573dd2b53c4cb3ac9572))
+
+
+### BREAKING CHANGES
+
+* update to dotnet 9
+
 # [5.1.0](https://github.com/informatievlaanderen/swagger/compare/v5.0.0...v5.1.0) (2024-09-19)
 
 
