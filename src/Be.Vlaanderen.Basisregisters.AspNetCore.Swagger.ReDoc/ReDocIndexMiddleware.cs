@@ -11,6 +11,7 @@ namespace Be.Vlaanderen.Basisregisters.AspNetCore.Swagger.ReDoc
     using System.Text.RegularExpressions;
     using System.Threading.Tasks;
     using Microsoft.AspNetCore.Http;
+    using Microsoft.AspNetCore.Http.Features;
     using Microsoft.AspNetCore.Localization;
     using Microsoft.Net.Http.Headers;
     using Newtonsoft.Json;
@@ -31,26 +32,26 @@ namespace Be.Vlaanderen.Basisregisters.AspNetCore.Swagger.ReDoc
             var httpMethod = httpContext.Request.Method;
             var path = httpContext.Request.Path.Value;
 
-            var rqf = httpContext.Request.HttpContext.Features.Get<IRequestCultureFeature>();
+            var rqf = httpContext.Request.HttpContext.Features.GetRequiredFeature<IRequestCultureFeature>();
             var culture = rqf.RequestCulture.UICulture;
 
             switch (httpMethod)
             {
                 // If the RoutePrefix is requested (with or without trailing slash), redirect to index URL
-                case "GET" when Regex.IsMatch(path, $"^/{_options.RoutePrefix}/?$"):
+                case "GET" when Regex.IsMatch(path!, $"^/{_options.RoutePrefix}/?$"):
                     // Use relative redirect to support proxy environments
-                    var relativeRedirectPath = path.EndsWith("/")
+                    var relativeRedirectPath = path!.EndsWith("/")
                         ? "api-documentation.html"
                         : $"{path.Split('/').Last()}/api-documentation.html";
 
                     RespondWithRedirect(httpContext.Response, relativeRedirectPath);
                     return;
 
-                case "GET" when Regex.IsMatch(path, $"^/({_options.RoutePrefix}/)?api-documentation.html", RegexOptions.IgnoreCase):
+                case "GET" when Regex.IsMatch(path!, $"^/({_options.RoutePrefix}/)?api-documentation.html", RegexOptions.IgnoreCase):
                     await RespondWithIndexHtml(httpContext.Response, culture);
                     return;
 
-                case "GET" when Regex.IsMatch(path, $"^/({_options.RoutePrefix}/)?manifest.json", RegexOptions.IgnoreCase):
+                case "GET" when Regex.IsMatch(path!, $"^/({_options.RoutePrefix}/)?manifest.json", RegexOptions.IgnoreCase):
                     await RespondWithManifest(httpContext.Response, culture);
                     return;
 
@@ -78,7 +79,7 @@ namespace Be.Vlaanderen.Basisregisters.AspNetCore.Swagger.ReDoc
             response.StatusCode = StatusCodes.Status200OK;
             response.ContentType = "application/json";
             await RespondWithStream(response, culture, () => typeof(ReDocOptions).GetTypeInfo().Assembly
-                .GetManifestResourceStream("Be.Vlaanderen.Basisregisters.AspNetCore.Swagger.ReDoc.www.manifest.json"));
+                .GetManifestResourceStream("Be.Vlaanderen.Basisregisters.AspNetCore.Swagger.ReDoc.www.manifest.json")!);
         }
 
         private async Task RespondWithStream(HttpResponse response, CultureInfo culture, Func<Stream> streamFunc)

@@ -1,0 +1,38 @@
+<Project>
+    <PropertyGroup>
+        <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
+        <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
+        <CentralPackageVersionOverrideEnabled>false</CentralPackageVersionOverrideEnabled>
+    </PropertyGroup>
+    <ItemGroup>
+        <PackageVersion Include="Asp.Versioning.Mvc.ApiExplorer" Version="8.1.0" />
+        <PackageVersion Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="9.0.3" />
+        <PackageVersion Include="Microsoft.Extensions.Logging.Console" Version="9.0.3" />
+        <PackageVersion Include="Microsoft.Extensions.LoFileProvidersgging.Embedded" Version="9.0.3" />
+        <PackageVersion Include="Microsoft.Extensions.Localization.Abstractions" Version="9.0.3" />
+        <PackageVersion Include="Microsoft.Extensions.FileProviders.Embedded" Version="9.0.3" />
+
+        <PackageVersion Include="Newtonsoft.Json" Version="13.0.3" />
+
+        <PackageVersion Include="Swashbuckle.AspNetCore" Version="8.1.0" />
+        <PackageVersion Include="Swashbuckle.AspNetCore.Filters" Version="8.0.2" />
+        <PackageVersion Include="Swashbuckle.AspNetCore.Newtonsoft" Version="8.1.0" />
+        <PackageVersion Include="Swashbuckle.AspNetCore.Annotations" Version="8.1.0" />
+        <PackageVersion Include="Swashbuckle.AspNetCore.Swagger" Version="8.1.0" />
+        <PackageVersion Include="Swashbuckle.AspNetCore.SwaggerUI" Version="8.1.0" />
+        <PackageVersion Include="Swashbuckle.AspNetCore.SwaggerGen" Version="8.1.0" />
+
+        <PackageVersion Include="NJsonSchema" Version="11.0.2" />
+
+        <PackageVersion Include="NSwag.CodeGeneration.CSharp" Version="14.3.0" />
+        <PackageVersion Include="NJsonSchema.CodeGeneration.CSharp" Version="11.2.0" />
+
+        <PackageVersion Include="NSwag.CodeGeneration.TypeScript" Version="14.3.0" />
+        <PackageVersion Include="NJsonSchema.CodeGeneration.TypeScript" Version="11.2.0" />
+
+        <PackageVersion Include="Be.Vlaanderen.Basisregisters.AspNetCore.Mvc.Formatters.Json" Version="6.0.0" />
+
+        <PackageVersion Include="SourceLink.Embed.AllSourceFiles" Version="2.8.3" />
+        <PackageVersion Include="SourceLink.Copy.PdbFiles" Version="2.8.3" />
+    </ItemGroup>
+</Project>

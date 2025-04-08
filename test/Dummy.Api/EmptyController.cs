@@ -15,7 +15,7 @@ namespace Dummy.Api
         public IActionResult Get()
             => Request.Headers[HeaderNames.Accept].ToString().Contains("text/html")
                 ? (IActionResult)new RedirectResult("/docs")
-                : new OkObjectResult($"Welcome to the Example API v{Assembly.GetEntryAssembly().GetName().Version}.");
+                : new OkObjectResult($"Welcome to the Example API v{Assembly.GetEntryAssembly()!.GetName().Version}.");
     }
 
     public class EmptyResponseExamples : IExamplesProvider<object>

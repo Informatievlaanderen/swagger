@@ -15,7 +15,7 @@ namespace Be.Vlaanderen.Basisregisters.AspNetCore.Swagger.ReDoc
         /// Gets or sets a Stream function for retrieving the ReDoc page.
         /// </summary>
         public Func<Stream> IndexStream { get; set; } = () => typeof(ReDocOptions).GetTypeInfo().Assembly
-            .GetManifestResourceStream("Be.Vlaanderen.Basisregisters.AspNetCore.Swagger.ReDoc.www.api-documentation.html");
+            .GetManifestResourceStream("Be.Vlaanderen.Basisregisters.AspNetCore.Swagger.ReDoc.www.api-documentation.html")!;
 
         /// <summary>
         /// Gets or sets a title for the ReDoc page.

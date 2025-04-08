@@ -131,8 +131,6 @@ public void Configure(
 
 ### Libraries
 
-* [Paket](https://fsprojects.github.io/Paket/license.html) - _A dependency manager for .NET with support for NuGet packages and Git repositories._ - [MIT](https://choosealicense.com/licenses/mit/)
-* [FAKE](https://github.com/fsharp/FAKE/blob/release/next/License.txt) - _"FAKE - F# Make" is a cross platform build automation system._ - [MIT](https://choosealicense.com/licenses/mit/)
 * [Newtonsoft.Json](https://github.com/JamesNK/Newtonsoft.Json/blob/master/LICENSE.md) - _Json.NET is a popular high-performance JSON framework for .NET_ - [MIT](https://choosealicense.com/licenses/mit/)
 * [Swashbuckle](https://github.com/domaindrivendev/Swashbuckle/blob/master/LICENSE) - _Seamlessly adds a swagger to WebApi projects!_ - [BSD](https://choosealicense.com/licenses/bsd-3-clause/)
 * [Swashbuckle Filters](https://github.com/mattfrear/Swashbuckle.AspNetCore.Filters/blob/master/LICENSE) - _A bunch of useful filters for Swashbuckle.AspNetCore._ - [MIT](https://choosealicense.com/licenses/mit/)
