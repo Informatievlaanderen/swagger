@@ -32,7 +32,7 @@ namespace Be.Vlaanderen.Basisregisters.AspNetCore.Swagger
             var tags = operation.Tags?.Select(x => x).ToList() ?? new List<OpenApiTag>();
             var controllerTag = tags.FirstOrDefault(x => x.Name == controllerActionDescriptor.ControllerName);
 
-            tags.Remove(controllerTag);
+            tags.Remove(controllerTag!);
 
             foreach (var apiGroupName in apiGroupNames)
                 if (tags.All(x => x.Name != apiGroupName))

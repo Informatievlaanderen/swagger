@@ -17,9 +17,12 @@ namespace Be.Vlaanderen.Basisregisters.AspNetCore.Swagger
             this OperationFilterContext context)
             where T : Attribute
         {
-            var customAttributes1 = context.MethodInfo.DeclaringType.GetTypeInfo().GetCustomAttributes<T>();
+            var customAttributes1 = context.MethodInfo.DeclaringType?.GetTypeInfo().GetCustomAttributes<T>();
             var customAttributes2 = context.MethodInfo.GetCustomAttributes<T>();
-            var objList = new List<T>(customAttributes1);
+            var objList = new List<T>();
+            if (customAttributes1 != null)
+                objList.AddRange(customAttributes1);
+            
             objList.AddRange(customAttributes2);
             return objList;
         }

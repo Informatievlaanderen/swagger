@@ -55,7 +55,7 @@ namespace Swashbuckle.AspNetCore.Filters
 
             if (type.GetTypeInfo().IsArray)
             {
-                UpdateDescriptions(schemaRegistry, type.GetElementType());
+                UpdateDescriptions(schemaRegistry, type.GetElementType()!);
                 return;
             }
 
@@ -75,7 +75,7 @@ namespace Swashbuckle.AspNetCore.Filters
                 UpdateDescriptions(schemaRegistry, child.PropertyType);
         }
 
-        private static OpenApiSchema FindSchemaForType(SchemaRepository schemaRegistry, Type type)
+        private static OpenApiSchema? FindSchemaForType(SchemaRepository schemaRegistry, Type type)
         {
             if (schemaRegistry.Schemas.ContainsKey(type.FriendlyId(false)))
                 return schemaRegistry.Schemas[type.FriendlyId(false)];

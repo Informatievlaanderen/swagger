@@ -20,7 +20,7 @@ namespace Be.Vlaanderen.Basisregisters.AspNetCore.Swagger
         /// <summary>
         /// Function which returns global metadata to be included in the Swagger output.
         /// </summary>
-        public Func<IApiVersionDescriptionProvider, ApiVersionDescription, OpenApiInfo> ApiInfoFunc { get; set; }
+        public Func<IApiVersionDescriptionProvider, ApiVersionDescription, OpenApiInfo>? ApiInfoFunc { get; set; }
 
         /// <summary>
         /// Inject human-friendly descriptions for Operations, Parameters and Schemas based on XML Comment files.
@@ -50,7 +50,7 @@ namespace Be.Vlaanderen.Basisregisters.AspNetCore.Swagger
 
         public class MiddlewareHookOptions
         {
-            public Action<SwaggerGenOptions> AfterSwaggerGen { get; set; }
+            public Action<SwaggerGenOptions>? AfterSwaggerGen { get; set; }
         }
     }
 
@@ -167,8 +167,8 @@ namespace Be.Vlaanderen.Basisregisters.AspNetCore.Swagger
             var possiblePaths = new[]
             {
                 CreateXmlCommentsPath(AppContext.BaseDirectory, name),
-                CreateXmlCommentsPath(Directory.GetParent(Assembly.GetExecutingAssembly().Location).FullName, name),
-                CreateXmlCommentsPath(Path.GetDirectoryName(typeof(T).Assembly.Location), name),
+                CreateXmlCommentsPath(Directory.GetParent(Assembly.GetExecutingAssembly().Location)!.FullName, name),
+                CreateXmlCommentsPath(Path.GetDirectoryName(typeof(T).Assembly.Location)!, name),
             };
 
             foreach (var possiblePath in possiblePaths)

@@ -19,7 +19,7 @@ namespace Be.Vlaanderen.Basisregisters.AspNetCore.Swagger.ReDoc
         /// <summary>
         /// Defines the behavior of a provider that discovers and describes API version information within an application.
         /// </summary>
-        public IApiVersionDescriptionProvider ApiVersionDescriptionProvider { get; set; }
+        public IApiVersionDescriptionProvider? ApiVersionDescriptionProvider { get; set; }
 
         /// <summary>
         /// Sets a title for the ReDoc page.
@@ -74,15 +74,15 @@ namespace Be.Vlaanderen.Basisregisters.AspNetCore.Swagger.ReDoc
 
         public class CSharpClientOptions
         {
-            public string ClassName { get; set; }
-            public string Namespace { get; set; }
+            public string? ClassName { get; set; }
+            public string? Namespace { get; set; }
         }
 
         public TypeScriptClientOptions TypeScriptClient { get; } = new();
 
         public class TypeScriptClientOptions
         {
-            public string ClassName { get; set; }
+            public string? ClassName { get; set; }
         }
     }
 
@@ -153,29 +153,29 @@ namespace Be.Vlaanderen.Basisregisters.AspNetCore.Swagger.ReDoc
                 {
                     apiDocs.UseReDoc(x =>
                     {
-                        x.DocumentTitle = stringLocalizer[options.DocumentTitleFunc(description)];
-                        x.DocumentDescription = stringLocalizer[options.DocumentDescriptionFunc(description)];
-                        x.ApplicationName = stringLocalizer[options.ApplicationNameFunc(description)];
-                        x.HeaderTitle = stringLocalizer[options.HeaderTitleFunc(description)];
-                        x.HeaderLink = stringLocalizer[options.HeaderLinkFunc(description)];
-                        x.HeadContent = options.HeadContentFunc(description);
-                        x.FooterVersion = options.FooterVersion;
-                        x.SpecUrl = options.SpecUrlFunc(description);
-                        x.RoutePrefix = options.RoutePrefixFunc(description);
+                        x.DocumentTitle = stringLocalizer[options.DocumentTitleFunc!(description)];
+                        x.DocumentDescription = stringLocalizer[options.DocumentDescriptionFunc!(description)];
+                        x.ApplicationName = stringLocalizer[options.ApplicationNameFunc!(description)];
+                        x.HeaderTitle = stringLocalizer[options.HeaderTitleFunc!(description)];
+                        x.HeaderLink = stringLocalizer[options.HeaderLinkFunc!(description)];
+                        x.HeadContent = options.HeadContentFunc!(description);
+                        x.FooterVersion = options.FooterVersion!;
+                        x.SpecUrl = options.SpecUrlFunc!(description);
+                        x.RoutePrefix = options.RoutePrefixFunc!(description);
                     });
                 }
 
                 if (apiVersions.Count > 0)
                     apiDocs.UseReDoc(x =>
                     {
-                        x.DocumentTitle = stringLocalizer[options.DocumentTitleFunc(apiVersions[0])];
-                        x.DocumentDescription = stringLocalizer[options.DocumentDescriptionFunc(apiVersions[0])];
-                        x.ApplicationName = stringLocalizer[options.ApplicationNameFunc(apiVersions[0])];
-                        x.HeaderTitle = stringLocalizer[options.HeaderTitleFunc(apiVersions[0])];
-                        x.HeaderLink = stringLocalizer[options.HeaderLinkFunc(apiVersions[0])];
-                        x.HeadContent = options.HeadContentFunc(apiVersions[0]);
-                        x.FooterVersion = options.FooterVersion;
-                        x.SpecUrl = options.SpecUrlFunc(apiVersions[0]);
+                        x.DocumentTitle = stringLocalizer[options.DocumentTitleFunc!(apiVersions[0])];
+                        x.DocumentDescription = stringLocalizer[options.DocumentDescriptionFunc!(apiVersions[0])];
+                        x.ApplicationName = stringLocalizer[options.ApplicationNameFunc!(apiVersions[0])];
+                        x.HeaderTitle = stringLocalizer[options.HeaderTitleFunc!(apiVersions[0])];
+                        x.HeaderLink = stringLocalizer[options.HeaderLinkFunc!(apiVersions[0])];
+                        x.HeadContent = options.HeadContentFunc!(apiVersions[0]);
+                        x.FooterVersion = options.FooterVersion!;
+                        x.SpecUrl = options.SpecUrlFunc!(apiVersions[0]);
                         x.RoutePrefix = string.Empty;
                     });
             });
@@ -198,7 +198,7 @@ namespace Be.Vlaanderen.Basisregisters.AspNetCore.Swagger.ReDoc
                     {
                         var baseUrl = $"{context.Request.Scheme}://{context.Request.Host}";
 
-                        var document = await OpenApiDocument.FromUrlAsync($"{baseUrl}{options.SpecUrlFunc(description)}");
+                        var document = await OpenApiDocument.FromUrlAsync($"{baseUrl}{options.SpecUrlFunc!(description)}");
                         if (document.Servers.Count > 1)
                             document.Servers.Remove(document.Servers.ElementAt(0));
 
@@ -220,7 +220,7 @@ namespace Be.Vlaanderen.Basisregisters.AspNetCore.Swagger.ReDoc
                 UseBaseUrl = true,
                 CSharpGeneratorSettings =
                 {
-                    Namespace = options.CSharpClient.Namespace,
+                    Namespace = options.CSharpClient.Namespace ?? string.Empty,
                 }
             }).GenerateFile(ClientGeneratorOutputType.Full);
 
@@ -256,7 +256,7 @@ namespace Be.Vlaanderen.Basisregisters.AspNetCore.Swagger.ReDoc
 
         private static IEnumerable<string> GetApiVersions(SwaggerDocumentationOptions options)
             => options
-                .ApiVersionDescriptionProvider
+                .ApiVersionDescriptionProvider!
                 .ApiVersionDescriptions
                 .Select(x => x.GroupName)
                 .OrderBy(x => x)

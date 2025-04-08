@@ -49,7 +49,7 @@ namespace Dummy.Api
     public class XmlResponseExamples : IExamplesProvider<XmlElement>
     {
         public XmlElement GetExamples()
-            => GetExampleDocument().DocumentElement;
+            => GetExampleDocument().DocumentElement!;
 
         internal XmlDocument GetExampleDocument()
         {

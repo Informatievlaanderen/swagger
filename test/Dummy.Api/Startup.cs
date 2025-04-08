@@ -30,7 +30,6 @@ namespace Dummy.Api
                     .AllowAnyMethod()))
                 .AddMvcCore(x => x.EnableEndpointRouting = false)
                 .AddXmlDataContractSerializerFormatters()
-                .SetCompatibilityVersion(CompatibilityVersion.Version_3_0)
                 .AddNewtonsoftJson(cfg => cfg.SerializerSettings.ConfigureDefaultForApi())
                 .AddDataAnnotationsLocalization()
                 .AddApiExplorer();
@@ -74,7 +73,7 @@ namespace Dummy.Api
                         new Server("https://api.example.com/", "Production")
                     },
 
-                    XmlCommentPaths = new[] { typeof(Startup).GetTypeInfo().Assembly.GetName().Name },
+                    XmlCommentPaths = new[] { typeof(Startup).GetTypeInfo().Assembly.GetName().Name! },
 
                     CustomSortFunc = SortByApiOrder.Sort
 
@@ -95,7 +94,7 @@ namespace Dummy.Api
                 new CultureInfo("nl")
             };
 
-            var version = Assembly.GetEntryAssembly().GetName().Version;
+            var version = Assembly.GetEntryAssembly()!.GetName().Version;
 
             app
                 .UseRequestLocalization(new RequestLocalizationOptions
@@ -116,7 +115,7 @@ namespace Dummy.Api
                     ApplicationNameFunc = _ => "Example API",
                     HeaderTitleFunc = groupName => "Example API",
                     HeaderLinkFunc = groupName => "/docs/",
-                    FooterVersion = $"{version.Minor}.{version.Build}.{version.Revision}",
+                    FooterVersion = $"{version!.Minor}.{version.Build}.{version.Revision}",
                     CSharpClient =
                     {
                         ClassName = "ExampleApi",
