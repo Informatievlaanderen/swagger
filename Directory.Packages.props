@@ -15,7 +15,7 @@
         <PackageVersion Include="Newtonsoft.Json" Version="13.0.3" />
 
         <PackageVersion Include="Swashbuckle.AspNetCore" Version="8.1.0" />
-        <PackageVersion Include="Swashbuckle.AspNetCore.Filters" Version="8.0.2" />
+        <PackageVersion Include="Swashbuckle.AspNetCore.Filters" Version="8.0.3" />
         <PackageVersion Include="Swashbuckle.AspNetCore.Newtonsoft" Version="8.1.0" />
         <PackageVersion Include="Swashbuckle.AspNetCore.Annotations" Version="8.1.0" />
         <PackageVersion Include="Swashbuckle.AspNetCore.Swagger" Version="8.1.0" />
