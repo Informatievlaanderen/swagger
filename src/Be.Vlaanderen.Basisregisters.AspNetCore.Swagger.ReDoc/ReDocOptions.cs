@@ -1,6 +1,7 @@
 namespace Be.Vlaanderen.Basisregisters.AspNetCore.Swagger.ReDoc
 {
     using System;
+    using System.Collections.Generic;
     using System.IO;
     using System.Reflection;
 
@@ -58,6 +59,21 @@ namespace Be.Vlaanderen.Basisregisters.AspNetCore.Swagger.ReDoc
         /// This is visible on the page.
         /// </summary>
         public string FooterVersion { get; set; } = string.Empty;
+
+        // /// <summary>
+        // /// Gets or sets the current API version being displayed.
+        // /// </summary>
+        // public string CurrentVersion { get; set; } = string.Empty;
+        //
+        // /// <summary>
+        // /// Gets or sets the list of available API versions for the version selector.
+        // /// </summary>
+        // public IEnumerable<string> AvailableVersions { get; set; } = Array.Empty<string>();
+        //
+        // /// <summary>
+        // /// Gets or sets the base route for version navigation (e.g., "/docs").
+        // /// </summary>
+        // public string VersionRouteBase { get; set; } = "/docs";
 
         /// <summary>
         /// Gets or sets the Swagger JSON endpoint. Can be fully-qualified or relative to the ReDoc page.

@@ -124,11 +124,12 @@ namespace Be.Vlaanderen.Basisregisters.AspNetCore.Swagger.ReDoc
             options.SpecUrlFunc ??= description => $"/docs/{description}/docs.json";
 
             app
-                .MapDocs(options)
-                .MapClient(options, "csharp", GenerateCSharpCode)
-                .MapClient(options, "jquery", GeneratejQueryCode)
-                .MapClient(options, "angular", GenerateAngularCode)
-                .MapClient(options, "angularjs", GenerateAngularJsCode);
+                .MapDocs(options);
+                //TODO: remove with next breaking change
+                // .MapClient(options, "csharp", GenerateCSharpCode)
+                // .MapClient(options, "jquery", GeneratejQueryCode)
+                // .MapClient(options, "angular", GenerateAngularCode)
+                // .MapClient(options, "angularjs", GenerateAngularJsCode);
 
             return app;
         }
@@ -149,8 +150,11 @@ namespace Be.Vlaanderen.Basisregisters.AspNetCore.Swagger.ReDoc
                 var apiVersions = GetApiVersions(options).ToList();
                 var stringLocalizer = app.ApplicationServices.GetRequiredService<IStringLocalizer<Localization>>();
 
-                foreach (var description in apiVersions)
+                for (var i = 0; i < apiVersions.Count; i++)
                 {
+                    var description = apiVersions[i];
+                    var isDefault = i == 0; // First version gets the default (empty) route
+
                     apiDocs.UseReDoc(x =>
                     {
                         x.DocumentTitle = stringLocalizer[options.DocumentTitleFunc!(description)];
@@ -161,23 +165,12 @@ namespace Be.Vlaanderen.Basisregisters.AspNetCore.Swagger.ReDoc
                         x.HeadContent = options.HeadContentFunc!(description);
                         x.FooterVersion = options.FooterVersion!;
                         x.SpecUrl = options.SpecUrlFunc!(description);
-                        x.RoutePrefix = options.RoutePrefixFunc!(description);
+                        x.RoutePrefix = isDefault ? string.Empty : options.RoutePrefixFunc!(description);
+                        // x.CurrentVersion = description;
+                        // x.AvailableVersions = apiVersions;
+                        // x.VersionRouteBase = $"/{options.DocsRoutePrefix}";
                     });
                 }
-
-                if (apiVersions.Count > 0)
-                    apiDocs.UseReDoc(x =>
-                    {
-                        x.DocumentTitle = stringLocalizer[options.DocumentTitleFunc!(apiVersions[0])];
-                        x.DocumentDescription = stringLocalizer[options.DocumentDescriptionFunc!(apiVersions[0])];
-                        x.ApplicationName = stringLocalizer[options.ApplicationNameFunc!(apiVersions[0])];
-                        x.HeaderTitle = stringLocalizer[options.HeaderTitleFunc!(apiVersions[0])];
-                        x.HeaderLink = stringLocalizer[options.HeaderLinkFunc!(apiVersions[0])];
-                        x.HeadContent = options.HeadContentFunc!(apiVersions[0]);
-                        x.FooterVersion = options.FooterVersion!;
-                        x.SpecUrl = options.SpecUrlFunc!(apiVersions[0]);
-                        x.RoutePrefix = string.Empty;
-                    });
             });
 
             return app;
@@ -258,7 +251,8 @@ namespace Be.Vlaanderen.Basisregisters.AspNetCore.Swagger.ReDoc
             => options
                 .ApiVersionDescriptionProvider!
                 .ApiVersionDescriptions
-                .Select(x => x.GroupName)
+                .Select(x => x.ApiVersion.ToString("'v'V"))
+                .Distinct()
                 .OrderBy(x => x)
                 .ToList();
 

@@ -113,8 +113,32 @@ namespace Be.Vlaanderen.Basisregisters.AspNetCore.Swagger.ReDoc
                 {"%(HeadContent)", _options.HeadContent},
                 {"%(FooterVersion)", string.IsNullOrWhiteSpace(_options.FooterVersion) ? "x.x.x" : _options.FooterVersion},
                 {"%(SpecUrl)", $"{_options.SpecUrl}?culture={culture.IetfLanguageTag}"},
-                {"%(Options)", SerializeToJson(_options.Options)}
+                {"%(Options)", SerializeToJson(_options.Options)},
+                //{"%(VersionSelector)", BuildVersionSelectorHtml()}
             };
+
+        // private string BuildVersionSelectorHtml()
+        // {
+        //     var versions = _options.AvailableVersions?.ToList();
+        //     if (versions == null || versions.Count <= 1)
+        //         return string.Empty;
+        //
+        //     var optionsHtml = new StringBuilder();
+        //     foreach (var version in versions)
+        //     {
+        //         var selected = version == _options.CurrentVersion ? " selected" : "";
+        //         optionsHtml.Append($"<option value=\"{version}\"{selected}>{version}</option>");
+        //     }
+        //
+        //     return $@"
+        //         <div id=""version-selector"" style=""margin-left: 20px; display: flex; align-items: center;"">
+        //             <label for=""api-version"" style=""color: #333; margin-right: 8px; font-size: 14px;"">API Version:</label>
+        //             <select id=""api-version"" onchange=""window.location.href='{_options.VersionRouteBase}/' + (this.value === '{versions.FirstOrDefault()}' ? '' : this.value + '/')""
+        //                     style=""padding: 4px 8px; border: 1px solid #ccc; border-radius: 4px; font-size: 14px; cursor: pointer;"">
+        //                 {optionsHtml}
+        //             </select>
+        //         </div>";
+        // }
 
         private static string SerializeToJson(object obj) =>
             JsonConvert.SerializeObject(
