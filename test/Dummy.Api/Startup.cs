@@ -42,7 +42,7 @@ namespace Dummy.Api
                 })
                 .AddApiExplorer(cfg =>
                 {
-                    cfg.GroupNameFormat = "'v'VVV";
+                    cfg.GroupNameFormat = "'v'V";
                     cfg.SubstituteApiVersionInUrl = true;
                 });
 

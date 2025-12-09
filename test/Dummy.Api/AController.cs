@@ -12,8 +12,8 @@ namespace Dummy.Api
     using Microsoft.AspNetCore.Mvc.Controllers;
     using Swashbuckle.AspNetCore.Filters;
 
-    [ApiVersion("1.0")]
-    [AdvertiseApiVersions("1.0")]
+    [ApiVersion("2.0")]
+    [AdvertiseApiVersions("2.0")]
     [Route("v{version:apiVersion}/a/")]
     [ApiExplorerSettings(GroupName = "Y")]
     [Authorize]
