@@ -157,23 +157,23 @@ namespace Be.Vlaanderen.Basisregisters.AspNetCore.Swagger
                     if (options.CustomSortFunc != null)
                         x.OrderActionsBy(options.CustomSortFunc);
 
-                    x.DocInclusionPredicate((_, _) => true); //includes all endpoints in every document
-                    // x.DocInclusionPredicate((docName, apiDesc) =>
-                    // {
-                    //     // Get the API version from the endpoint metadata
-                    //     var apiVersions = apiDesc.ActionDescriptor.EndpointMetadata
-                    //         .OfType<ApiVersionAttribute>()
-                    //         .SelectMany(attr => attr.Versions)
-                    //         .Select(v => v.ToString("'v'V"))
-                    //         .ToList();
-                    //
-                    //     // If no version specified, include in all docs
-                    //     if (!apiVersions.Any())
-                    //         return true;
-                    //
-                    //     // Include only if the endpoint's version matches the document name
-                    //     return apiVersions.Contains(docName);
-                    // });
+                    //x.DocInclusionPredicate((_, _) => true); //includes all endpoints in every document
+                    x.DocInclusionPredicate((docName, apiDesc) =>
+                    {
+                        // Get the API version from the endpoint metadata
+                        var apiVersions = apiDesc.ActionDescriptor.EndpointMetadata
+                            .OfType<ApiVersionAttribute>()
+                            .SelectMany(attr => attr.Versions)
+                            .Select(v => v.ToString("'v'V"))
+                            .ToList();
+
+                        // If no version specified, include in all docs
+                        if (!apiVersions.Any())
+                            return true;
+
+                        // Include only if the endpoint's version matches the document name
+                        return apiVersions.Contains(docName);
+                    });
 
                     options.MiddlewareHooks.AfterSwaggerGen?.Invoke(x);
                 })
