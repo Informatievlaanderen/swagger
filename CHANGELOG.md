@@ -1,3 +1,10 @@
+## [6.0.1](https://github.com/informatievlaanderen/swagger/compare/v6.0.0...v6.0.1) (2025-12-10)
+
+
+### Bug Fixes
+
+* swagger routing docs ([c58499d](https://github.com/informatievlaanderen/swagger/commit/c58499d8337995ecdd4f6bac55a285a2f68b319b))
+
 # [6.0.0](https://github.com/informatievlaanderen/swagger/compare/v5.1.0...v6.0.0) (2025-04-08)
 
 
