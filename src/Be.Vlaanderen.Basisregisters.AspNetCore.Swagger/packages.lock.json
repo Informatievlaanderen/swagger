@@ -13,9 +13,9 @@
       },
       "Microsoft.Extensions.Localization.Abstractions": {
         "type": "Direct",
-        "requested": "[9.0.3, )",
-        "resolved": "9.0.3",
-        "contentHash": "U8mQkET9j+yHXWk5IBetZwC9ShQkEl2pC96IdKL6kWc1AThB2UyTnTC3HPnB5NtlNzYAcuFW6do2PjLiuwtKKA=="
+        "requested": "[9.0.12, )",
+        "resolved": "9.0.12",
+        "contentHash": "CSOlBof8Jo31QjYu3NqbK9SD1ZF9xFY+uL98ussGuhYvIv/sFG1xa/Fgtv1VD0rHwUr4nIZFcOBFIme2748CTw=="
       },
       "SourceLink.Copy.PdbFiles": {
         "type": "Direct",
@@ -200,7 +200,7 @@
       },
       "Microsoft.AspNetCore.Mvc.NewtonsoftJson": {
         "type": "CentralTransitive",
-        "requested": "[9.0.3, )",
+        "requested": "[9.0.12, )",
         "resolved": "9.0.0",
         "contentHash": "pTFDEmZi3GheCSPrBxzyE63+d5unln2vYldo/nOm1xet/4rpEk2oJYcwpclPQ13E+LZBF9XixkgwYTUwqznlWg==",
         "dependencies": {
