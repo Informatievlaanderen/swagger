@@ -24,10 +24,10 @@
 
         <PackageVersion Include="NJsonSchema" Version="11.2.0" />
 
-        <PackageVersion Include="NSwag.CodeGeneration.CSharp" Version="14.3.0" />
+        <PackageVersion Include="NSwag.CodeGeneration.CSharp" Version="14.6.3" />
         <PackageVersion Include="NJsonSchema.CodeGeneration.CSharp" Version="11.2.0" />
 
-        <PackageVersion Include="NSwag.CodeGeneration.TypeScript" Version="14.3.0" />
+        <PackageVersion Include="NSwag.CodeGeneration.TypeScript" Version="14.6.3" />
         <PackageVersion Include="NJsonSchema.CodeGeneration.TypeScript" Version="11.2.0" />
 
         <PackageVersion Include="Be.Vlaanderen.Basisregisters.AspNetCore.Mvc.Formatters.Json" Version="6.0.0" />
