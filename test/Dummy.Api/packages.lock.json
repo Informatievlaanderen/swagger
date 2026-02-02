@@ -367,7 +367,7 @@
           "NJsonSchema.CodeGeneration.TypeScript": "[11.2.0, )",
           "NSwag.CodeGeneration.CSharp": "[14.3.0, )",
           "NSwag.CodeGeneration.TypeScript": "[14.3.0, )",
-          "Newtonsoft.Json": "[13.0.3, )",
+          "Newtonsoft.Json": "[13.0.4, )",
           "Swashbuckle.AspNetCore": "[8.1.0, )"
         }
       },
@@ -388,9 +388,9 @@
       },
       "Newtonsoft.Json": {
         "type": "CentralTransitive",
-        "requested": "[13.0.3, )",
-        "resolved": "13.0.3",
-        "contentHash": "HrC5BXdl00IP9zeV+0Z848QWPAoCr9P3bDEZguI+gkLcBKAOxix/tLEAAHC+UvDNPv4a2d18lOReHMOagPa+zQ=="
+        "requested": "[13.0.4, )",
+        "resolved": "13.0.4",
+        "contentHash": "pdgNNMai3zv51W5aq268sujXUyx7SNdE2bj1wZcWjAQrKMFZV260lbqYop1d2GM67JI1huLRwxo9ZqnfF/lC6A=="
       },
       "NJsonSchema": {
         "type": "CentralTransitive",
