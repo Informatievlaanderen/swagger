@@ -14,13 +14,13 @@
 
         <PackageVersion Include="Newtonsoft.Json" Version="13.0.3" />
 
-        <PackageVersion Include="Swashbuckle.AspNetCore" Version="8.1.0" />
+        <PackageVersion Include="Swashbuckle.AspNetCore" Version="10.1.4" />
         <PackageVersion Include="Swashbuckle.AspNetCore.Filters" Version="8.0.2" />
-        <PackageVersion Include="Swashbuckle.AspNetCore.Newtonsoft" Version="8.1.0" />
-        <PackageVersion Include="Swashbuckle.AspNetCore.Annotations" Version="8.1.0" />
-        <PackageVersion Include="Swashbuckle.AspNetCore.Swagger" Version="8.1.0" />
-        <PackageVersion Include="Swashbuckle.AspNetCore.SwaggerUI" Version="8.1.0" />
-        <PackageVersion Include="Swashbuckle.AspNetCore.SwaggerGen" Version="8.1.0" />
+        <PackageVersion Include="Swashbuckle.AspNetCore.Newtonsoft" Version="10.1.4" />
+        <PackageVersion Include="Swashbuckle.AspNetCore.Annotations" Version="10.1.4" />
+        <PackageVersion Include="Swashbuckle.AspNetCore.Swagger" Version="10.1.4" />
+        <PackageVersion Include="Swashbuckle.AspNetCore.SwaggerUI" Version="10.1.4" />
+        <PackageVersion Include="Swashbuckle.AspNetCore.SwaggerGen" Version="10.1.4" />
 
         <PackageVersion Include="NJsonSchema" Version="11.2.0" />
 
