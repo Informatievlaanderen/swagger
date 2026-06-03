@@ -1,3 +1,15 @@
+# [7.0.0](https://github.com/informatievlaanderen/swagger/compare/v6.0.1...v7.0.0) (2026-06-03)
+
+
+### Features
+
+* update packages + upgrade to dotnet 10 ([cf9b819](https://github.com/informatievlaanderen/swagger/commit/cf9b81972b54d31f8cb857d48e0b192d73153383))
+
+
+### BREAKING CHANGES
+
+* update to dotnet 10
+
 ## [6.0.1](https://github.com/informatievlaanderen/swagger/compare/v6.0.0...v6.0.1) (2025-12-10)
 
 
