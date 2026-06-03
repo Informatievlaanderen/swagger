@@ -7,7 +7,7 @@ namespace Be.Vlaanderen.Basisregisters.AspNetCore.Swagger
     using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Http;
     using Microsoft.Extensions.Localization;
-    using Microsoft.OpenApi.Models;
+    using Microsoft.OpenApi;
     using Swashbuckle.AspNetCore.Swagger;
     using Swashbuckle.AspNetCore.SwaggerGen;
 
@@ -22,7 +22,7 @@ namespace Be.Vlaanderen.Basisregisters.AspNetCore.Swagger
             var objList = new List<T>();
             if (customAttributes1 != null)
                 objList.AddRange(customAttributes1);
-            
+
             objList.AddRange(customAttributes2);
             return objList;
         }
@@ -59,6 +59,8 @@ namespace Be.Vlaanderen.Basisregisters.AspNetCore.Swagger
 
             var unauthorized = StatusCodes.Status401Unauthorized.ToString();
             var forbidden = StatusCodes.Status403Forbidden.ToString();
+
+            operation.Responses ??= new OpenApiResponses();
 
             operation.Responses.Add(unauthorized, new OpenApiResponse
             {

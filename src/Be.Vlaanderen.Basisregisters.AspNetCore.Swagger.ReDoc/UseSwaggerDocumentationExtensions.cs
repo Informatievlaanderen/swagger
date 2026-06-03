@@ -12,7 +12,7 @@ namespace Be.Vlaanderen.Basisregisters.AspNetCore.Swagger.ReDoc
     using NSwag.CodeGeneration;
     using NSwag.CodeGeneration.CSharp;
     using NSwag.CodeGeneration.TypeScript;
-    using OpenApiServer = Microsoft.OpenApi.Models.OpenApiServer;
+    using OpenApiServer = Microsoft.OpenApi.OpenApiServer;
 
     public class SwaggerDocumentationOptions
     {

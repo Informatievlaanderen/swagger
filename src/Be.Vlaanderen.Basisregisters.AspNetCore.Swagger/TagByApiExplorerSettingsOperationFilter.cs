@@ -1,12 +1,12 @@
 namespace Be.Vlaanderen.Basisregisters.AspNetCore.Swagger
 {
+    using System;
     using System.Collections.Generic;
     using System.Linq;
     using System.Reflection;
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.AspNetCore.Mvc.Controllers;
-    using Microsoft.OpenApi.Models;
-    using Swashbuckle.AspNetCore.Swagger;
+    using Microsoft.OpenApi;
     using Swashbuckle.AspNetCore.SwaggerGen;
 
     /// <summary>
@@ -29,16 +29,19 @@ namespace Be.Vlaanderen.Basisregisters.AspNetCore.Swagger
             if (apiGroupNames.Count == 0)
                 return;
 
-            var tags = operation.Tags?.Select(x => x).ToList() ?? new List<OpenApiTag>();
-            var controllerTag = tags.FirstOrDefault(x => x.Name == controllerActionDescriptor.ControllerName);
+            var tags = operation.Tags?.Select(x => x).ToList() ?? new List<OpenApiTagReference>();
+            var controllerName = controllerActionDescriptor.ControllerName;
+            var controllerClassName = controllerActionDescriptor.ControllerTypeInfo.Name;
 
-            tags.Remove(controllerTag!);
+            tags.RemoveAll(x =>
+                string.Equals(x.Name, controllerName, StringComparison.OrdinalIgnoreCase) ||
+                string.Equals(x.Name, controllerClassName, StringComparison.OrdinalIgnoreCase));
 
             foreach (var apiGroupName in apiGroupNames)
-                if (tags.All(x => x.Name != apiGroupName))
-                    tags.Add(new OpenApiTag { Name = apiGroupName });
+                if (tags.All(x => !string.Equals(x.Name, apiGroupName, StringComparison.Ordinal)))
+                    tags.Add(new OpenApiTagReference(apiGroupName));
 
-            operation.Tags = tags;
+            operation.Tags = tags.ToHashSet();
         }
     }
 }

@@ -10,7 +10,7 @@ namespace Swashbuckle.AspNetCore.Filters
     using global::Newtonsoft.Json;
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.AspNetCore.Mvc.ApiExplorer;
-    using Microsoft.OpenApi.Models;
+    using Microsoft.OpenApi;
     using SwaggerGen;
 
     public class DescriptionOperationFilter : IOperationFilter
@@ -28,7 +28,6 @@ namespace Swashbuckle.AspNetCore.Filters
             foreach (var attribute in actionAttributes)
             {
                 var statusCode = attribute.StatusCode.ToString();
-
                 var response = operation.Responses.FirstOrDefault(r => r.Key == statusCode);
 
                 if (response.Equals(default(KeyValuePair<string, OpenApiResponse>)) == false && response.Value != null)
@@ -39,7 +38,7 @@ namespace Swashbuckle.AspNetCore.Filters
         private static void SetRequestModelDescriptions(SchemaRepository schemaRegistry, ApiDescription apiDescription)
         {
             foreach (var parameterDescription in apiDescription.ParameterDescriptions)
-                if (parameterDescription.Type != null)
+                if (parameterDescription.Type is not null)
                     UpdateDescriptions(schemaRegistry, parameterDescription.Type);
         }
 
@@ -75,7 +74,7 @@ namespace Swashbuckle.AspNetCore.Filters
                 UpdateDescriptions(schemaRegistry, child.PropertyType);
         }
 
-        private static OpenApiSchema? FindSchemaForType(SchemaRepository schemaRegistry, Type type)
+        private static IOpenApiSchema? FindSchemaForType(SchemaRepository schemaRegistry, Type type)
         {
             if (schemaRegistry.Schemas.ContainsKey(type.FriendlyId(false)))
                 return schemaRegistry.Schemas[type.FriendlyId(false)];
@@ -86,10 +85,14 @@ namespace Swashbuckle.AspNetCore.Filters
             return null;
         }
 
-        private static void UpdatePropertyDescription(PropertyInfo prop, OpenApiSchema schema)
+        private static void UpdatePropertyDescription(PropertyInfo prop, IOpenApiSchema schema)
         {
+            var schemaProperties = schema.Properties;
+            if (schemaProperties == null)
+                return;
+
             var propName = GetPropertyName(prop);
-            foreach (var schemaProperty in schema.Properties)
+            foreach (var schemaProperty in schemaProperties)
             {
                 if (string.Equals(schemaProperty.Key, propName, StringComparison.OrdinalIgnoreCase))
                 {

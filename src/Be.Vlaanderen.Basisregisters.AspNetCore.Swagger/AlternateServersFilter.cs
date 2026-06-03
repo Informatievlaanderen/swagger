@@ -2,8 +2,8 @@ namespace Be.Vlaanderen.Basisregisters.AspNetCore.Swagger
 {
     using System.Collections.Generic;
     using System.Linq;
-    using Microsoft.OpenApi.Any;
-    using Microsoft.OpenApi.Models;
+    using System.Text.Json.Nodes;
+    using Microsoft.OpenApi;
     using Swashbuckle.AspNetCore.SwaggerGen;
 
     public class AlternateServersFilter : IDocumentFilter
@@ -15,14 +15,16 @@ namespace Be.Vlaanderen.Basisregisters.AspNetCore.Swagger
 
         public void Apply(OpenApiDocument swaggerDoc, DocumentFilterContext context)
         {
-            var serverArray = new OpenApiArray();
-            _servers.ToList().ForEach(x => serverArray.Add(new OpenApiObject
-            {
-                {"url", new OpenApiString(x.Url) },
-                { "description", new OpenApiString(x.Description) }
-            }));
+            var serverArray = new JsonArray(_servers
+                .Select(x => new JsonObject
+                {
+                    ["url"] = JsonValue.Create(x.Url),
+                    ["description"] = JsonValue.Create(x.Description),
+                })
+                .ToArray());
 
-            swaggerDoc.Extensions["x-servers"] = serverArray;
+            swaggerDoc.Extensions ??= new Dictionary<string, IOpenApiExtension>();
+            swaggerDoc.Extensions["x-servers"] = new JsonNodeExtension(serverArray);
         }
     }
 }
