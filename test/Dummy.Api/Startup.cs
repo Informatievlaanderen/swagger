@@ -13,7 +13,7 @@ namespace Dummy.Api
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.Extensions.DependencyInjection;
     using Microsoft.Extensions.DependencyInjection.Extensions;
-    using Microsoft.OpenApi.Models;
+    using Microsoft.OpenApi;
     using SwaggerOptions = Be.Vlaanderen.Basisregisters.AspNetCore.Swagger.SwaggerOptions;
 
     public class Startup

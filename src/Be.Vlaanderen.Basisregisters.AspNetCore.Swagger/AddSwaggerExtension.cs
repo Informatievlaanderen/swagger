@@ -6,13 +6,12 @@ namespace Be.Vlaanderen.Basisregisters.AspNetCore.Swagger
     using System.Linq;
     using System.Reflection;
     using System.Text;
-    using Asp.Versioning;
     using Asp.Versioning.ApiExplorer;
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.AspNetCore.Mvc.ApiExplorer;
     using Microsoft.AspNetCore.Mvc.Controllers;
     using Microsoft.Extensions.DependencyInjection;
-    using Microsoft.OpenApi.Models;
+    using Microsoft.OpenApi;
     using Swashbuckle.AspNetCore.Filters;
     using Swashbuckle.AspNetCore.SwaggerGen;
 
@@ -107,6 +106,7 @@ namespace Be.Vlaanderen.Basisregisters.AspNetCore.Swagger
 
                     // Apply [ApiExplorerSettings(GroupName=...)] property to tags.
                     x.OperationFilter<TagByApiExplorerSettingsOperationFilter>();
+                    x.DocumentFilter<CleanUpTagsDocumentFilter>();
 
                     //x.AddSecurityDefinition("oauth2", new ApiKeyScheme
                     //{

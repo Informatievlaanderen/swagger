@@ -2,7 +2,7 @@ namespace Be.Vlaanderen.Basisregisters.AspNetCore.Swagger
 {
     using System;
     using System.Linq;
-    using Microsoft.OpenApi.Models;
+    using Microsoft.OpenApi;
     using Swashbuckle.AspNetCore.SwaggerGen;
 
     /// <summary>
@@ -30,8 +30,8 @@ namespace Be.Vlaanderen.Basisregisters.AspNetCore.Swagger
                 //if (parameter.Default == null)
                 //    parameter.Default = description.RouteInfo?.DefaultValue;
 
-                if (description.RouteInfo != null)
-                    parameter.Required |= !description.RouteInfo.IsOptional;
+                if (description.RouteInfo != null && parameter is OpenApiParameter openApiParameter)
+                    openApiParameter.Required |= !description.RouteInfo.IsOptional;
             }
         }
     }
