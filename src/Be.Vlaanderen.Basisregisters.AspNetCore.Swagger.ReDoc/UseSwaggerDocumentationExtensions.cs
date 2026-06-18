@@ -166,9 +166,9 @@ namespace Be.Vlaanderen.Basisregisters.AspNetCore.Swagger.ReDoc
                         x.FooterVersion = options.FooterVersion!;
                         x.SpecUrl = options.SpecUrlFunc!(description);
                         x.RoutePrefix = isDefault ? string.Empty : options.RoutePrefixFunc!(description);
-                        // x.CurrentVersion = description;
-                        // x.AvailableVersions = apiVersions;
-                        // x.VersionRouteBase = $"/{options.DocsRoutePrefix}";
+                        x.CurrentVersion = description;
+                        x.AvailableVersions = apiVersions;
+                        x.VersionRouteBase = $"/docs";
                     });
                 }
             });

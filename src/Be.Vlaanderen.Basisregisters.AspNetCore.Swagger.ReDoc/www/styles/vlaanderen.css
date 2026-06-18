@@ -93,6 +93,67 @@ body {
   width: 1px;
 }
 
+#version-selector {
+  display: inline-block;
+  vertical-align: bottom;
+  position: relative;
+  white-space: nowrap;
+  margin-left: 1.5em;
+  padding-left: 1.5em;
+}
+
+#version-selector:before {
+  float: left;
+  background-color: #cbd2da !important;
+  transform: rotate(-20deg);
+  transform-origin: top left;
+  display: block;
+  content: ' ';
+  position: absolute;
+  left: 0;
+  top: 10px;
+  bottom: 10px;
+  width: 1px;
+}
+
+#version-selector label {
+  font-family: "Flanders Art Sans", sans-serif;
+  font-weight: 500;
+  color: #333332;
+  font-size: .875em;
+  line-height: 3.14286em;
+  margin-right: 8px;
+}
+
+#version-selector select {
+  font-family: "Flanders Art Sans", sans-serif;
+  font-size: .875em;
+  color: #333332;
+  background-color: #fff;
+  border: 1px solid #cbd2da;
+  border-radius: 3px;
+  padding: 6px 12px;
+  cursor: pointer;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23333332' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 8px center;
+  padding-right: 28px;
+}
+
+#version-selector select:hover {
+  border-color: #06c;
+}
+
+#version-selector select:focus {
+  border-color: #06c;
+  box-shadow: 0 0 0 2px rgba(0, 102, 204, 0.2);
+}
+
 #vlaanderen-top-logo {
   position: relative;
   width: 47px;
