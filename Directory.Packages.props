@@ -7,11 +7,11 @@
     </PropertyGroup>
     <ItemGroup>
         <PackageVersion Include="Asp.Versioning.Mvc.ApiExplorer" Version="10.0.0" />
-        <PackageVersion Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="10.0.8" />
-        <PackageVersion Include="Microsoft.Extensions.Logging.Console" Version="10.0.8" />
+        <PackageVersion Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="10.0.12" />
+        <PackageVersion Include="Microsoft.Extensions.Logging.Console" Version="10.0.12" />
         <PackageVersion Include="Microsoft.Extensions.Logging.Embedded" Version="10.0.8" />
-        <PackageVersion Include="Microsoft.Extensions.Localization.Abstractions" Version="10.0.8" />
-        <PackageVersion Include="Microsoft.Extensions.FileProviders.Embedded" Version="10.0.8" />
+        <PackageVersion Include="Microsoft.Extensions.Localization.Abstractions" Version="10.0.12" />
+        <PackageVersion Include="Microsoft.Extensions.FileProviders.Embedded" Version="10.0.12" />
 
         <PackageVersion Include="Newtonsoft.Json" Version="13.0.4" />
 
